@@ -1,5 +1,5 @@
 ﻿
-Shader "Unlit/SpecialFX/Liquid"
+Shader "Unlit/SpecialFX/LiquidViscous"
 {
     Properties
     {
@@ -54,7 +54,7 @@ Shader "Unlit/SpecialFX/Liquid"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float _FillAmount, _WobbleX, _WobbleZ; 
+            float _FillAmount, _WobbleX, _WobbleZ;
             float4 _TopColor, _RimColor, _FoamColor, _Tint;
             float _Rim, _RimPower;
 
@@ -85,9 +85,9 @@ Shader "Unlit/SpecialFX/Liquid"
                float3 worldPosAdjusted = worldPos + (worldPosX * _WobbleX) + (worldPosZ * _WobbleZ);
                // how high up the liquid is
                o.fillEdge = worldPosAdjusted.y + _FillAmount;
-               
+
                ///Edit for Ripple
-               float rippleAddition = worldPos.x * worldPos.z * (_WobbleX + _WobbleZ) * 3.5;
+               float rippleAddition = worldPos.x * worldPos.z * (_WobbleX + _WobbleZ) * 1.5;
                o.fillEdge = o.fillEdge + (rippleAddition);
                ///// END RIPPLE EDIT
 
