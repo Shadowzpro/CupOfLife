@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
 
-    public string menuSceneName = "Level Select";
+    public string menuSceneName = "";
 
     public SceneFader sceneFader;
 
