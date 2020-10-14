@@ -5,10 +5,14 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     //MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
-    public float pickUpDistance = 3f;
+    public float pickUpDistance = 0.3f;
     //REFERENCE TO EMPTY GAME OBJECT ON CLAW
     public GameObject theDest;
 
+    void Start()
+    {
+        theDest = GameObject.FindWithTag("Destination");
+    }
     //
     private void Update()
     {

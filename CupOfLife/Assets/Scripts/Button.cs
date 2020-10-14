@@ -6,6 +6,7 @@ public class Button : MonoBehaviour
 {
     public Rigidbody ingredient;
     public Transform spawn;
+    public GameObject destination;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
