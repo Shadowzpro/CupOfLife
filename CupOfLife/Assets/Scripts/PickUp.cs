@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    //MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
+    public float pickUpDistance = 3f;
     //REFERENCE TO EMPTY GAME OBJECT ON CLAW
-    public Transform theDest;
+    public GameObject theDest;
 
     //
     private void Update()
@@ -17,16 +19,21 @@ public class PickUp : MonoBehaviour
     //FUNCTION TO GRAB THIS ITEM
     void Grab()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        float distance = (theDest.transform.position - transform.position).magnitude;
+        if (Input.GetKeyDown(KeyCode.Space) && theDest.transform.childCount < 1) 
         {
-            //COLLIDER DISABLED ON THIS ITEM
-            GetComponent<Collider>().enabled = false;
-            //GRAVITY DISABLED ON THIS ITEM
-            GetComponent<Rigidbody>().useGravity = false;
-            //ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
-            this.transform.position = theDest.position;
-            //ITEM IS SET AS A CHILD OF CLAW
-            this.transform.parent = GameObject.Find("Destination").transform;
+            if (distance < pickUpDistance)
+            {
+                //COLLIDER DISABLED ON THIS ITEM
+                //GetComponent<Collider>().enabled = false;
+                //GRAVITY DISABLED ON THIS ITEM
+                GetComponent<Rigidbody>().isKinematic = true;
+                //GetComponent<Rigidbody>().useGravity = false;
+                //ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
+                this.transform.position = theDest.transform.position;
+                //ITEM IS SET AS A CHILD OF CLAW
+                this.transform.parent = theDest.transform;
+            }
         }
     }
 
@@ -38,9 +45,10 @@ public class PickUp : MonoBehaviour
             //ITEM IS NO LONGER A CHILD OF CLAW
             this.transform.parent = null;
             //GRAVITY IS ENABLED ON THIS ITEM
-            GetComponent<Rigidbody>().useGravity = true;
+            //GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<Rigidbody>().isKinematic = false;
             //COLLIDER IS ENABLED ON THIS ITEM
-            GetComponent<Collider>().enabled = true;
+            //GetComponent<Collider>().enabled = true;
         }
     }
 }
