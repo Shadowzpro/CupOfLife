@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CoffeeBeans
+  - Milk
+  - Sugar
+  - Oil
+  - Cogs
+  - GreenJuice
+  - EyeBalls
   layers:
   - Default
   - TransparentFX
