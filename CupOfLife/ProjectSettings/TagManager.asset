@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Destination
+  - CoffeeBeans
+  - Milk
+  - Sugar
+  - Oil
+  - Cogs
+  - GreenJuice
+  - EyeBalls
   layers:
   - Default
   - TransparentFX
