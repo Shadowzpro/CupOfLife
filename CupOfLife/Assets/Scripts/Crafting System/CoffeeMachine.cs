@@ -12,9 +12,8 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     [Range(1, 15)]
     public int maxCoffeeMachineSlots;
 
-    [Header("References")]
-	public List<Recipe> CraftingRecipes;
-    private Recipe cr; // Reference to CraftingRecipe
+    //[Header("References")]
+    //public List<Recipe> CraftingRecipes;
 
     [Header("Ingredient Prefabs")]
     public Ingredient coffeeBeans;
@@ -25,63 +24,62 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     public Ingredient greenJuice;
     public Ingredient eyeBalls;
 
-    [Header("Coffee Prefabs")]
-    public GameObject ResultCoffee1;
-    public GameObject ResultCoffee2;
-    public GameObject ResultCoffee3;
-    public GameObject ResultCoffee4;
-
     /// <summary>
     /// Where the coffee will come out of
     /// </summary>
     public GameObject spawnPoint;
 
     // Check to see whether or not an ingredient has been dropped into the coffee machine or not
-    private void OnTriggerEnter(Collider ingredient)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (ingredient.CompareTag("CoffeeBeans"))
+        if (collider.CompareTag("CoffeeBeans"))
         {
             Debug.Log("Detected Coffee Beans");
             AddIngredient(coffeeBeans);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if (ingredient.CompareTag("Cogs"))
+        else if (collider.CompareTag("Cogs"))
         {
             Debug.Log("Detected Cogs");
             AddIngredient(cogs);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if (ingredient.CompareTag("EyeBalls"))
+        else if (collider.CompareTag("Eyeballs"))
         {
-            Debug.Log("Detected Eye Balls");
+            Debug.Log("Detected Eyeballs");
             AddIngredient(eyeBalls);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if(ingredient.CompareTag("GreenJuice"))
+        else if(collider.CompareTag("GreenJuice"))
         {
             Debug.Log("Detected Green Juice");
             AddIngredient(greenJuice);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if (ingredient.CompareTag("Milk"))
+        else if (collider.CompareTag("Milk"))
         {
             Debug.Log("Detected Milk");
             AddIngredient(milk);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if (ingredient.CompareTag("Oil"))
+        else if (collider.CompareTag("Oil"))
         {
             Debug.Log("Detected Oil");
             AddIngredient(oil);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
 
-        else if (ingredient.CompareTag("Sugar"))
+        else if (collider.CompareTag("Sugar"))
         {
             Debug.Log("Detected Sugar");
             AddIngredient(sugar);
+            Destroy(collider.gameObject, 1.0f); // Destroy the GameObject after 1 second
         }
-
-        Destroy(ingredient.gameObject, 1.0f); // Destroy the GameObject after 1 second
     }
 
     private void Update()
@@ -99,7 +97,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             if (ingredientSlots[i] == null)
             {
-                Debug.Log("Added" + ingredient);
+                Debug.Log("Added " + ingredient);
                 ingredientSlots[i] = ingredient;
                 return true;
             }
@@ -164,9 +162,9 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     {
         for (int i = 0; i < ingredientSlots.Length; i++)
         {
-            if (ingredientSlots[i].ingredientName == ingredient.ingredientName)
+            if (ingredientSlots[i] == ingredient)
             {
-                ingredientSlots[i].ingredientName = null;
+                ingredientSlots[i] = null;
                 return true;
             }
         }

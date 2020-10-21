@@ -27,6 +27,8 @@ public class Ingredient : MonoBehaviour
     /// </summary>
     public string ingredientName;
 
+    public bool isLiquid = false;
+
     void Start()
     {
         theDest = GameObject.FindWithTag("Destination");
