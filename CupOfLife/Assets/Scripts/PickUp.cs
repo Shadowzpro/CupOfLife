@@ -28,15 +28,18 @@ public class PickUp : MonoBehaviour
         {
             if (distance < pickUpDistance)
             {
-                //COLLIDER DISABLED ON THIS ITEM
-                //GetComponent<Collider>().enabled = false;
-                //GRAVITY DISABLED ON THIS ITEM
-                GetComponent<Rigidbody>().isKinematic = true;
-                //GetComponent<Rigidbody>().useGravity = false;
-                //ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
-                this.transform.position = theDest.transform.position;
-                //ITEM IS SET AS A CHILD OF CLAW
-                this.transform.parent = theDest.transform;
+                //if (GetComponent<Rigidbody>() != null)
+                //{
+                    //COLLIDER DISABLED ON THIS ITEM
+                    //GetComponent<Collider>().enabled = false;
+                    //GRAVITY DISABLED ON THIS ITEM
+                    GetComponent<Rigidbody>().isKinematic = true;
+                    //GetComponent<Rigidbody>().useGravity = false;
+                    //ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
+                    this.transform.position = theDest.transform.position;
+                    //ITEM IS SET AS A CHILD OF CLAW
+                    this.transform.parent = theDest.transform;
+                //}
             }
         }
     }
