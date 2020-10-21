@@ -5,14 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Destination
-  - Void
-  - CoffeeBeans
-  - Cogs
-  - Eyeballs
-  - GreenJuice
-  - Milk
-  - Oil
-  - Sugar
+  - Drink
   layers:
   - Default
   - TransparentFX
@@ -49,7 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 2401888615
     locked: 0
