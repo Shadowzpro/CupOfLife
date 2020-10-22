@@ -63,8 +63,8 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim: 0.016
-    - _RimPower: 0.93
+    - _Rim: 0.0057
+    - _RimPower: 3.26
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
