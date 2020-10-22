@@ -3,7 +3,7 @@
 public class MakeTheCoffee : MonoBehaviour
 {
 	[Header("References")]
-    private readonly CoffeeMachine coffeeMachine; // Reference to CoffeeMachine
+    public CoffeeMachine coffeeMachine; // Reference to CoffeeMachine
     private readonly Coffee coffee;
 
     [Header("Public Variables")]
@@ -13,8 +13,11 @@ public class MakeTheCoffee : MonoBehaviour
 	// Push a button on the Coffee Machine with your arm
 	private void OnTriggerEnter(Collider arm)
 	{
-		Craft();
-	}
+        Debug.Log("Arm Detected");
+        //Craft();
+        EmptyCoffeeMachine();
+        CoffeeMaker();
+    }
 
     /// <summary>
     /// Go through each ingredient amount in the ingredients list and checking if the IngredientContainer contains the amount for the coffee recipe <br></br><br></br>
@@ -34,6 +37,32 @@ public class MakeTheCoffee : MonoBehaviour
         return true; // If you reach here, you have enough ingredients to craft the recipe
     }
 
+    public void ServeOrder()
+    {
+
+    }
+
+    public void CoffeeMaker()
+    {
+        for (int i = 0; i < coffeeMachine.ingredientSlots.Length; i++)
+        {
+            coffee.ingredient = coffeeMachine.ingredientSlots[i];
+            Debug.Log("Ingredient Added to Coffee");
+        }
+    }
+
+    /// <summary>
+    /// Empty the Coffee Machine
+    /// </summary>
+    public void EmptyCoffeeMachine()
+    {
+        for (int i = 0; i < coffeeMachine.ingredientSlots.Length; i++)
+        {
+            coffeeMachine.RemoveIngredient(coffeeMachine.ingredientSlots[i]);
+            Debug.Log("Removed Ingredient from Coffee Machine");
+        }
+    }
+
     /// <summary>
     /// Make the coffee
     /// </summary>
@@ -50,7 +79,7 @@ public class MakeTheCoffee : MonoBehaviour
             }
 
             // Spawn the coffee
-            Instantiate(coffeeMachine.ResultCoffee1, coffeeMachine.spawnPoint.transform.position, Quaternion.identity);
+            //Instantiate(coffeeMachine.ResultCoffee1, coffeeMachine.spawnPoint.transform.position, Quaternion.identity);
         }
         else
         {
