@@ -10,10 +10,10 @@ public class Ingredient : MonoBehaviour
     public GameObject spawnPoint;
 
     [Header("Hand")]
-    //MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
+    // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
     public float pickUpDistance = 0.3f;
 
-    //REFERENCE TO EMPTY GAME OBJECT ON CLAW
+    // REFERENCE TO EMPTY GAME OBJECT ON CLAW
     public GameObject theDest;
 
     [Header("Ingredient")]
@@ -31,6 +31,7 @@ public class Ingredient : MonoBehaviour
 
     void Start()
     {
+        gameObject.SetActive(true);
         theDest = GameObject.FindWithTag("Destination");
     }
 
@@ -46,35 +47,40 @@ public class Ingredient : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Void"))
         {
-            Destroy(gameObject);
-            Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
+            Destroy(prefab);
+            prefab = (GameObject)Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
+            prefab.GetComponent<Ingredient>().enabled = true;
         }
     }
 
-    //FUNCTION TO GRAB THIS ITEM
-    void Grab()
+    /// <summary>
+    /// Grab the item
+    /// </summary>
+    public void Grab()
     {
         float distance = (theDest.transform.position - transform.position).magnitude;
         if (Input.GetKeyDown(KeyCode.Space) && theDest.transform.childCount < 1)
         {
             if (distance < pickUpDistance)
             {
-                //GRAVITY DISABLED ON THIS ITEM
+                // GRAVITY DISABLED ON THIS ITEM
                 GetComponent<Rigidbody>().isKinematic = true;
-                //ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
+                // ITEMS POSITION IS SET TO EMPTY GAMEOBJECTS POSITION
                 this.transform.position = theDest.transform.position;
-                //ITEM IS SET AS A CHILD OF CLAW
+                // ITEM IS SET AS A CHILD OF CLAW
                 this.transform.parent = theDest.transform;
             }
         }
     }
 
-    //FUNCTION TO DROP THIS ITEM
-    void Drop()
+    /// <summary>
+    /// Drop the item
+    /// </summary>
+    public void Drop()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            //ITEM IS NO LONGER A CHILD OF CLAW
+            // ITEM IS NO LONGER A CHILD OF CLAW
             this.transform.parent = null;
             GetComponent<Rigidbody>().isKinematic = false;
         }

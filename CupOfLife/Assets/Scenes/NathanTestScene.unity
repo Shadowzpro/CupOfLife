@@ -3461,7 +3461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171822807}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.05066427, y: -0.013072018, z: -0.49599838}
+  m_LocalPosition: {x: -0.05066427, y: -0.013072018, z: -0.53}
   m_LocalScale: {x: 0.33793002, y: 0.16896503, z: 0.6135111}
   m_Children: []
   m_Father: {fileID: 1617962113}
@@ -3481,7 +3481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coffeeMachine: {fileID: 625828207}
   IngredientContainer: {fileID: 0}
-  recipe: {fileID: 0}
+  coffeePrefab: {fileID: 1769813912823379341, guid: 6ed9ef826138c6541bd5db9a7f67e4fd,
+    type: 3}
 --- !u!54 &171822810
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5773,7 +5774,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16284
+  m_Name: pb_Mesh28276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11163,6 +11164,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  coffeeSpawnPoint: {fileID: 571614263}
   maxCoffeeMachineSlots: 6
   coffeeBeans: {fileID: 1566042903768077260, guid: fab2266d3dffb324a953bbe05a620fad,
     type: 3}
@@ -11174,7 +11176,6 @@ MonoBehaviour:
     type: 3}
   eyeBalls: {fileID: 8583073870857294288, guid: 2eeca126e7f72dd49a4634d7863d7707,
     type: 3}
-  spawnPoint: {fileID: 571614263}
 --- !u!65 &625828208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13498,7 +13499,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39248
+  m_Name: pb_Mesh-16222
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14421,7 +14422,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damp: 0.2
   cameraTransform: {fileID: 963194228}
-  xAngleLook: {fileID: 261040904}
   lookRightMax: 45
   lookLeftMin: -45
 --- !u!43 &974372073
@@ -16249,7 +16249,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7030
+  m_Name: pb_Mesh-16166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31172,7 +31172,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39154
+  m_Name: pb_Mesh-16242
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31335,7 +31335,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39378
+  m_Name: pb_Mesh-16210
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31987,6 +31987,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b41cfcc262c71e14994a5147cae71864, type: 2}
+    - target: {fileID: 803038198008136446, guid: 77d8ad682021787459e492ad4c1d64c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 803038198721378493, guid: 77d8ad682021787459e492ad4c1d64c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 803038199037109112, guid: 77d8ad682021787459e492ad4c1d64c0,
         type: 3}
       propertyPath: m_TagString
@@ -32082,6 +32092,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee070d0581581bd43ae2f319cc8c95af, type: 2}
+    - target: {fileID: 803038199712493909, guid: 77d8ad682021787459e492ad4c1d64c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 803038199712493910, guid: 77d8ad682021787459e492ad4c1d64c0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
