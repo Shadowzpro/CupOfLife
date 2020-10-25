@@ -344,5 +344,6 @@ MonoBehaviour:
     type: 3}
   pickUpDistance: 0.3
   theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
-  prefab: {fileID: 3659509419119897477, guid: 9bc5c9a4ca727424ab4694f7b0b99313, type: 3}
+  prefab: {fileID: 8583073870857294295}
   ingredientName: Sugar
+  isLiquid: 0
