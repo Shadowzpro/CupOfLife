@@ -8,6 +8,11 @@ public class Ingredient : MonoBehaviour
     [Header("Spawning")]
     public GameObject theVoid;
     public GameObject spawnPoint;
+    public Renderer dissolveShader;
+    public Renderer liquidShader;
+    public bool isLiquid = false;
+    public bool isFadingIn = true;
+    public float dissolveFloatProgress = 1;
 
     [Header("Hand")]
     // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
@@ -27,16 +32,56 @@ public class Ingredient : MonoBehaviour
     /// </summary>
     public string ingredientName;
 
-    public bool isLiquid = false;
+    
 
     void Start()
     {
         gameObject.SetActive(true);
         theDest = GameObject.FindWithTag("Destination");
+
+        DissolveIn();
+    }
+
+    void DissolveIn() 
+    {
+        if (!isLiquid)
+        {
+            dissolveShader = GetComponent<Renderer>();
+            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+            dissolveFloatProgress = 1;
+            dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+        }
+        else 
+        {
+            dissolveShader = GetComponent<Renderer>();
+            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+            dissolveFloatProgress = 1;
+            dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+        }
+      
     }
 
     private void Update()
     {
+        ///BEGIN FADE IN
+
+        if (isFadingIn) 
+        {
+            dissolveFloatProgress = dissolveFloatProgress - (0.5f * Time.deltaTime);
+            if (dissolveFloatProgress <= 0)
+            {
+                dissolveFloatProgress = -0.1f;
+                isFadingIn = false;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+            else 
+            {
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+        }
+
+        /// END FADE IN.
+
         Grab();
         Drop();
     }
