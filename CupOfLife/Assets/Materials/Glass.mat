@@ -92,4 +92,4 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - edgeColor: {r: 0.5394797, g: 0.5394797, b: 0.5394797, a: 0.03529412}
+    - edgeColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
