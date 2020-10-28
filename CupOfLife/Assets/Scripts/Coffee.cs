@@ -17,15 +17,82 @@ public class Coffee : MonoBehaviour
     /// </summary>
     public List<Ingredient> ingredients;
 
+    public Renderer dissolveShader;
+    public bool isFadingIn = true;
+    public bool isFadingOut = false;
+    public float dissolveFloatProgress = 1;
+
+
     void Start()
     {
         theDest = GameObject.FindWithTag("Destination");
+        DissolveIn();
+
     }
+
+    public void DissolveIn() 
+    {
+        isFadingIn = true;
+        dissolveShader = GetComponent<Renderer>();
+        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+        dissolveFloatProgress = 1;
+        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+    }
+
+    public void DissolveOut()
+    {
+        isFadingOut = true;
+        dissolveShader = GetComponent<Renderer>();
+        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+        dissolveFloatProgress = -0.1f;
+        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+    }
+
+
 
     private void Update()
     {
         Grab();
         Drop();
+
+        //update dissolve
+        ///BEGIN FADE IN
+
+        if (isFadingIn)
+        {
+            dissolveFloatProgress = dissolveFloatProgress - (0.5f * Time.deltaTime);
+            if (dissolveFloatProgress <= 0)
+            {
+                dissolveFloatProgress = -0.1f;
+                isFadingIn = false;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+            else
+            {
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+        }
+
+        /// END FADE IN.
+        /// BEGIN FADE OUT
+        if (isFadingIn)
+        {
+            dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
+            if (dissolveFloatProgress >= 1)
+            {
+                dissolveFloatProgress = 1f;
+                isFadingOut = false;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+            else
+            {
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+        }
+
+        ///END FADE OUT
+
+
     }
 
     /// <summary>

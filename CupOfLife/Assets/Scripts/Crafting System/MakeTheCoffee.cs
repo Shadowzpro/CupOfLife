@@ -106,6 +106,9 @@ public class MakeTheCoffee : MonoBehaviour
 
             // Spawn the coffee
             //Instantiate(coffeeMachine.ResultCoffee1, coffeeMachine.spawnPoint.transform.position, Quaternion.identity);
+
+            // DO ALL THE FADING HERE CHRIS. DONT FORGET THIS STUFF.
+
         }
         else
         {
