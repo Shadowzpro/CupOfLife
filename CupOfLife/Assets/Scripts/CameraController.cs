@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
     // MINIMUM ANGLE ON LEFT SIDE
     public float lookLeftMin = -45; //POSSIBLY NOT NEEDED ANYMORE
 
+    public float lookAtYAxis = 3.25f;
+    public float lookAtZAxis = -24.5f;
+
     private void Awake()
     {
         // PLAYER GAMEOBJECT IS INITIALIZED AS OBJECT WITH TAG "DESTINATION"
@@ -33,7 +36,7 @@ public class CameraController : MonoBehaviour
         if (cameraTransform != null)
         {
             // CAMERA LOOKS AT THE PLAYER'S X-POSITION AS IT MOVES LEFT AND RIGHT 
-            cameraTransform.LookAt(new Vector3(player.transform.position.x, -3.5f, 15.4f));
+            cameraTransform.LookAt(new Vector3(player.transform.position.x, lookAtYAxis, lookAtZAxis));
         }
     }
 }
