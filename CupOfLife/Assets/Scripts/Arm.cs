@@ -50,7 +50,7 @@ public class Arm : MonoBehaviour
         // MOVE LEFT
         if (Input.GetKey(KeyCode.D))
         {
-            if (transform.position.x > 14) //HARDCODED VALUE
+            if (transform.position.x > 14.5) //HARDCODED VALUE
             {
                 transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
             }
@@ -58,7 +58,7 @@ public class Arm : MonoBehaviour
         // MOVE RIGHT 
         if (Input.GetKey(KeyCode.A))
         {
-            if (transform.position.x < 20) //HARDCODED VALUE
+            if (transform.position.x < 22.5) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             }
