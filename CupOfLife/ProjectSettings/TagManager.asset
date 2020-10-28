@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Destination
+  - Milk
+  - Oil
+  - CoffeeBeans
+  - GreenJuice
+  - Cogs
+  - Void
+  - Eyeballs
+  - Sugar
+  - Coffee
+  - Customer
   layers:
   - Default
   - TransparentFX

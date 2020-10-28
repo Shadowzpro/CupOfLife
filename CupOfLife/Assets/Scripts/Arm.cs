@@ -2,104 +2,94 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Arm : MonoBehaviour
 {
-    //SPEED OF ARM MOVING
+    /// SPEED OF ARM MOVING
     public float movementSpeed = 10f;
-    //SPEED OF CLAW ROTATING
+
+    /// SPEED OF CLAW ROTATING
     public float rotationSpeed = 45f;
 
-    //REFERENCE TO CLAW GAMEOBJECT
+    // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
 
-    //REFERENCE TO ARM'S RIGIDBODY
+    // REFERENCE TO ARM'S RIGIDBODY
     private Rigidbody rigidBody;
 
-    //public float moveLeftMin = 14;
-    //public float moveRightMax = 20;
-
-    //
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    //WHEN ARM IS ENABLED IT CAN MOVE
-    private void OnEnable()
-    {
-        rigidBody.isKinematic = false;
-    }
-
-    //WHEN ARM IS DISABLED IT CAN NOT MOVE
-    private void OnDisable()
-    {
-        rigidBody.isKinematic = false;
-    }
-
-    //
-    private void FixedUpdate()
+    private void Update() // SHOULD I CHANGE THIS TO UPDATE?
     {
         Move();
         Rotate();
     }
 
     //FUNCTION TO MOVE THE ARM IN 3 DIMENSIONS
-    private void Move()
+    private void Move() // RIGIDBODY MOVE POSITION?
     {
-        //NEED TO SET BOUNDS
+        // MOVE FORWARD
         if (Input.GetKey(KeyCode.W))
         {
-            if (transform.position.z < -12.5)
+            if (transform.position.z < -12.5) //HARDCODED VALUE
             {
                 transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.S))
+        // MOVE BACKWARD
+        if (Input.GetKey(KeyCode.S))
         {
-            if (transform.position.z > -14.5)
+            if (transform.position.z > -14.5) //HARDCODED VALUE
             {
                 transform.position -= Vector3.forward * movementSpeed * Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.A))
+        // MOVE LEFT
+        if (Input.GetKey(KeyCode.A))
         {
-            if (transform.position.x > 14)//hardcode
+            if (transform.position.x > 14) //HARDCODED VALUE
             {
                 transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.D))
+        // MOVE RIGHT 
+        if (Input.GetKey(KeyCode.D))
         {
-            if (transform.position.x < 20)
+            if (transform.position.x < 20) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.Alpha1))
+        // MOVE UP
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            if (transform.position.y < 3.925)
+            if (transform.position.y < 3.925) //HARDCODED VALUE
             {
                 transform.position += Vector3.up * movementSpeed * Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.Alpha2))
+        // MOVE DOWN
+        if (Input.GetKey(KeyCode.Alpha2))
         {
-            if (transform.position.y > 2.265)
+            if (transform.position.y > 2.265) //HARDCODED VALUE
             {
                 transform.position -= Vector3.up * movementSpeed * Time.deltaTime;
             }
         }
-
-        //transform.position = new Vector3(Mathf.Clamp(transform.position.x, moveLeftMin, moveRightMax), transform.position.y, transform.position.z);
     }
 
-    //FUNCTION TO ROTATE THE CLAW IN 1 DIMENSION
-    private void Rotate()
+    // FUNCTION TO ROTATE THE CLAW ON 1 AXIS
+    private void Rotate() // RIGIDBODY MOVEROTATION?
     {
+        // ROTATE CLOCKWISE
         if (Input.GetKey(KeyCode.Q))
         {
             claw.transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
         }
+        //ROTATE ANTICLOCKWISE
         else if (Input.GetKey(KeyCode.E))
         {
             claw.transform.Rotate(-Vector3.right, rotationSpeed * Time.deltaTime);

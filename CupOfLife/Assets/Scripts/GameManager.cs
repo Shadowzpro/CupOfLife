@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     //GAME TIME STARTS AT 9AM
     public float gameTime = 9 * 60;
+    public float timeMultiplier = 1.6f;
+    public float customerSpawnTime = 5f;
+    public GameObject shopCustomer;
+    private IEnumerator customer;
     public float GameTime
     {
         get
@@ -25,17 +29,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         timerText.gameObject.SetActive(false);
+        customer = NewCustomer(customerSpawnTime);
+        //NoCustomers();
+        StartCoroutine(customer);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (NoCustomers())
+        {
+            StartCoroutine(customer);
+        }
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
         //GAMETIME GETS INCREMENTED BY 1.6 MINUTES EVERY SECOND
         //THIS MAKES SURE "8 HOURS" PASSES IN 5 MINUTES
-        gameTime += Time.deltaTime * 1.6f;
+        gameTime += Time.deltaTime * timeMultiplier;
         int minutes = Mathf.RoundToInt(gameTime);
 
         //SETS CLOCK TO 1PM ONWARDS
@@ -61,12 +72,31 @@ public class GameManager : MonoBehaviour
                 timerText.text = string.Format("{0:D2}:{1:D2}", (minutes / 60), (minutes % 60)) + "am";
             }
         }
+    }
 
+    private bool NoCustomers()
+    {
+        //StartCoroutine(customer);
+        return shopCustomer.gameObject.activeSelf == true;
+        //if (shopCustomer.gameObject.activeSelf == false)
+        //{
+        //    StartCoroutine(customer);
+        //}
+    }
 
-        //FOR LATER USE
-
-        //timerText.gameObject.SetActive(false);
-        //timerText.gameObject.SetActive(true);
-
+    //kinda borked
+    private IEnumerator NewCustomer(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            StopCoroutine(customer);
+            if (!NoCustomers())
+            {
+                shopCustomer.SetActive(true);
+            }
+            Debug.Log("This worked?");
+            yield return false;
+        }
     }
 }
