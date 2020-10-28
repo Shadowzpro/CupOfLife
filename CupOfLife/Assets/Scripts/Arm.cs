@@ -22,18 +22,6 @@ public class Arm : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    // WHEN ARM IS ENABLED IT CAN MOVE
-    //private void OnEnable()
-    //{
-    //    rigidBody.isKinematic = false;
-    //}
-
-    // WHEN ARM IS DISABLED IT CAN NOT MOVE
-    //private void OnDisable()
-    //{
-    //    rigidBody.isKinematic = false;
-    //}
-
     private void Update() // SHOULD I CHANGE THIS TO UPDATE?
     {
         Move();

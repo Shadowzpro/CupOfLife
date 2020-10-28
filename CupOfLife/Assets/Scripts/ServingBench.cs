@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ServingBench : MonoBehaviour
 {
     //REFERENCE TO PARTICLE SYSTEM THAT MAY BE ATTACHED
-    //public ParticleSystem confetti;
+    public ParticleSystem confetti;
     public GameObject drink;
     float secondsToDestroy = 4;
     private Rigidbody drinkRigidBody;
@@ -21,11 +21,6 @@ public class ServingBench : MonoBehaviour
         coroutine = UpdateText(secondsToDestroy);
     }
 
-    //void Awake()
-    //{
-    //    
-    //}
-
     //FUNCTION RUNS WHEN SOMETHING TRIGGERS THE COLLIDER
     private void OnTriggerEnter(Collider other)
     {
@@ -38,8 +33,7 @@ public class ServingBench : MonoBehaviour
             StartCoroutine(coroutine);
             
             
-            //PLAY PARTICLE EFFECT
-            //confetti.Play();
+            
         }
 
         //DELETES THE GAME OBJECT SINCE ORDER IS SERVED
@@ -55,6 +49,8 @@ public class ServingBench : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             ordersComplete++;
             TipJar.text = "" + ordersComplete;
+            //PLAY PARTICLE EFFECT
+            confetti.Play();
             StopCoroutine(coroutine);
             Debug.Log("This worked?");
         }
