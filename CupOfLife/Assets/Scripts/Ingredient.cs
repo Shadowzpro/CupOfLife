@@ -44,6 +44,8 @@ public class Ingredient : MonoBehaviour
 
     void DissolveIn() 
     {
+        isFadingIn = true;
+
         if (!isLiquid)
         {
             dissolveShader = GetComponent<Renderer>();
@@ -92,7 +94,7 @@ public class Ingredient : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Void"))
         {
-            Destroy(prefab);
+            Destroy(gameObject);
             prefab = (GameObject)Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
             prefab.GetComponent<Ingredient>().enabled = true;
         }

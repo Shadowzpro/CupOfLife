@@ -343,8 +343,11 @@ MonoBehaviour:
   spawnPoint: {fileID: 8005640977730365372, guid: 545b4ce88c642e940bfceedcc16bd963,
     type: 3}
   dissolveShader: {fileID: 0}
+  liquidShader: {fileID: 0}
+  isLiquid: 0
+  isFadingIn: 1
+  dissolveFloatProgress: 1
   pickUpDistance: 0.3
   theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
   prefab: {fileID: 8583073870857294295}
   ingredientName: Milk
-  isLiquid: 0
