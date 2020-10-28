@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NoCustomers())
-        {
-            StartCoroutine(customer);
-        }
+        //if (NoCustomers())
+        //{
+        //    StartCoroutine(customer);
+        //}
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
