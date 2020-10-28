@@ -13,6 +13,7 @@ public class Ingredient : MonoBehaviour
     public bool isLiquid = false;
     public bool isFadingIn = true;
     public float dissolveFloatProgress = 1;
+    public float liquidLevelProgress = 1;
 
     [Header("Hand")]
     // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
@@ -36,6 +37,11 @@ public class Ingredient : MonoBehaviour
     {
         gameObject.SetActive(true);
         theDest = GameObject.FindWithTag("Destination");
+        if (ingredientName == "Milk" || ingredientName == "Green Juice")
+        {
+            isLiquid = true;
+        }
+
 
         DissolveIn();
     }
@@ -53,10 +59,20 @@ public class Ingredient : MonoBehaviour
         }
         else 
         {
-            dissolveShader = GetComponent<Renderer>();
-            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
-            dissolveFloatProgress = 1;
-            dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            if (ingredientName == "Milk") 
+            {
+                dissolveShader = GetComponent<Renderer>();
+                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
+                dissolveFloatProgress = 1;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
+                liquidShader = GetComponentInChildren<Renderer>();
+                liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/Liquid");
+
+
+            }
+
+            
         }
       
     }
