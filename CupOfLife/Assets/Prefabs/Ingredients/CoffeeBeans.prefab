@@ -50,7 +50,7 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
-  pickUpDistance: 0.3
+  pickUpDistance: 0.5
   theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
   prefab: {fileID: 6148192716319938589}
   ingredientName: CoffeeBeans
