@@ -32,7 +32,7 @@ public class Arm : MonoBehaviour
     private void Move() // RIGIDBODY MOVE POSITION?
     {
         // MOVE FORWARD
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
         {
             if (transform.position.z < -12.5) //HARDCODED VALUE
             {
@@ -40,7 +40,7 @@ public class Arm : MonoBehaviour
             }
         }
         // MOVE BACKWARD
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W))
         {
             if (transform.position.z > -14.5) //HARDCODED VALUE
             {
@@ -48,7 +48,7 @@ public class Arm : MonoBehaviour
             }
         }
         // MOVE LEFT
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             if (transform.position.x > 14) //HARDCODED VALUE
             {
@@ -56,7 +56,7 @@ public class Arm : MonoBehaviour
             }
         }
         // MOVE RIGHT 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             if (transform.position.x < 20) //HARDCODED VALUE
             {
@@ -87,12 +87,12 @@ public class Arm : MonoBehaviour
         // ROTATE CLOCKWISE
         if (Input.GetKey(KeyCode.Q))
         {
-            claw.transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
+            claw.transform.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
         }
         //ROTATE ANTICLOCKWISE
         else if (Input.GetKey(KeyCode.E))
         {
-            claw.transform.Rotate(-Vector3.right, rotationSpeed * Time.deltaTime);
+            claw.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
         }
     }
 }

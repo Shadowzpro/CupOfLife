@@ -32,8 +32,6 @@ public class Ingredient : MonoBehaviour
     /// </summary>
     public string ingredientName;
 
-    
-
     void Start()
     {
         gameObject.SetActive(true);
