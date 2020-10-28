@@ -19,6 +19,7 @@ public class Coffee : MonoBehaviour
 
     public Renderer dissolveShader;
     public bool isFadingIn = true;
+    public bool isFadingOut = false;
     public float dissolveFloatProgress = 1;
 
 
@@ -31,11 +32,22 @@ public class Coffee : MonoBehaviour
 
     public void DissolveIn() 
     {
+        isFadingIn = true;
         dissolveShader = GetComponent<Renderer>();
         dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
         dissolveFloatProgress = 1;
         dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
     }
+
+    public void DissolveOut()
+    {
+        isFadingOut = true;
+        dissolveShader = GetComponent<Renderer>();
+        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+        dissolveFloatProgress = -0.1f;
+        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+    }
+
 
 
     private void Update()
@@ -62,6 +74,24 @@ public class Coffee : MonoBehaviour
         }
 
         /// END FADE IN.
+        /// BEGIN FADE OUT
+        if (isFadingIn)
+        {
+            dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
+            if (dissolveFloatProgress >= 1)
+            {
+                dissolveFloatProgress = 1f;
+                isFadingOut = false;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+            else
+            {
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+            }
+        }
+
+        ///END FADE OUT
+
 
     }
 
