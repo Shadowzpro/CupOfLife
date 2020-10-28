@@ -4,6 +4,7 @@ public class MakeTheCoffee : MonoBehaviour
 {
 	[Header("References")]
     public CoffeeMachine coffeeMachine; // Reference to CoffeeMachine
+    public ServingBench SB;
 
     [Header("Public Variables")]
 	public CoffeeMachine IngredientContainer;
@@ -68,6 +69,11 @@ public class MakeTheCoffee : MonoBehaviour
             Debug.Log("Ingredient Added to Coffee");
         }
         Instantiate(coffeePrefab, coffeeMachine.coffeeSpawnPoint.transform.position, Quaternion.identity);
+        SB.isCoffeeMade = true;
+        if (SB.isCoffeeMade == true)
+        {
+            Debug.Log("YES!!!");
+        }
     }
 
     /// <summary>
