@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     //GAME TIME STARTS AT 9AM
     public float gameTime = 9 * 60;
+    public float timeMultiplier = 1.6f;
     public float GameTime
     {
         get
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         
         //GAMETIME GETS INCREMENTED BY 1.6 MINUTES EVERY SECOND
         //THIS MAKES SURE "8 HOURS" PASSES IN 5 MINUTES
-        gameTime += Time.deltaTime * 1.6f;
+        gameTime += Time.deltaTime * timeMultiplier;
         int minutes = Mathf.RoundToInt(gameTime);
 
         //SETS CLOCK TO 1PM ONWARDS
