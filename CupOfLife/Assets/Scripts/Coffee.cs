@@ -75,7 +75,7 @@ public class Coffee : MonoBehaviour
 
         /// END FADE IN.
         /// BEGIN FADE OUT
-        if (isFadingIn)
+        if (isFadingOut)
         {
             dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
             if (dissolveFloatProgress >= 1)
