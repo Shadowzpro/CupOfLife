@@ -51,11 +51,26 @@ MonoBehaviour:
   isFadingIn: 1
   dissolveFloatProgress: 1
   liquidLevelProgress: 1
-  internalLiquid: {fileID: 0}
+  internalLiquid: {fileID: 6872905638864471600}
   pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 2853316639529610060}
   ingredientName: GreenJuice
+--- !u!114 &2094236021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872905638864471600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef70679112095d4c9cd881f62b875d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.03
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1001 &6104885806802989637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,6 +143,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenJuice
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
+        type: 3}
+      propertyPath: m_TagString
+      value: GreenJuice
+      objectReference: {fileID: 0}
     - target: {fileID: 6735448485503476487, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -138,6 +158,12 @@ PrefabInstance:
 --- !u!1 &2853316639529610060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6104885806802989637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6872905638864471600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 853887363701224565, guid: 1c817cfd014705845adb689d90d76dfa,
     type: 3}
   m_PrefabInstance: {fileID: 6104885806802989637}
   m_PrefabAsset: {fileID: 0}

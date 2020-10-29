@@ -50,10 +50,27 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 5380108916123641719}
   pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 3722957916123924313}
   ingredientName: Milk
+--- !u!114 &2003828225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380108916123641719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8cfa907239dfa49a19f5d44a67ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.003
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1001 &4650942335298100816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,20 +78,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7888079689232086984, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 149d2892953579b40a077b67a7d7745c, type: 2}
     - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.422
+      value: 19.029999
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.476
+      value: 2.525
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.98
+      value: -14.89
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
@@ -116,6 +138,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
     - target: {fileID: -927199367670048503, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_Name
@@ -131,6 +158,12 @@ PrefabInstance:
 --- !u!1 &3722957916123924313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
+    type: 3}
+  m_PrefabInstance: {fileID: 4650942335298100816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5380108916123641719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8493072134418794201, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
     type: 3}
   m_PrefabInstance: {fileID: 4650942335298100816}
   m_PrefabAsset: {fileID: 0}
