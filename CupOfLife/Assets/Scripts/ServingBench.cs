@@ -14,13 +14,40 @@ public class ServingBench : MonoBehaviour
     public static int ordersComplete = 0;
     private IEnumerator coroutine;
     public bool isCoffeeMade = false;
+    public bool isCoffeeFadingAway = false;
+    public Renderer dissolveShader;
+    public float coffeeDissolveProg;
 
     private void Update()
     {
+        if (isCoffeeFadingAway)
+        {
+            if (!drink) 
+            { isCoffeeFadingAway = false; }
+            CoffeeFadeOut();
+        }
         if (isCoffeeMade)
         {
             AssignCoffee();
         }
+    }
+
+    private void CoffeeFadeOut() 
+    {
+        //Update fader
+        
+        dissolveShader.material.SetColor("edgeColor", Color.red);
+        
+        coffeeDissolveProg = coffeeDissolveProg + (0.5f * Time.deltaTime);
+        dissolveShader.material.SetFloat("dissolveProgress", coffeeDissolveProg);
+        if (coffeeDissolveProg >= 1) 
+        {
+            coffeeDissolveProg = 1;
+            dissolveShader.material.SetFloat("dissolveProgress", coffeeDissolveProg);
+            isCoffeeFadingAway = false;
+        }
+
+
     }
 
     private void AssignCoffee()
@@ -37,6 +64,14 @@ public class ServingBench : MonoBehaviour
         if (other.CompareTag("Coffee"))
         {
             //IF GAMEOBJECT IS A DRINK
+            
+            // begin fadeing stuff
+            isCoffeeFadingAway = true;
+            dissolveShader = drink.GetComponent<Renderer>();
+            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+            coffeeDissolveProg = 0;
+            // end fading stuff
+
             Destroy(drinkRigidBody);
             Destroy(drink, secondsToDestroy);
             Debug.Log("Destroyed");
