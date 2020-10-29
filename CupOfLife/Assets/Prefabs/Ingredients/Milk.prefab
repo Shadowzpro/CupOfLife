@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &8583073870857294290
+--- !u!54 &1600721351
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,7 +16,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2124106556
+--- !u!64 &1600721349
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,8 +29,8 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 7595873385934595491, guid: eb14090b66d30ad4c943b4be8f6c46ab, type: 3}
---- !u!114 &8583073870857294288
+  m_Mesh: {fileID: 7595873385934595491, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63, type: 3}
+--- !u!114 &1600721350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
-  pickUpDistance: 0.3
+  pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 3722957916123924313}
   ingredientName: Milk
@@ -61,76 +61,76 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.029999
+      value: 19.422
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.222
+      value: 2.476
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.89
+      value: -14.98
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -4216859302048453862, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -927199367670048503, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_Name
       value: Milk
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+    - target: {fileID: -927199367670048503, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
         type: 3}
       propertyPath: m_TagString
       value: Milk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eb14090b66d30ad4c943b4be8f6c46ab, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63, type: 3}
 --- !u!1 &3722957916123924313 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: eb14090b66d30ad4c943b4be8f6c46ab,
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1fbf3b64f3e0e3c42a6c087dbbc5ef63,
     type: 3}
   m_PrefabInstance: {fileID: 4650942335298100816}
   m_PrefabAsset: {fileID: 0}
