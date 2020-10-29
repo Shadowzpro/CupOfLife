@@ -50,9 +50,11 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 3138698551651301172}
   pickUpDistance: 0.5
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
-  prefab: {fileID: 0}
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
+  prefab: {fileID: 2456991577141807640}
   ingredientName: Oil
 --- !u!1001 &5852728725155959569
 PrefabInstance:
@@ -131,6 +133,12 @@ PrefabInstance:
 --- !u!1 &2456991577141807640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5852728725155959569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3138698551651301172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8842805156070302757, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
     type: 3}
   m_PrefabInstance: {fileID: 5852728725155959569}
   m_PrefabAsset: {fileID: 0}

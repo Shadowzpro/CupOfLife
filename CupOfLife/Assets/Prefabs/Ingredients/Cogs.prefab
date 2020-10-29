@@ -50,9 +50,11 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 0}
   pickUpDistance: 0.3
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
-  prefab: {fileID: 0}
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
+  prefab: {fileID: 6231337127126137157}
   ingredientName: Cogs
 --- !u!1001 &2691961858889424972
 PrefabInstance:

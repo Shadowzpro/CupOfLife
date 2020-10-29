@@ -50,9 +50,11 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 0}
   pickUpDistance: 0.4
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
-  prefab: {fileID: 0}
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
+  prefab: {fileID: 2853316639529610060}
   ingredientName: GreenJuice
 --- !u!1001 &6104885806802989637
 PrefabInstance:
@@ -116,11 +118,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 1c817cfd014705845adb689d90d76dfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
     - target: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_Name
       value: GreenJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 6735448485503476487, guid: 1c817cfd014705845adb689d90d76dfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fc3a79d7e170db46aad6c59a52a3a6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c817cfd014705845adb689d90d76dfa, type: 3}
 --- !u!1 &2853316639529610060 stripped

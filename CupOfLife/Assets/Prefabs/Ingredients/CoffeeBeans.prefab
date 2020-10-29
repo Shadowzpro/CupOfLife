@@ -50,9 +50,11 @@ MonoBehaviour:
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 0}
   pickUpDistance: 0.5
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
-  prefab: {fileID: 0}
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
+  prefab: {fileID: 6148192716319938589}
   ingredientName: CoffeeBeans
 --- !u!1001 &2770603984894525716
 PrefabInstance:
@@ -119,7 +121,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8b7233c71202aa740b8fbfbf34a6afb2,
         type: 3}
       propertyPath: m_Name
-      value: Ingredient_Coffee_001_v001_20202810
+      value: CoffeeBeans
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8b7233c71202aa740b8fbfbf34a6afb2,
         type: 3}
