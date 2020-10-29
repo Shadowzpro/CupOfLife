@@ -54,8 +54,8 @@ public class Coffee : MonoBehaviour
         Grab();
         Drop();
 
-        //update dissolve
-        ///BEGIN FADE IN
+        // Update Dissolve
+        // BEGIN FADE IN
 
         if (isFadingIn)
         {
@@ -72,8 +72,8 @@ public class Coffee : MonoBehaviour
             }
         }
 
-        /// END FADE IN.
-        /// BEGIN FADE OUT
+        // END FADE IN.
+        // BEGIN FADE OUT
         if (isFadingOut)
         {
             dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
