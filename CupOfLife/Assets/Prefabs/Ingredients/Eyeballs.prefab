@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &8583073870857294290
+--- !u!54 &63984301
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,7 +16,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &9181486665302527198
+--- !u!64 &63984303
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,8 +29,8 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5028805482959884758, guid: ec34d7ab4e91e164896acb88564c34d9, type: 3}
---- !u!114 &8583073870857294288
+  m_Mesh: {fileID: -5028805482959884758, guid: aacf855942c49714bb5ad4e049fdea30, type: 3}
+--- !u!114 &63984302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +43,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theVoid: {fileID: 4250123153475017755, guid: 0e067599820ed6645acba09b9bbdfc23, type: 3}
-  spawnPoint: {fileID: 8005640977730365372, guid: 545b4ce88c642e940bfceedcc16bd963,
+  spawnPoint: {fileID: 8005640977730365372, guid: a3d9a4c10ceabb04ba7b4cc5f52905bb,
     type: 3}
   dissolveShader: {fileID: 0}
   liquidShader: {fileID: 0}
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 0}
   pickUpDistance: 0.3
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 3501284789989865514}
   ingredientName: Eyeballs
 --- !u!1001 &4879336703017197859
@@ -61,76 +63,76 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.671417
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.238
+      value: 2.2915
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -14.911
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -4216859302048453862, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -927199367670048503, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_Name
       value: Eyeballs
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: ec34d7ab4e91e164896acb88564c34d9,
+    - target: {fileID: -927199367670048503, guid: aacf855942c49714bb5ad4e049fdea30,
         type: 3}
       propertyPath: m_TagString
       value: Eyeballs
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ec34d7ab4e91e164896acb88564c34d9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: aacf855942c49714bb5ad4e049fdea30, type: 3}
 --- !u!1 &3501284789989865514 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ec34d7ab4e91e164896acb88564c34d9,
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: aacf855942c49714bb5ad4e049fdea30,
     type: 3}
   m_PrefabInstance: {fileID: 4879336703017197859}
   m_PrefabAsset: {fileID: 0}

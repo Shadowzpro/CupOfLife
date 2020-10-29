@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Arm : MonoBehaviour
 {
-    /// SPEED OF ARM MOVING
+    [Header("Speed")]
+    // SPEED OF ARM MOVING
     public float movementSpeed = 10f;
+    public float upDownSpeed = 10f;
 
-    /// SPEED OF CLAW ROTATING
+    // SPEED OF CLAW ROTATING
     public float rotationSpeed = 45f;
 
+    [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
 
@@ -64,19 +67,19 @@ public class Arm : MonoBehaviour
             }
         }
         // MOVE UP
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.R))
         {
             if (transform.position.y < 3.925) //HARDCODED VALUE
             {
-                transform.position += Vector3.up * movementSpeed * Time.deltaTime;
+                transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
             }
         }
         // MOVE DOWN
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.F))
         {
             if (transform.position.y > 2.265) //HARDCODED VALUE
             {
-                transform.position -= Vector3.up * movementSpeed * Time.deltaTime;
+                transform.position -= Vector3.up * upDownSpeed * Time.deltaTime;
             }
         }
     }

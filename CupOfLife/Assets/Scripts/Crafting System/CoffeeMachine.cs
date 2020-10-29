@@ -33,7 +33,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Coffee Beans");
             AddIngredient(coffeeBeans);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(coffeeBeans, coffeeBeans.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -41,7 +41,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Cogs");
             AddIngredient(cogs);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(cogs, cogs.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -49,7 +49,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Eyeballs");
             AddIngredient(eyeBalls);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -57,7 +57,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Green Juice");
             AddIngredient(greenJuice);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(greenJuice, greenJuice.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -65,7 +65,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Milk");
             AddIngredient(milk);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(milk, milk.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -73,7 +73,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Oil");
             AddIngredient(oil);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(oil, oil.spawnPoint.transform.position, Quaternion.identity);
         }
 
@@ -81,14 +81,9 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         {
             Debug.Log("Detected Sugar");
             AddIngredient(sugar);
-            Destroy(collider.gameObject, 1.0f);
+            Destroy(collider.gameObject, 0.1f);
             Instantiate(sugar, sugar.spawnPoint.transform.position, Quaternion.identity);
         }
-    }
-
-    private void Update()
-    {
-
     }
 
     /// <summary>

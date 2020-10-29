@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &8583073870857294290
+--- !u!54 &814416037
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,7 +16,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &-732469228623231879
+--- !u!64 &814416036
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,8 +29,8 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 5877208271986269865, guid: bf2328e075c18e841a6bed8c78a16f70, type: 3}
---- !u!114 &8583073870857294288
+  m_Mesh: {fileID: -3041082289166018345, guid: 1c817cfd014705845adb689d90d76dfa, type: 3}
+--- !u!114 &814416038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,17 +43,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theVoid: {fileID: 4250123153475017755, guid: 0e067599820ed6645acba09b9bbdfc23, type: 3}
-  spawnPoint: {fileID: 8005640977730365372, guid: 545b4ce88c642e940bfceedcc16bd963,
+  spawnPoint: {fileID: 8005640977730365372, guid: 004b17e5163274443b1f3d86a6665240,
     type: 3}
   dissolveShader: {fileID: 0}
   liquidShader: {fileID: 0}
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
-  pickUpDistance: 0.3
-  theDest: {fileID: 803038199141836501, guid: 77d8ad682021787459e492ad4c1d64c0, type: 3}
+  liquidLevelProgress: 1
+  internalLiquid: {fileID: 6872905638864471600}
+  pickUpDistance: 0.4
+  theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 2853316639529610060}
   ingredientName: GreenJuice
+--- !u!114 &2094236021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872905638864471600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef70679112095d4c9cd881f62b875d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.03
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1001 &6104885806802989637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,76 +78,92 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.76
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.242
+      value: 2.469
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -14.845
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -4216859302048453862, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -1504981713932161579, guid: 1c817cfd014705845adb689d90d76dfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
+    - target: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_Name
       value: GreenJuice
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: bf2328e075c18e841a6bed8c78a16f70,
+    - target: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_TagString
       value: GreenJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 6735448485503476487, guid: 1c817cfd014705845adb689d90d76dfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fc3a79d7e170db46aad6c59a52a3a6e, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bf2328e075c18e841a6bed8c78a16f70, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1c817cfd014705845adb689d90d76dfa, type: 3}
 --- !u!1 &2853316639529610060 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: bf2328e075c18e841a6bed8c78a16f70,
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6104885806802989637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6872905638864471600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 853887363701224565, guid: 1c817cfd014705845adb689d90d76dfa,
     type: 3}
   m_PrefabInstance: {fileID: 6104885806802989637}
   m_PrefabAsset: {fileID: 0}
