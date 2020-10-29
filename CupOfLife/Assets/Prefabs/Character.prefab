@@ -59,6 +59,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &8038129002360974700
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209636626612958822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.477953
+  m_Center: {x: 0, y: 0.000029802322, z: -104.14014}
 --- !u!114 &520117903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,8 +87,8 @@ MonoBehaviour:
   movementSpeed: 3
   rotationSpeed: 360
   claw: {fileID: 329211866878534469}
---- !u!135 &8038129002360974700
-SphereCollider:
+--- !u!65 &3993114319422496549
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -85,8 +98,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.477953
-  m_Center: {x: 0, y: 0.000029802322, z: -104.14014}
+  m_Size: {x: 12.865944, y: 12.865967, z: 75.75502}
+  m_Center: {x: 0.0000037252903, y: 0.00003054738, z: -31.444597}
 --- !u!65 &1796627812
 BoxCollider:
   m_ObjectHideFlags: 0

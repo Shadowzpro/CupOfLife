@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954423235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -14.6, z: 20.9}
+  m_LocalPosition: {x: 0, y: -0.5, z: 26.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7450011352667274673}
@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  coffeeSpawnPoint: {fileID: 0}
+  coffeeSpawnPoint: {fileID: 954423235}
   maxCoffeeMachineSlots: 6
   coffeeBeans: {fileID: 1566042903768077260, guid: fab2266d3dffb324a953bbe05a620fad,
     type: 3}
