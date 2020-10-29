@@ -43,6 +43,7 @@ public class Ingredient : MonoBehaviour
         theDest = GameObject.FindWithTag("Destination");
         if (ingredientName == "Milk"  /*|| ingredientName == "Green Juice"*/)
         {
+
             isLiquid = true;
         }
 
