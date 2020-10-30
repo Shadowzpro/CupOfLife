@@ -1054,6 +1054,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 382300872377552707, guid: e94de8be8936d1840965c55f04a7546b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
     - target: {fileID: 1460192169590323211, guid: e94de8be8936d1840965c55f04a7546b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1114,6 +1119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil
       objectReference: {fileID: 0}
+    - target: {fileID: 4438187260164108267, guid: e94de8be8936d1840965c55f04a7546b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05c7daef2e1f36c4ab9fbf3958df9e27, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e94de8be8936d1840965c55f04a7546b, type: 3}
 --- !u!1 &384015423
@@ -5112,6 +5122,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1510765419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1465869081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3138698551651301172, guid: e94de8be8936d1840965c55f04a7546b,
+    type: 3}
+  m_PrefabInstance: {fileID: 300403923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1465869085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465869081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8cfa907239dfa49a19f5d44a67ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.03
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1 &1488896829
 GameObject:
   m_ObjectHideFlags: 0

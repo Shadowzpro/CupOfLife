@@ -84,7 +84,7 @@ Material:
     - _Surface: 1
     - _WorkflowMode: 0
     - _ZWrite: 0
-    - dissolveProgress: 0
+    - dissolveProgress: 1
     - edgeWidth: 0.015
     - noiseScale: 30
     m_Colors:
@@ -92,4 +92,4 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - edgeColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
+    - edgeColor: {r: 1, g: 1, b: 1, a: 0.23921569}
