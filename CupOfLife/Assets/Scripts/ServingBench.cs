@@ -11,7 +11,7 @@ public class ServingBench : MonoBehaviour
     public float secondsToDestroy = 4;
     private Rigidbody drinkRigidBody;
     public Text TipJar;
-    public static int ordersComplete = 0;
+    public int ordersComplete = 0; // <--- Was static so if something doesn't work might be this???
     private IEnumerator coroutine;
     public bool isCoffeeMade = false;
     public bool isCoffeeFadingAway = false;
@@ -54,7 +54,7 @@ public class ServingBench : MonoBehaviour
     {
         drink = GameObject.FindWithTag("Coffee");
         drinkRigidBody = drink.GetComponent<Rigidbody>();
-        //coroutine = UpdateText(secondsToDestroy);
+        coroutine = UpdateText(secondsToDestroy);
     }
 
     //FUNCTION RUNS WHEN SOMETHING TRIGGERS THE COLLIDER
@@ -76,7 +76,7 @@ public class ServingBench : MonoBehaviour
             Destroy(drink, secondsToDestroy);
             Debug.Log("Destroyed");
             isCoffeeMade = false;
-            //StartCoroutine(coroutine);
+            StartCoroutine(coroutine);
         }
 
         //DELETES THE GAME OBJECT SINCE ORDER IS SERVED
@@ -93,7 +93,7 @@ public class ServingBench : MonoBehaviour
             ordersComplete++;
             TipJar.text = "" + ordersComplete;
             //PLAY PARTICLE EFFECT
-            confetti.Play();
+            //confetti.Play();
             StopCoroutine(coroutine);
             Debug.Log("This worked?");
         }
