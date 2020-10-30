@@ -119,7 +119,7 @@ public class Ingredient : MonoBehaviour
 
 
                 liquidShader = internalLiquid.GetComponent<Renderer>();
-                liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/Liquid");
+                liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/LiquidOil");
 
                 liquidLevelProgress = 1;
                 liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
