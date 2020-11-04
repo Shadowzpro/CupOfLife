@@ -67,9 +67,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (servingBench.ordersComplete == 1)
-        {
-            levelFinishedUI.SetActive(true);
-        }
+        
     }
 }
