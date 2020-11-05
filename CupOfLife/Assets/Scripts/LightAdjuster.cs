@@ -38,31 +38,32 @@ public class LightAdjuster : MonoBehaviour
 
     void Update()
     {
-        if (changeRange)
-        {
-            if (repeatRange)
-            {
-                myLight.range = Mathf.PingPong(Time.time * rangeSpeed, maxRange); // Pingpong goes up and back down repeatedly
-            } else
-            {
-                myLight.range = Time.time * rangeSpeed; 
-                if (myLight.range >= maxRange) changeRange = false; // If light's max range is reached, stop
-            }
-        }
+        //if (changeRange)
+        //{
+        //    if (repeatRange)
+        //    {
+        //        myLight.range = Mathf.PingPong(Time.time * rangeSpeed, maxRange); // Pingpong goes up and back down repeatedly
+        //    } else
+        //    {
+        //        myLight.range = Time.time * rangeSpeed; 
+        //        if (myLight.range >= maxRange) changeRange = false; // If light's max range is reached, stop
+        //    }
+        //}
 
-        if (changeIntensity)
-        {
-            if (repeatIntensity)
-            {
-                myLight.intensity = Mathf.PingPong(Time.time * intensitySpeed, maxIntensity); // Pingpong goes up and back down repeatedly
-            }
-            else
-            {
-                myLight.intensity = Time.time * intensitySpeed;
-                if (myLight.intensity >= maxIntensity) changeIntensity = false; // If light's max intensity is reached, stop
-            }
-        }
+        //if (changeIntensity)
+        //{
+        //    if (repeatIntensity)
+        //    {
+        //        myLight.intensity = Mathf.PingPong(Time.time * intensitySpeed, maxIntensity); // Pingpong goes up and back down repeatedly
+        //    }
+        //    else
+        //    {
+        //        myLight.intensity = Time.time * intensitySpeed;
+        //        if (myLight.intensity >= maxIntensity) changeIntensity = false; // If light's max intensity is reached, stop
+        //    }
+        //}
         
+        // Afternoon 12:00pm
         if (gameManager.gameTime >= afternoon && gameManager.gameTime <= evening)
         {
             if (changeColours)
@@ -72,6 +73,7 @@ public class LightAdjuster : MonoBehaviour
             }
         }
         
+        // Evening 4:00pm
         if (gameManager.gameTime >= evening)
         {
             if (changeColours)

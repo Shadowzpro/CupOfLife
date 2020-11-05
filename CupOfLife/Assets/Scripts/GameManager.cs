@@ -66,7 +66,5 @@ public class GameManager : MonoBehaviour
                 timerText.text = string.Format("{0:D2}:{1:D2}", (minutes / 60), (minutes % 60)) + "am";
             }
         }
-
-        
     }
 }
