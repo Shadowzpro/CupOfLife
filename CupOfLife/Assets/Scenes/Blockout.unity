@@ -5305,10 +5305,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damp: 0.2
   cameraTransform: {fileID: 963194228}
+  cameraObj: {fileID: 963194225}
   lookRightMax: 45
   lookLeftMin: -45
   lookAtYAxis: 3.25
   lookAtZAxis: -24.5
+  cameraMinX: 0
+  cameraMaxX: 0
 --- !u!4 &965836259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 013f1b887e372984cbd646589a873b8d,
