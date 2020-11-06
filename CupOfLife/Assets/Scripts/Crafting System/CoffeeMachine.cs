@@ -13,9 +13,15 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     /// Where the coffee will come out of
     /// </summary>
     public GameObject coffeeSpawnPoint;
+    public GameObject particleSpawnPoint;
+
+    private bool ingredientAdded = false;
 
     [Range(1, 15)]
     public int maxCoffeeMachineSlots;
+
+    [Header("References")]
+    public ParticleSystem particleEffect;
 
     [Header("Ingredient Prefabs")]
     public Ingredient coffeeBeans;
@@ -86,12 +92,20 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
         }
     }
 
+    private void Update()
+    {
+        //if (ingredientAdded) particleEffect.Play();
+        //else if (!ingredientAdded) particleEffect.Stop();
+    }
+
     /// <summary>
     /// Add an ingredient to the Coffee Machine
     /// </summary>
     /// <param name="ingredient"></param>
     public bool AddIngredient(Ingredient ingredient)
     {
+        Instantiate(particleEffect, particleSpawnPoint.transform.position, Quaternion.identity);
+
         for (int i = 0; i < maxCoffeeMachineSlots; i++)
         {
             if (ingredientSlots[i] == null)

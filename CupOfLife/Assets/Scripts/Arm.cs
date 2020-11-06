@@ -22,6 +22,9 @@ public class Arm : MonoBehaviour
     [Header("Constraints")]
     public float forward = -14.5f;
     public float backward = -12.5f;
+    public float left = 22.5f;
+    public float right = 14.5f;
+    public float up = 3.925f;
 
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
@@ -116,10 +119,10 @@ public class Arm : MonoBehaviour
                 transform.position -= Vector3.forward * movementSpeed * Time.deltaTime;
             }
         }
-        // MOVE LEFT
+        // MOVE RIGHT
         if (Input.GetKey(KeyCode.D))
         {
-            if (transform.position.x > 14.5) //HARDCODED VALUE
+            if (transform.position.x > right) //HARDCODED VALUE
             {
                 transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
             }
@@ -130,10 +133,10 @@ public class Arm : MonoBehaviour
             }
 
         }
-        // MOVE RIGHT 
+        // MOVE LEFT 
         if (Input.GetKey(KeyCode.A))
         {
-            if (transform.position.x < 22.5) //HARDCODED VALUE
+            if (transform.position.x < left) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             }
@@ -147,7 +150,7 @@ public class Arm : MonoBehaviour
         // MOVE UP
         if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.UpArrow))
         {
-            if (transform.position.y < 3.925) //HARDCODED VALUE
+            if (transform.position.y < up) //HARDCODED VALUE
             {
                 transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
             }

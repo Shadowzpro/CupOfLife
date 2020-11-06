@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &587413753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587413754}
+  m_Layer: 0
+  m_Name: Effect SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &587413754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587413753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 49.7, z: 26.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7450011352667274673}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954423235
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954423236}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Coffee SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,17 +93,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   coffeeSpawnPoint: {fileID: 954423235}
+  particleSpawnPoint: {fileID: 587413753}
   maxCoffeeMachineSlots: 6
-  coffeeBeans: {fileID: 1566042903768077260, guid: fab2266d3dffb324a953bbe05a620fad,
+  particleEffect: {fileID: 6494071035463175630, guid: 0c9e0b3701fd9b44a8bcb8c3f1ed4092,
     type: 3}
-  milk: {fileID: 8583073870857294288, guid: 93f69a202b2072840a2e41de4e970fda, type: 3}
-  sugar: {fileID: 8583073870857294288, guid: 5f301dd73748abc458f558e19ffefb40, type: 3}
-  oil: {fileID: 8583073870857294288, guid: e94de8be8936d1840965c55f04a7546b, type: 3}
-  cogs: {fileID: 1933034534249472372, guid: 4c2b58886097c294c9e39a0036b9665e, type: 3}
-  greenJuice: {fileID: 8583073870857294288, guid: 5b4c8e564f88c5f469409906f58bedb4,
-    type: 3}
-  eyeBalls: {fileID: 8583073870857294288, guid: 2eeca126e7f72dd49a4634d7863d7707,
-    type: 3}
+  coffeeBeans: {fileID: 1549414063, guid: fab2266d3dffb324a953bbe05a620fad, type: 3}
+  milk: {fileID: 1600721350, guid: 93f69a202b2072840a2e41de4e970fda, type: 3}
+  sugar: {fileID: 1028083748, guid: 5f301dd73748abc458f558e19ffefb40, type: 3}
+  oil: {fileID: 2144047378, guid: e94de8be8936d1840965c55f04a7546b, type: 3}
+  cogs: {fileID: 389999539, guid: 4c2b58886097c294c9e39a0036b9665e, type: 3}
+  greenJuice: {fileID: 814416038, guid: 5b4c8e564f88c5f469409906f58bedb4, type: 3}
+  eyeBalls: {fileID: 63984302, guid: 2eeca126e7f72dd49a4634d7863d7707, type: 3}
 --- !u!1001 &2457123804657587883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,22 +114,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: b55dae4c3cf77894fb19354208697ad1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.244
+      value: -2.6622734
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b55dae4c3cf77894fb19354208697ad1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.57
+      value: 0.5913398
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b55dae4c3cf77894fb19354208697ad1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.572
+      value: 0.021361351
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b55dae4c3cf77894fb19354208697ad1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b55dae4c3cf77894fb19354208697ad1,
         type: 3}
