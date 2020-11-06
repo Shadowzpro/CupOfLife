@@ -34,6 +34,9 @@ public class Arm : MonoBehaviour
     // REFERENCE TO ARM'S RIGIDBODY
     private Rigidbody rigidBody;
 
+    //REFERENCE TO LASSSEREZ
+    public GameObject laser;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -44,6 +47,15 @@ public class Arm : MonoBehaviour
         Move();
         Rotate();
         UpdateAngleOfDrift();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            laser.SetActive(true);
+        }
+        else 
+        {
+            laser.SetActive(false);
+        }
+
     }
 
     private void UpdateAngleOfDrift() 
