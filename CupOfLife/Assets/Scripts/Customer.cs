@@ -6,13 +6,19 @@ using UnityEngine.UI;
 public class Customer : MonoBehaviour
 {
     public float customerSpawnTime = 3.125f;
-    private IEnumerator customer;
+    public IEnumerator customer;
     private IEnumerator order;
     public GameObject speechBubble;
     public Text dialogue;
     public Text docket;
     private List<int> ingredientAmounts;
-    private string[] ingredients = { "Bag(s) of Coffee Beans", "Bottle(s) of Milk", "Sugar Cube(s)", "Can(s) of Oil", "Cog(s)", "Vile(s) of Green Juice", "EyeBall(s)" };
+    public Ingredient[] orderIngredients; //= { "Bag(s) of Coffee Beans", "Bottle(s) of Milk", "Sugar Cube(s)", "Can(s) of Oil", "Cog(s)", "Vile(s) of Green Juice", "EyeBall(s)" }; // ALL INGREDIENTS
+    public Ingredient[] ingredientsRequired;
+    public int ingredientAmountMin = 0;
+    public int ingredientAmountMax = 3;
+    public Material[] customerSprite;//
+    public Material[] customerReactionSprite;
+    public CoffeeMachine coffeeMachine;//
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +26,8 @@ public class Customer : MonoBehaviour
         customer = FirstCustomer(customerSpawnTime);
         order = DialogueBox(0);
         StartCoroutine(customer);
+        Ingredient[] ingredientsRequired = new Ingredient[6];//probably not needed
+        //Texture[] customerSprite = new Texture[6];//
     }
 
     // Update is called once per frame
@@ -49,7 +57,7 @@ public class Customer : MonoBehaviour
             {
                 Debug.Log("There is currently a customer");
                 customerSpawnTime = 6.25f;
-                StopCoroutine(customer);
+                //StopCoroutine(customer);
             }
             //yield return false;
         }
@@ -57,7 +65,9 @@ public class Customer : MonoBehaviour
 
     void NewCustomer()
     {
+        
         GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<Renderer>().material = customerSprite[Random.Range(0, customerSprite.Length)];//
         StartCoroutine(order);
         // order here?
         // wait for drink?
@@ -67,16 +77,42 @@ public class Customer : MonoBehaviour
         // startcoroutine again?
     }
 
+
+
     private IEnumerator DialogueBox(float waitTime)
     {
         while (true)
         {
             yield return new WaitForSeconds(1.25f);
             speechBubble.gameObject.SetActive(true);
-            ingredientAmounts = new List<int> { Random.Range(0, 3), Random.Range(0, 3), Random.Range(0, 3) };
+            ingredientAmounts = new List<int> { Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax) };
             //human customer
-            dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + ingredients[0] + ", " + ingredientAmounts[1] + " " + ingredients[1] + ", " + ingredientAmounts[2] + " " + ingredients[2] + " please.";
-            docket.text = ingredientAmounts[0] + " x " + ingredients[0] + '\n' + ingredientAmounts[1] + " x " + ingredients[1] + '\n' + ingredientAmounts[2] + " x " + ingredients[2];
+            dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
+            
+            ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
+            coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
+            
+            int counter = 0;//cleaner
+            
+            for (int i = 0; i < ingredientAmounts[0]; i++)
+            {
+                ingredientsRequired[counter] = orderIngredients[0];
+                counter++;
+            }
+            
+            for (int i = 0; i < ingredientAmounts[1]; i++)
+            {
+                ingredientsRequired[counter] = orderIngredients[1];
+                counter++;
+            }
+            
+            for (int i = 0; i < ingredientAmounts[2]; i++)
+            {
+                ingredientsRequired[counter] = orderIngredients[2];
+                counter++;
+            }
+
+            docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
             yield return new WaitForSeconds(6.25f);
             speechBubble.gameObject.SetActive(false);
             StopCoroutine(order);
