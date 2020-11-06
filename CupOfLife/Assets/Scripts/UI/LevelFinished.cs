@@ -8,7 +8,7 @@ public class LevelFinished : MonoBehaviour
 
     public SceneFader sceneFader;
 
-    public void Continue()
+    public void Next()
     {
         
     }

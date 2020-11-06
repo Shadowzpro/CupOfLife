@@ -12,7 +12,7 @@ public class ServingBench : MonoBehaviour
     public float customerLeaving = 3.125f;
     private Rigidbody drinkRigidBody;
     public Text TipJar;
-    public static int ordersComplete = 0;
+    public int ordersComplete = 0; // <--- Was static so if something doesn't work might be this???
     public static int ordersFailed = 0;
     private IEnumerator coroutine;
     public bool isCoffeeMade = false;
@@ -143,8 +143,6 @@ public class ServingBench : MonoBehaviour
             Debug.Log("Destroyed");
             isCoffeeMade = false;
             StartCoroutine(coroutine);
-
-            
         }
 
         //DELETES THE GAME OBJECT SINCE ORDER IS SERVED

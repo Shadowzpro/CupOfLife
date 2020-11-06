@@ -10,6 +10,12 @@ public class Arm : MonoBehaviour
     public float movementSpeed = 10f;
     public float upDownSpeed = 10f;
 
+    //CURRENT ANGLE OF DRIFT
+    public float driftX = 0; // - pushes arm down, + up.
+    public float driftY = 0; // - pushes arm Left, + Right.
+    public float currentXDrift = 0;
+    public float currentYDrift = 0;
+
     // SPEED OF CLAW ROTATING
     public float rotationSpeed = 45f;
 
@@ -24,9 +30,16 @@ public class Arm : MonoBehaviour
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
+    
+    // REFERENCE TO ELBOW OBJECT
+    public GameObject elbow;
+    //Reference to other joint?
 
     // REFERENCE TO ARM'S RIGIDBODY
     private Rigidbody rigidBody;
+
+    //REFERENCE TO LASSSEREZ
+    public GameObject laser;
 
     void Awake()
     {
@@ -37,6 +50,67 @@ public class Arm : MonoBehaviour
     {
         Move();
         Rotate();
+        UpdateAngleOfDrift();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            laser.SetActive(true);
+        }
+        else 
+        {
+            laser.SetActive(false);
+        }
+
+    }
+
+    private void UpdateAngleOfDrift() 
+    {
+        if (driftX > 5) { driftX = 5; }
+        if (driftX < -5) { driftX = -5; }
+        if (driftY > 5) { driftY = 5; }
+        if (driftY < -5) { driftY = -5; }
+        
+        if (!Input.GetKey(KeyCode.R)) 
+        {
+            if (driftX < 0) 
+            {
+                currentXDrift = -1;
+                driftX = driftX + (20 * Time.deltaTime);
+            }
+        }
+        if (!Input.GetKey(KeyCode.A))
+        {
+            if (driftY > 0)
+            {
+                currentYDrift = 1;
+                driftY = driftY - (20 * Time.deltaTime);
+            }
+        }
+        if (!Input.GetKey(KeyCode.F))
+        {
+            if (driftX > 0)
+            {
+                currentXDrift = 1;
+                driftX = driftX - (20 * Time.deltaTime);
+            }
+        }
+        if (!Input.GetKey(KeyCode.D))
+        {
+            if (driftY < 0)
+            {
+                currentXDrift = -1;
+                driftY = driftY + (20 * Time.deltaTime);
+            }
+        }
+
+        driftY = Mathf.Clamp(driftY,-5,5);
+        driftX = Mathf.Clamp(driftX, -5, 5);
+
+        elbow.transform.localEulerAngles = new Vector3(2*driftX, 2*driftY, 0);
+        transform.localEulerAngles = new Vector3(driftX, driftY, 0);
+
+
+
+
     }
 
     //FUNCTION TO MOVE THE ARM IN 3 DIMENSIONS
@@ -58,21 +132,33 @@ public class Arm : MonoBehaviour
                 transform.position -= Vector3.forward * movementSpeed * Time.deltaTime;
             }
         }
-        // MOVE LEFT
+        // MOVE RIGHT
         if (Input.GetKey(KeyCode.D))
         {
             if (transform.position.x > leftMax) //HARDCODED VALUE
             {
                 transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
             }
+
+            if (driftY > -5) 
+            {
+                driftY = (driftY - 10 * Time.deltaTime);
+            }
+
         }
-        // MOVE RIGHT 
+        // MOVE LEFT 
         if (Input.GetKey(KeyCode.A))
         {
             if (transform.position.x < rightMax) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             }
+
+            if (driftY < 5)
+            {
+                driftY = (driftY + 10 * Time.deltaTime);
+            }
+
         }
         // MOVE UP
         if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.UpArrow))
@@ -81,6 +167,12 @@ public class Arm : MonoBehaviour
             {
                 transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
             }
+
+            if (driftX > -5)
+            {
+                driftX = (driftX - 10 * Time.deltaTime);
+            }
+
         }
         // MOVE DOWN
         if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.DownArrow))
@@ -89,6 +181,12 @@ public class Arm : MonoBehaviour
             {
                 transform.position -= Vector3.up * upDownSpeed * Time.deltaTime;
             }
+            
+            if (driftX < 5)
+            {
+                driftX = (driftX + 10 * Time.deltaTime);
+            }
+
         }
     }
 

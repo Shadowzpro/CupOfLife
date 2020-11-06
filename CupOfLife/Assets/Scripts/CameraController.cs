@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     // TRANSFORM OF THE CAMERA
     public Transform cameraTransform;
 
+    //reference to actual camera object
+    public GameObject cameraObj;
+
     // REFERENCE TO PLAYER GAMEOBJECT
     private GameObject player;
 
@@ -25,18 +28,41 @@ public class CameraController : MonoBehaviour
     public float lookAtYAxis = 3.25f;
     public float lookAtZAxis = -24.5f;
 
+    public float cameraMinX;
+    public float cameraMaxX;
+
+
+
     private void Awake()
     {
         // PLAYER GAMEOBJECT IS INITIALIZED AS OBJECT WITH TAG "DESTINATION"
         player = GameObject.FindGameObjectWithTag("Destination");
+
+        cameraMinX = 15.5f;
+        cameraMaxX = 21.5f;
     }
 
     private void Update()
     {
+        
+        
         if (cameraTransform != null)
         {
+
+            Vector3 startPos = cameraTransform.position;
+            Vector3 endPos = player.transform.position;
+            if (endPos.x < cameraMinX) { endPos.x = cameraMinX; }
+            if (endPos.x > cameraMaxX) { endPos.x = cameraMaxX; }
+            endPos.y = startPos.y;
+            endPos.z = startPos.z;
+
+            cameraTransform.position = Vector3.Lerp(startPos, endPos, 10* Time.deltaTime);
+
             // CAMERA LOOKS AT THE PLAYER'S X-POSITION AS IT MOVES LEFT AND RIGHT 
             cameraTransform.LookAt(new Vector3(player.transform.position.x, lookAtYAxis, lookAtZAxis));
+
+            
+                
         }
     }
 }

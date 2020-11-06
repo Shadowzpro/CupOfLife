@@ -46,16 +46,33 @@ MonoBehaviour:
   spawnPoint: {fileID: 8005640977730365372, guid: 2c5dfd071e145ac4bae66779161086b2,
     type: 3}
   dissolveShader: {fileID: 0}
+  dissolveShader2: {fileID: 0}
   liquidShader: {fileID: 0}
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
   liquidLevelProgress: 1
   internalLiquid: {fileID: 3138698551651301172}
+  internalGlass: {fileID: 7386848970083027939}
   pickUpDistance: 0.5
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 2456991577141807640}
   ingredientName: Oil
+--- !u!114 &2137987414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138698551651301172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8cfa907239dfa49a19f5d44a67ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.003
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1001 &5852728725155959569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,7 +88,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.447
+      value: 2.426
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
         type: 3}
@@ -118,6 +135,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3136997546513687470, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
+    - target: {fileID: -1392023466687087366, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05c7daef2e1f36c4ab9fbf3958df9e27, type: 2}
     - target: {fileID: -927199367670048503, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
         type: 3}
       propertyPath: m_Name
@@ -133,6 +160,12 @@ PrefabInstance:
 --- !u!1 &2456991577141807640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5852728725155959569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7386848970083027939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5207764512963880718, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
     type: 3}
   m_PrefabInstance: {fileID: 5852728725155959569}
   m_PrefabAsset: {fileID: 0}

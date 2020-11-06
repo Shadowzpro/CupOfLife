@@ -10,12 +10,14 @@ public class Ingredient : MonoBehaviour
     public GameObject theVoid;
     public GameObject spawnPoint;
     public Renderer dissolveShader;
+    public Renderer dissolveShader2;
     public Renderer liquidShader;
     public bool isLiquid = false;
     public bool isFadingIn = true;
     public float dissolveFloatProgress = 1;
     public float liquidLevelProgress = 1;
     public GameObject internalLiquid;
+    public GameObject internalGlass;
 
     [Header("Hand")]
     // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
@@ -48,6 +50,11 @@ public class Ingredient : MonoBehaviour
         else if (ingredientName == "GreenJuice")
         {
             gameObject.GetComponentInChildren<WobbleViscous>().enabled = true;
+            isLiquid = true;
+        }
+        else if (ingredientName == "Oil")
+        {
+            gameObject.GetComponentInChildren<Wobble>().enabled = true;
             isLiquid = true;
         }
 
@@ -83,7 +90,7 @@ public class Ingredient : MonoBehaviour
                 liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
 
             }
-            else if (ingredientName == "GreenJuice") 
+            else if (ingredientName == "GreenJuice")
             {
                 dissolveShader = GetComponent<Renderer>();
                 dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
@@ -96,6 +103,27 @@ public class Ingredient : MonoBehaviour
 
                 liquidLevelProgress = 1;
                 liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+            }
+            else if (ingredientName == "Oil") 
+            {
+                dissolveShader = GetComponent<Renderer>();
+                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+                dissolveFloatProgress = 0;
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
+
+                dissolveShader2 = internalGlass.GetComponent<Renderer>();
+                dissolveShader2.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
+                dissolveFloatProgress = 0;
+                dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
+
+                liquidShader = internalLiquid.GetComponent<Renderer>();
+                liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/LiquidOil");
+
+                liquidLevelProgress = 1;
+                liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+
             }
 
             
@@ -126,21 +154,46 @@ public class Ingredient : MonoBehaviour
             }
             else //if (ingredientName == "Milk") 
             {
-                dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
-                liquidLevelProgress = liquidLevelProgress - (0.25f * Time.deltaTime);
-
-                if (dissolveFloatProgress >= 1)
+                if (ingredientName == "Oil")
                 {
-                    dissolveFloatProgress = 1f;
-                    liquidLevelProgress = 0.5f;
-                    isFadingIn = false;
-                    dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
-                    liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
+                    liquidLevelProgress = liquidLevelProgress - (0.25f * Time.deltaTime);
+
+                    if (dissolveFloatProgress >= 1)
+                    {
+                        dissolveFloatProgress = 1f;
+                        liquidLevelProgress = 0.5f;
+                        isFadingIn = false;
+                        dissolveShader.material.SetFloat("dissolveProgress", 1 - dissolveFloatProgress);
+                        dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    }
+                    else
+                    {
+                        dissolveShader.material.SetFloat("dissolveProgress", 1-dissolveFloatProgress);
+                        dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    }
+
                 }
                 else
                 {
-                    dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
-                    liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
+                    liquidLevelProgress = liquidLevelProgress - (0.25f * Time.deltaTime);
+
+                    if (dissolveFloatProgress >= 1)
+                    {
+                        dissolveFloatProgress = 1f;
+                        liquidLevelProgress = 0.5f;
+                        isFadingIn = false;
+                        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    }
+                    else
+                    {
+                        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
+                    }
                 }
             }
 

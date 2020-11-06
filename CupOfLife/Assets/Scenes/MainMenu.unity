@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b909bbe2f5b5eec4c9d81dcc39204769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: SampleScene
+  levelToLoad: Blockout
   sceneFader: {fileID: 1161215884}
   mainMenuUI: {fileID: 1166805264}
   creditsUI: {fileID: 866191796}

@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
     //GAME TIME STARTS AT 9AM
     public float gameTime = 9 * 60;
     public float timeMultiplier = 1.6f;
-    
+
+    [Header("References")]
+    public ServingBench servingBench;
+    public GameObject levelFinishedUI;
+    public GameObject gameOverUI;
     
     public float GameTime
     {
@@ -21,20 +25,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-
     //DISABLES TIMER AT VERY START FOR MENU PURPOSES
     //WILL NEED TO CHANGE THIS WITH GAMESTATES
     void Start()
     {
         timerText.gameObject.SetActive(false);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
