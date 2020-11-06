@@ -7,7 +7,7 @@ public class MakeTheCoffee : MonoBehaviour
     public ServingBench SB;
 
     [Header("Public Variables")]
-	public CoffeeMachine IngredientContainer;
+	//public CoffeeMachine IngredientContainer;
     public Coffee coffeePrefab; // The empty coffee cup
 
     // Push a button on the Coffee Machine with your arm
@@ -21,9 +21,11 @@ public class MakeTheCoffee : MonoBehaviour
         {
             Debug.Log("Button Pushed by Arm");
             //Craft();
+            
             CoffeeMaker();
+
             EmptyCoffeeMachine();
-            CleanCoffeePrefab();
+            //CleanCoffeePrefab();
         }
     }
 
@@ -63,9 +65,11 @@ public class MakeTheCoffee : MonoBehaviour
 
     public void CoffeeMaker()
     {
+        coffeePrefab.ingredients = new Ingredient[coffeeMachine.ingredientSlots.Length];//////
         for (int i = 0; i < coffeeMachine.ingredientSlots.Length; i++)
         {
-            coffeePrefab.ingredients.Add(coffeeMachine.ingredientSlots[i]);
+            //coffeePrefab.ingredients.Add(coffeeMachine.ingredientSlots[i]);
+            coffeePrefab.ingredients[i] = coffeeMachine.ingredientSlots[i];
             Debug.Log("Ingredient Added to Coffee");
         }
         Instantiate(coffeePrefab, coffeeMachine.coffeeSpawnPoint.transform.position, Quaternion.identity);
@@ -88,13 +92,13 @@ public class MakeTheCoffee : MonoBehaviour
         }
     }
 
-    public void CleanCoffeePrefab()
-    {
-        for (int i = 0; i < 200; i++)
-        {
-            coffeePrefab.ingredients.Remove(coffeePrefab.ingredients[i]);
-        }
-    }
+    //public void CleanCoffeePrefab()
+    //{
+    //    for (int i = 0; i < 200; i++)
+    //    {
+    //        coffeePrefab.ingredients.Remove(coffeePrefab.ingredients[i]);
+    //    }
+    //}
 
     /// <summary>
     /// Make the coffee

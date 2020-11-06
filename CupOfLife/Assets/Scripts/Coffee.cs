@@ -15,8 +15,8 @@ public class Coffee : MonoBehaviour
     /// <summary>
     /// The Ingredients
     /// </summary>
-    public List<Ingredient> ingredients;
-
+    //public List<Ingredient> ingredients;
+    public Ingredient[] ingredients;
     public Renderer dissolveShader;
     public bool isFadingIn = true;
     public bool isFadingOut = false;

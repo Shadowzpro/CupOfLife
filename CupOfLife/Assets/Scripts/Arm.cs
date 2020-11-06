@@ -14,8 +14,12 @@ public class Arm : MonoBehaviour
     public float rotationSpeed = 45f;
 
     [Header("Constraints")]
-    public float forward = -14.5f;
-    public float backward = -12.5f;
+    public float forwardMax = -14.5f;
+    public float backwardMax = -12.5f;
+    public float leftMax = 14.5f;
+    public float rightMax = 22.5f;
+    public float vertMax = 3.925f;
+    public float vertMin = 2.265f;
 
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
@@ -41,7 +45,7 @@ public class Arm : MonoBehaviour
         // MOVE BACKWARD
         if (Input.GetKey(KeyCode.S))
         {
-            if (transform.position.z < backward) //HARDCODED VALUE
+            if (transform.position.z < backwardMax) //HARDCODED VALUE
             {
                 transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
             }
@@ -49,7 +53,7 @@ public class Arm : MonoBehaviour
         // MOVE FORWARD
         if (Input.GetKey(KeyCode.W))
         {
-            if (transform.position.z > forward) //HARDCODED VALUE
+            if (transform.position.z > forwardMax) //HARDCODED VALUE
             {
                 transform.position -= Vector3.forward * movementSpeed * Time.deltaTime;
             }
@@ -57,7 +61,7 @@ public class Arm : MonoBehaviour
         // MOVE LEFT
         if (Input.GetKey(KeyCode.D))
         {
-            if (transform.position.x > 14.5) //HARDCODED VALUE
+            if (transform.position.x > leftMax) //HARDCODED VALUE
             {
                 transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
             }
@@ -65,7 +69,7 @@ public class Arm : MonoBehaviour
         // MOVE RIGHT 
         if (Input.GetKey(KeyCode.A))
         {
-            if (transform.position.x < 22.5) //HARDCODED VALUE
+            if (transform.position.x < rightMax) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             }
@@ -73,7 +77,7 @@ public class Arm : MonoBehaviour
         // MOVE UP
         if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.UpArrow))
         {
-            if (transform.position.y < 3.925) //HARDCODED VALUE
+            if (transform.position.y < vertMax) //HARDCODED VALUE
             {
                 transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
             }
@@ -81,7 +85,7 @@ public class Arm : MonoBehaviour
         // MOVE DOWN
         if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.DownArrow))
         {
-            if (transform.position.y > 2.265) //HARDCODED VALUE
+            if (transform.position.y > vertMin) //HARDCODED VALUE
             {
                 transform.position -= Vector3.up * upDownSpeed * Time.deltaTime;
             }

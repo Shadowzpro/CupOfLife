@@ -6,17 +6,21 @@ using UnityEngine.UI;
 public class ServingBench : MonoBehaviour
 {
     //REFERENCE TO PARTICLE SYSTEM THAT MAY BE ATTACHED
-    public ParticleSystem confetti;
+    //public ParticleSystem confetti;
     public GameObject drink;
     public float secondsToDestroy = 4;
+    public float customerLeaving = 3.125f;
     private Rigidbody drinkRigidBody;
     public Text TipJar;
     public static int ordersComplete = 0;
+    public static int ordersFailed = 0;
     private IEnumerator coroutine;
     public bool isCoffeeMade = false;
     public bool isCoffeeFadingAway = false;
     public Renderer dissolveShader;
     public float coffeeDissolveProg;
+    public Customer currentCustomer;
+    private bool correctCoffee;
 
     private void Update()
     {
@@ -54,7 +58,7 @@ public class ServingBench : MonoBehaviour
     {
         drink = GameObject.FindWithTag("Coffee");
         drinkRigidBody = drink.GetComponent<Rigidbody>();
-        //coroutine = UpdateText(secondsToDestroy);
+        coroutine = UpdateText(secondsToDestroy);
     }
 
     //FUNCTION RUNS WHEN SOMETHING TRIGGERS THE COLLIDER
@@ -63,20 +67,84 @@ public class ServingBench : MonoBehaviour
         //CHECKS IF THE GAMEOBJECT IS HAS A DRINK TAG
         if (other.CompareTag("Coffee"))
         {
-            //IF GAMEOBJECT IS A DRINK
+            //foreach (Ingredient orderIngredient in currentCustomer.ingredientsRequired)
+            //{
+            //    for (int i = 0; i < drink.GetComponent<Coffee>().ingredients.Length; i++)//count
+            //    {
+            //        Debug.Log("comparing " + orderIngredient.tag + " and " + drink.GetComponent<Coffee>().ingredients[i].tag);
+            //        if (orderIngredient.tag == drink.GetComponent<Coffee>().ingredients[i].tag)
+            //        {
+            //            Debug.Log(orderIngredient.tag + " matches " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
+            //        }
+            //        else
+            //        {
+            //            Debug.Log(orderIngredient.tag + " does not match " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
+            //        }
+            //    }
+            //}
+            Debug.Log("start check");
+            bool[] visited = new bool[drink.GetComponent<Coffee>().ingredients.Length];
+            if (currentCustomer.ingredientsRequired.Length == drink.GetComponent<Coffee>().ingredients.Length)
+            {
+                for (int i = 0; i < currentCustomer.ingredientsRequired.Length; i++)
+                {
+                    for (int j = 0; j < drink.GetComponent<Coffee>().ingredients.Length; j++)//
+                    {
+                        //ContainsIngredient(currentCustomer.ingredientsRequired[i]);
+                        //Debug.Log("comparing " + currentCustomer.ingredientsRequired[i].tag + " and " + drink.GetComponent<Coffee>().ingredients[j].tag);
+
+                        if (drink.GetComponent<Coffee>().ingredients[j] == null)
+                        {
+                            //drink.GetComponent<Coffee>().ingredients[j] = new Ingredient();
+                            Debug.Log("missing ingredient");
+                            break;
+                        }
+                        else if (currentCustomer.ingredientsRequired[i].tag == drink.GetComponent<Coffee>().ingredients[j].tag && visited[j] == false)
+                        {
+                            visited[j] = true;
+                            Debug.Log(currentCustomer.ingredientsRequired[i].tag + " matches " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                            break;
+                        }
+                        else
+                        {
+                            Debug.Log(currentCustomer.ingredientsRequired[i].tag + " does not match " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                        }
+                    }
+                }
+            }
+
+            foreach (bool checkedIngredient in visited)
+            {
+                if (checkedIngredient == true)
+                {
+                    correctCoffee = true;
+                    Debug.Log("coffee is correct");
+                }
+                else
+                {
+                    correctCoffee = false;
+                    Debug.Log("coffee is incorrect");
+                    break;
+                }
+            }
             
+
+            //IF GAMEOBJECT IS A DRINK
+
             // begin fadeing stuff
             isCoffeeFadingAway = true;
             dissolveShader = drink.GetComponent<Renderer>();
             dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
             coffeeDissolveProg = 0;
             // end fading stuff
-
+            
             Destroy(drinkRigidBody);
             Destroy(drink, secondsToDestroy);
             Debug.Log("Destroyed");
             isCoffeeMade = false;
-            //StartCoroutine(coroutine);
+            StartCoroutine(coroutine);
+
+            
         }
 
         //DELETES THE GAME OBJECT SINCE ORDER IS SERVED
@@ -90,12 +158,56 @@ public class ServingBench : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            ordersComplete++;
-            TipJar.text = "" + ordersComplete;
-            //PLAY PARTICLE EFFECT
-            confetti.Play();
+            Debug.Log(correctCoffee);
+            if (correctCoffee == true)
+            {
+                currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[0];
+                ordersComplete++;
+                TipJar.text = "" + ordersComplete;
+                //PLAY PARTICLE EFFECT
+                //confetti.Play();
+                yield return new WaitForSeconds(customerLeaving);
+                CustomerFinished();
+                if (ordersComplete == 10)
+                {
+                    //win or keep playing
+                }
+            }
+            else
+            {
+                currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[1];
+                ordersFailed++;
+                yield return new WaitForSeconds(customerLeaving);
+                CustomerFinished();
+                if (ordersFailed == 3)
+                {
+                    //lose
+                }
+            }
+            currentCustomer.docket.text = "";
+            
             StopCoroutine(coroutine);
+            
             Debug.Log("This worked?");
         }
     }
+
+    void CustomerFinished()
+    {
+        currentCustomer.GetComponent<MeshRenderer>().enabled = false;
+        
+    }
+    //public bool ContainsIngredient(Ingredient ingredient)
+    //{
+    //    for (int i = 0; i < drink.GetComponent<Coffee>().ingredients.Count; i++) // change list to array?
+    //    {
+    //        if (drink.GetComponent<Coffee>().ingredients[i].ingredientName == ingredient.ingredientName)
+    //        {
+    //            Debug.Log("matches?");
+    //            return true;
+    //        }
+    //    }
+    //    Debug.Log("does not match");
+    //    return false;
+    //}
 }
