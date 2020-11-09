@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0039986838, g: 0.00021811333, b: 0.000000051769995,
+  m_IndirectSpecularColor: {r: 0.0039986838, g: 0.00021811329, b: 0.000000051769995,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -770,6 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102118263}
   - component: {fileID: 102118264}
+  - component: {fileID: 102118265}
   m_Layer: 0
   m_Name: Spot Light (3)
   m_TagString: Untagged
@@ -852,6 +853,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &102118265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102118262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &110294335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1163,6 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184248229}
   - component: {fileID: 184248230}
+  - component: {fileID: 184248231}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -1245,6 +1276,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &184248231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184248228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &212937746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 212937747}
   - component: {fileID: 212937748}
+  - component: {fileID: 212937749}
   m_Layer: 0
   m_Name: Customer Light
   m_TagString: Untagged
@@ -1337,6 +1398,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &212937749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212937746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &216786685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264284075}
   - component: {fileID: 264284076}
+  - component: {fileID: 264284077}
   m_Layer: 0
   m_Name: Spot Light (4)
   m_TagString: Untagged
@@ -1589,6 +1680,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &264284077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264284074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &283127153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,6 +3375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515454399}
   - component: {fileID: 515454400}
+  - component: {fileID: 515454401}
   m_Layer: 0
   m_Name: Spot Light (8)
   m_TagString: Untagged
@@ -3337,6 +3458,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &515454401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515454398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &530518004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3416,6 +3566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543801611}
   - component: {fileID: 543801612}
+  - component: {fileID: 543801613}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -3498,6 +3649,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &543801613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543801610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.5254902, g: 0.7058824, b: 0.7058824, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &555949314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4909,6 +5089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705597178}
   - component: {fileID: 705597179}
+  - component: {fileID: 705597180}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -4991,6 +5172,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &705597180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705597177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.5254902, g: 0.7058824, b: 0.7058824, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &712181269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 84254ac2f676b8443b2dfc999ace111c,
@@ -5151,6 +5361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753612671}
   - component: {fileID: 753612672}
+  - component: {fileID: 753612673}
   m_Layer: 0
   m_Name: Spot Light (2)
   m_TagString: Untagged
@@ -5233,6 +5444,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &753612673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753612670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &756174856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,6 +5567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814669729}
   - component: {fileID: 814669730}
+  - component: {fileID: 814669731}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -5409,6 +5650,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &814669731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814669728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.5254902, g: 0.7058824, b: 0.7058824, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &848738681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +6202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952762919}
   - component: {fileID: 952762920}
+  - component: {fileID: 952762921}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -6014,6 +6285,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &952762921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952762918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &954423235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 954423235, guid: 5995c9886001a3242bea34f7edabc8ed,
@@ -6687,6 +6987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1176387453}
   - component: {fileID: 1176387454}
+  - component: {fileID: 1176387455}
   m_Layer: 0
   m_Name: Spot Light (5)
   m_TagString: Untagged
@@ -6769,6 +7070,35 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1176387455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176387452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  repeatRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  maxIntensity: 10
+  repeatIntensity: 0
+  changeColours: 1
+  colourSpeed: 0.1
+  startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
+  midColour: {r: 0, g: 0, b: 0, a: 1}
+  endColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &1202587375
 PrefabInstance:
   m_ObjectHideFlags: 0
