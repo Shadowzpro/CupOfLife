@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class LightAdjuster : MonoBehaviour
 {
+    [Header("References")]
     public GameManager gameManager; // Reference the Game Manager
-    public float afternoon = 720;
-    public float evening = 960;
+    [HideInInspector]
+    public float afternoon = 720;   // 12:00pm
+    [HideInInspector]
+    public float evening = 960;     // 4:00pm
 
     [Header("Light Reference")]
     public Light myLight;
@@ -14,14 +17,16 @@ public class LightAdjuster : MonoBehaviour
     [Header("Range Variables")]
     public bool changeRange = false;
     public float rangeSpeed = 1.0f;
-    public float maxRange = 10.0f;
-    public bool repeatRange = false;
+    public float morningRange;
+    public float afternoonRange;
+    public float eveningRange;
 
     [Header("Intensity Variables")]
     public bool changeIntensity = false;
     public float intensitySpeed = 1.0f;
-    public float maxIntensity = 10.0f;
-    public bool repeatIntensity = false;
+    public float morningIntensity;
+    public float afternoonIntensity;
+    public float eveningIntensity;
 
     [Header("Colour Variables")]
     public bool changeColours = false;
@@ -32,44 +37,31 @@ public class LightAdjuster : MonoBehaviour
 
     void Start()
     {
-        myLight = GetComponent<Light>(); // Get the Light GameObject
-        myLight.color = startColour; // Set the light's starting colour
+        myLight = GetComponent<Light>();      // Get the Light GameObject
+        myLight.color = startColour;          // Set the light's starting colour
+        morningIntensity = myLight.intensity; // Set the morningIntensity to the Intensity that's already set
+        morningRange = myLight.range;         // Set the morningRange to the range that's already set
     }
 
     void Update()
-    {
-        //if (changeRange)
-        //{
-        //    if (repeatRange)
-        //    {
-        //        myLight.range = Mathf.PingPong(Time.time * rangeSpeed, maxRange); // Pingpong goes up and back down repeatedly
-        //    } else
-        //    {
-        //        myLight.range = Time.time * rangeSpeed; 
-        //        if (myLight.range >= maxRange) changeRange = false; // If light's max range is reached, stop
-        //    }
-        //}
-
-        //if (changeIntensity)
-        //{
-        //    if (repeatIntensity)
-        //    {
-        //        myLight.intensity = Mathf.PingPong(Time.time * intensitySpeed, maxIntensity); // Pingpong goes up and back down repeatedly
-        //    }
-        //    else
-        //    {
-        //        myLight.intensity = Time.time * intensitySpeed;
-        //        if (myLight.intensity >= maxIntensity) changeIntensity = false; // If light's max intensity is reached, stop
-        //    }
-        //}
-        
+    {        
         // Afternoon 12:00pm
         if (gameManager.gameTime >= afternoon && gameManager.gameTime <= evening)
         {
             if (changeColours)
             {
-                    float t = (gameManager.gameTime - afternoon) * colourSpeed;
-                    myLight.color = Color.Lerp(startColour, midColour, t);
+                float t = (gameManager.gameTime - afternoon) * colourSpeed;
+                myLight.color = Color.Lerp(startColour, midColour, t);
+            }
+            if (changeIntensity)
+            {
+                float t = (gameManager.gameTime - afternoon) * intensitySpeed;
+                myLight.intensity = Mathf.Lerp(morningIntensity, afternoonIntensity, t);
+            }
+            if (changeRange)
+            {
+                float t = (gameManager.gameTime - afternoon) * rangeSpeed;
+                myLight.range = Mathf.Lerp(morningRange, afternoonRange, t);
             }
         }
         
@@ -78,8 +70,18 @@ public class LightAdjuster : MonoBehaviour
         {
             if (changeColours)
             {
-                    float t = (gameManager.gameTime - evening) * colourSpeed;
-                    myLight.color = Color.Lerp(midColour, endColour, t);
+                float t = (gameManager.gameTime - evening) * colourSpeed;
+                myLight.color = Color.Lerp(midColour, endColour, t);
+            }
+            if (changeIntensity)
+            {
+                float t = (gameManager.gameTime - evening) * intensitySpeed;
+                myLight.intensity = Mathf.Lerp(afternoonIntensity, eveningIntensity, t);
+            }
+            if (changeRange)
+            {
+                float t = (gameManager.gameTime - evening) * rangeSpeed;
+                myLight.range = Mathf.Lerp(afternoonRange, eveningRange, t);
             }
         }
     }
