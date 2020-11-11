@@ -46,12 +46,14 @@ MonoBehaviour:
   spawnPoint: {fileID: 8005640977730365372, guid: 2b9d83eeb20cad24f9a95aa16a0f43b2,
     type: 3}
   dissolveShader: {fileID: 0}
+  dissolveShader2: {fileID: 0}
   liquidShader: {fileID: 0}
   isLiquid: 0
   isFadingIn: 1
   dissolveFloatProgress: 1
   liquidLevelProgress: 1
   internalLiquid: {fileID: 0}
+  internalGlass: {fileID: 0}
   pickUpDistance: 0.3
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 340112704803333927}
@@ -63,6 +65,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5178661895559278292, guid: 0ff1cfc7f81cb044a9f6cf941a6e35f5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -9138851543162045969, guid: 17e822e142911be499d7124d16e7504e,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: 0ff1cfc7f81cb044a9f6cf941a6e35f5,
         type: 3}
       propertyPath: m_LocalPosition.x

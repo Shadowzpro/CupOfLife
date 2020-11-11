@@ -80,6 +80,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5178661895559278292, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7231938110047063850, guid: ebc5e0ba2c75fd641904e75f0d6e98f4,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -155,6 +161,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Oil
       objectReference: {fileID: 0}
+    - target: {fileID: -345949541279039147, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3093320722922985648, guid: ebc5e0ba2c75fd641904e75f0d6e98f4,
+        type: 3}
+    - target: {fileID: 7851938662709363441, guid: 50b6e7b6ab0089142ae5ea472b4601e6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 228297756649806213, guid: ebc5e0ba2c75fd641904e75f0d6e98f4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b6e7b6ab0089142ae5ea472b4601e6, type: 3}
 --- !u!1 &2456991577141807640 stripped
