@@ -47,7 +47,15 @@ public class Coffee : MonoBehaviour
         dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // If the Coffee touches the "void" at the bottom of the map, destroy it
 
+        if (collision.gameObject.CompareTag("Void"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -90,8 +98,6 @@ public class Coffee : MonoBehaviour
         }
 
         ///END FADE OUT
-
-
     }
 
     /// <summary>

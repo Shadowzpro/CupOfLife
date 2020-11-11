@@ -125,10 +125,7 @@ public class Ingredient : MonoBehaviour
                 liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
 
             }
-
-            
         }
-      
     }
 
     private void UpdateFade() 
@@ -196,14 +193,9 @@ public class Ingredient : MonoBehaviour
                     }
                 }
             }
-
-
         }
-
         /// END FADE IN.
-
     }
-
 
     private void Update()
     {
