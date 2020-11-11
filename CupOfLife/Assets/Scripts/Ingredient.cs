@@ -231,7 +231,7 @@ public class Ingredient : MonoBehaviour
     public void Grab()
     {
         float distance = (theDest.transform.position - transform.position).magnitude;
-        if (Input.GetKeyDown(KeyCode.Space) && theDest.transform.childCount < 1)
+        if (Input.GetMouseButtonDown(0) && theDest.transform.childCount < 1)
         {
             if (distance < pickUpDistance)
             {
@@ -250,7 +250,7 @@ public class Ingredient : MonoBehaviour
     /// </summary>
     public void Drop()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetMouseButtonUp(0))
         {
             // ITEM IS NO LONGER A CHILD OF CLAW
             this.transform.parent = null;
