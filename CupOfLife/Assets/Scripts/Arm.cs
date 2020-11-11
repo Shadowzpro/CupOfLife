@@ -35,6 +35,7 @@ public class Arm : MonoBehaviour
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
+    public GameManager gameManager;
     
     // REFERENCE TO ELBOW OBJECT
     public GameObject elbow;
@@ -53,6 +54,12 @@ public class Arm : MonoBehaviour
 
     private void Update()
     {
+        if (gameManager.gameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
+
         //xMouseMovement = HorizontalMovement();
         //yMouseMovement = VerticalMovement();
         //zMouseMovement = ForwardMovement();

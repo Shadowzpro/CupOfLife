@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     public float gameTime = 9 * 60;
     public float timeMultiplier = 1.6f;
 
+    [Header("Variables")]
+    public int ordersToComplete;
+    [HideInInspector]
+    public bool gameIsOver = false;
+    public int day;
+
     [Header("References")]
     public ServingBench servingBench;
     public GameObject levelFinishedUI;
@@ -29,12 +35,31 @@ public class GameManager : MonoBehaviour
     //WILL NEED TO CHANGE THIS WITH GAMESTATES
     void Start()
     {
+        day++;
         timerText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameTime >= 1020)
+        {
+            this.enabled = false;
+            Debug.Log("Game is Over");
+            gameIsOver = true;
+
+            if (servingBench.ordersComplete >= ordersToComplete)
+            {
+                Debug.Log("Win");
+                levelFinishedUI.SetActive(!levelFinishedUI.activeSelf);
+            }
+            else
+            {
+                Debug.Log("Lose");
+                gameOverUI.SetActive(!gameOverUI.activeSelf);
+            }
+        }
+
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
@@ -65,10 +90,6 @@ public class GameManager : MonoBehaviour
             {
                 timerText.text = string.Format("{0:D2}:{1:D2}", (minutes / 60), (minutes % 60)) + "am";
             }
-        }
-        if (gameTime == 1020)
-        {
-            //time up
         }
     }
 }
