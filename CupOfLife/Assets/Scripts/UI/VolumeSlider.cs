@@ -3,12 +3,15 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-    public Slider sliderSensitivity;
+    public Arm playerHand;
+    public Slider horizontalSlider;
+    public Slider verticalSlider;
     public Slider sliderVolume;
+
     void Start()
     {
-        //sliderSensitivity.value = playerCharacterController.m_MouseLook.XSensitivity;
-        //sliderSensitivity.value = playerCharacterController.m_MouseLook.YSensitivity;
+        horizontalSlider.value = playerHand.leftRightMovementSpeed;
+        verticalSlider.value = playerHand.upDownSpeed;
 
         AudioListener.volume = 1.0f;
         sliderVolume.value = AudioListener.volume;
@@ -16,8 +19,8 @@ public class VolumeSlider : MonoBehaviour
 
     void Update()
     {
-        //playerCharacterController.m_MouseLook.XSensitivity = sliderSensitivity.value;
-        //playerCharacterController.m_MouseLook.YSensitivity = sliderSensitivity.value;
+        playerHand.leftRightMovementSpeed = horizontalSlider.value;
+        playerHand.upDownSpeed = verticalSlider.value;
 
         AudioListener.volume = sliderVolume.value;
     }
