@@ -87,33 +87,94 @@ public class Customer : MonoBehaviour
             speechBubble.gameObject.SetActive(true);
             ingredientAmounts = new List<int> { Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax) };
             //human customer
-            dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
-            
-            ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
-            coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
-            
-            int counter = 0;//cleaner
-            
-            for (int i = 0; i < ingredientAmounts[0]; i++)
+            if (GetComponent<Renderer>().material == customerSprite[0] || GetComponent<Renderer>().material == customerSprite[1])
             {
-                ingredientsRequired[counter] = orderIngredients[0];
-                counter++;
-            }
-            
-            for (int i = 0; i < ingredientAmounts[1]; i++)
-            {
-                ingredientsRequired[counter] = orderIngredients[1];
-                counter++;
-            }
-            
-            for (int i = 0; i < ingredientAmounts[2]; i++)
-            {
-                ingredientsRequired[counter] = orderIngredients[2];
-                counter++;
-            }
+                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
 
-            docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
-            yield return new WaitForSeconds(6.25f);
+                ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
+                coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
+
+                int counter = 0;//cleaner
+
+                for (int i = 0; i < ingredientAmounts[0]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[0];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[1]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[1];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[2]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[2];
+                    counter++;
+                }
+
+                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
+            }
+            else if (GetComponent<Renderer>().material == customerSprite[2] || GetComponent<Renderer>().material == customerSprite[3])//robot
+            {
+                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[3].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[4].tag + " please.";
+
+                ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
+                coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
+
+                int counter = 0;//cleaner
+
+                for (int i = 0; i < ingredientAmounts[0]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[0];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[1]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[3];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[2]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[4];
+                    counter++;
+                }
+
+                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[3].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[4].tag;
+            }
+            else if (GetComponent<Renderer>().material == customerSprite[4] || GetComponent<Renderer>().material == customerSprite[5])//alien
+            {
+                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[5].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[6].tag + " please.";
+
+                ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
+                coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
+
+                int counter = 0;//cleaner
+
+                for (int i = 0; i < ingredientAmounts[0]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[0];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[1]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[5];
+                    counter++;
+                }
+
+                for (int i = 0; i < ingredientAmounts[2]; i++)
+                {
+                    ingredientsRequired[counter] = orderIngredients[6];
+                    counter++;
+                }
+
+                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[5].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[6].tag;
+            }
+                yield return new WaitForSeconds(6.25f);
             speechBubble.gameObject.SetActive(false);
             StopCoroutine(order);
         }
