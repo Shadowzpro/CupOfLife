@@ -158,28 +158,159 @@ public class ServingBench : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             Debug.Log(correctCoffee);
             if (correctCoffee == true)
-            {
-                currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[0];
-                ordersComplete++;
-                TipJar.text = "" + ordersComplete;
-                //PLAY PARTICLE EFFECT
-                //confetti.Play();
-                yield return new WaitForSeconds(customerLeaving);
-                CustomerFinished();
-                if (ordersComplete == 10)
+            {//switch statements
+                if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[0])
                 {
-                    //win or keep playing
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[0];//human1 happy
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[1])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[2];//human2 happy
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[2])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[4];
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[3])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[6];
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[4])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[8];
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[5])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[10];
+                    ordersComplete++;
+                    TipJar.text = "" + ordersComplete;
+                    //PLAY PARTICLE EFFECT
+                    //confetti.Play();
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersComplete == 10)
+                    {
+                        //win or keep playing
+                    }
                 }
             }
-            else
+            else //switch statements
             {
-                currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[1];
-                ordersFailed++;
-                yield return new WaitForSeconds(customerLeaving);
-                CustomerFinished();
-                if (ordersFailed == 3)
+                if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[0])
                 {
-                    //lose
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[1];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[1])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[3];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[2])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[5];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[3])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[7];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[4])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[9];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
+                }
+                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[5])
+                {
+                    currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[11];
+                    ordersFailed++;
+                    yield return new WaitForSeconds(customerLeaving);
+                    CustomerFinished();
+                    if (ordersFailed == 3)
+                    {
+                        //lose
+                    }
                 }
             }
             currentCustomer.docket.text = "";

@@ -28,6 +28,10 @@ public class Arm : MonoBehaviour
     public float vertMax = 3.925f;
     public float vertMin = 2.265f;
 
+    //private Vector3 xMouseMovement;
+    //private Vector3 yMouseMovement;
+    //private Vector3 zMouseMovement;
+
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
@@ -47,9 +51,12 @@ public class Arm : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void Update() // SHOULD I CHANGE THIS TO UPDATE?
+    private void Update()
     {
-        Move();
+        //xMouseMovement = HorizontalMovement();
+        //yMouseMovement = VerticalMovement();
+        //zMouseMovement = ForwardMovement();
+        Move(); // commented out so that horizontal and vertical movement work. this means drift does not work
         Rotate();
         UpdateAngleOfDrift();
         if (Input.GetMouseButton(0))
@@ -61,6 +68,52 @@ public class Arm : MonoBehaviour
             laser.SetActive(false);
         }
 
+    }
+
+    //private void FixedUpdate() //not smooth
+    //{
+    //    Vector3 new_position = transform.position + xMouseMovement + yMouseMovement;// + zMouseMovement;
+    //    new_position.x = Mathf.Clamp(new_position.x, leftMax, rightMax);
+    //    new_position.y = Mathf.Clamp(new_position.y, vertMin, vertMax);
+    //    //new_position.z = Mathf.Clamp(new_position.z, backwardMax, forwardMax);
+    //    rigidBody.MovePosition(new_position);
+    //}
+    public Vector3 HorizontalMovement()
+    {
+        Vector3 xMouseMovement = new Vector3(Input.GetAxisRaw("Mouse X"), 0, 0);
+
+        return xMouseMovement * -leftRightMovementSpeed * Time.fixedDeltaTime;//deltatime?
+    }
+
+    public Vector3 VerticalMovement()
+    {
+        Vector3 yMouseMovement = new Vector3(0, Input.GetAxisRaw("Mouse Y"), 0);
+
+        return yMouseMovement * upDownSpeed * Time.fixedDeltaTime;//delta time?
+    }
+
+    public Vector3 ForwardMovement() // currently bypassing set bounds
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        scroll = Mathf.Clamp(scroll, scroll - backwardMax, scroll + forwardMax);//probably not right
+        Vector3 zMouseMovement = new Vector3(0, 0, scroll);
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (rigidBody.position.z < backwardMax)
+            {
+                return zMouseMovement * forwardBackMovementSpeed * Time.fixedDeltaTime;//delta time?
+
+            }
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (rigidBody.position.z > forwardMax)
+            {
+                return zMouseMovement * -forwardBackMovementSpeed * Time.fixedDeltaTime;//delta time?
+            }
+        }
+        return zMouseMovement *=0;
     }
 
     private void UpdateAngleOfDrift() 
@@ -115,7 +168,7 @@ public class Arm : MonoBehaviour
     }
     
     //FUNCTION TO MOVE THE ARM IN 3 DIMENSIONS
-    private void Move() // RIGIDBODY MOVE POSITION?
+    private void Move()
     {
         // MOVE BACKWARD
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -125,6 +178,7 @@ public class Arm : MonoBehaviour
                 transform.position += Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
             }
         }
+
         // MOVE FORWARD
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
@@ -133,6 +187,7 @@ public class Arm : MonoBehaviour
                 transform.position -= Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
             }
         }
+
         // MOVE RIGHT
         if (Input.GetAxis("Mouse X") > 0)
         {
@@ -140,29 +195,33 @@ public class Arm : MonoBehaviour
             {
                 transform.position -= Vector3.right * leftRightMovementSpeed * Time.deltaTime;
             }
-
+        
             if (driftY > -5) 
             {
                 driftY = (driftY - 10 * Time.deltaTime);
             }
-
+        
         }
+
         // MOVE LEFT 
         if (Input.GetAxis("Mouse X") < 0)
         {
             if (transform.position.x < rightMax) //HARDCODED VALUE
             {
                 transform.position += Vector3.right * leftRightMovementSpeed * Time.deltaTime;
+                //inputVector = new Vector3(leftRightMovementSpeed, 0, 0);
+                //rigidBody.velocity = inputVector;
             }
-
+        
             if (driftY < 5)
             {
                 driftY = (driftY + 10 * Time.deltaTime);
             }
-
+        
         }
+
         // MOVE UP
-        if (Input.GetAxis("Mouse Y") > 0 || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Mouse Y") > 0)// || Input.GetKey(KeyCode.UpArrow))
         {
             if (transform.position.y < vertMax) //HARDCODED VALUE
             {
@@ -175,8 +234,9 @@ public class Arm : MonoBehaviour
             }
 
         }
+
         // MOVE DOWN
-        if (Input.GetAxis("Mouse Y") < 0 || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetAxis("Mouse Y") < 0)// || Input.GetKey(KeyCode.DownArrow))
         {
             if (transform.position.y > vertMin) //HARDCODED VALUE
             {
