@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
+    public GameObject settingsUI;
 
     public string menuSceneName = "";
 
@@ -30,6 +31,18 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
+
+    public void Settings()
+    {
+        ui.SetActive(!ui.activeSelf);
+        settingsUI.SetActive(!settingsUI.activeSelf);
+    }
+
+    public void SettingsBack()
+    {
+        ui.SetActive(!ui.activeSelf);
+        settingsUI.SetActive(!settingsUI.activeSelf);
     }
 
     public void Restart()
