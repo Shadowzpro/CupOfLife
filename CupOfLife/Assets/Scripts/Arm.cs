@@ -7,7 +7,8 @@ public class Arm : MonoBehaviour
 {
     [Header("Speed")]
     // SPEED OF ARM MOVING
-    public float movementSpeed = 10f;
+    public float leftRightMovementSpeed = 10f;
+    public float forwardBackMovementSpeed = 10f;
     public float upDownSpeed = 10f;
 
     //CURRENT ANGLE OF DRIFT
@@ -51,7 +52,7 @@ public class Arm : MonoBehaviour
         Move();
         Rotate();
         UpdateAngleOfDrift();
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(0))
         {
             laser.SetActive(true);
         }
@@ -69,7 +70,7 @@ public class Arm : MonoBehaviour
         if (driftY > 5) { driftY = 5; }
         if (driftY < -5) { driftY = -5; }
         
-        if (!Input.GetKey(KeyCode.R)) 
+        if (!(Input.GetAxis("Mouse Y") > 0)) //not up
         {
             if (driftX < 0) 
             {
@@ -77,7 +78,7 @@ public class Arm : MonoBehaviour
                 driftX = driftX + (20 * Time.deltaTime);
             }
         }
-        if (!Input.GetKey(KeyCode.A))
+        if (!(Input.GetAxis("Mouse X") < 0)) //not left
         {
             if (driftY > 0)
             {
@@ -85,7 +86,7 @@ public class Arm : MonoBehaviour
                 driftY = driftY - (20 * Time.deltaTime);
             }
         }
-        if (!Input.GetKey(KeyCode.F))
+        if (!(Input.GetAxis("Mouse Y") < 0)) //not down
         {
             if (driftX > 0)
             {
@@ -93,7 +94,7 @@ public class Arm : MonoBehaviour
                 driftX = driftX - (20 * Time.deltaTime);
             }
         }
-        if (!Input.GetKey(KeyCode.D))
+        if (!(Input.GetAxis("Mouse X") > 0)) //not right
         {
             if (driftY < 0)
             {
@@ -112,32 +113,32 @@ public class Arm : MonoBehaviour
 
 
     }
-
+    
     //FUNCTION TO MOVE THE ARM IN 3 DIMENSIONS
     private void Move() // RIGIDBODY MOVE POSITION?
     {
         // MOVE BACKWARD
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (transform.position.z < backwardMax) //HARDCODED VALUE
             {
-                transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+                transform.position += Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
             }
         }
         // MOVE FORWARD
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (transform.position.z > forwardMax) //HARDCODED VALUE
             {
-                transform.position -= Vector3.forward * movementSpeed * Time.deltaTime;
+                transform.position -= Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
             }
         }
         // MOVE RIGHT
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Mouse X") > 0)
         {
             if (transform.position.x > leftMax) //HARDCODED VALUE
             {
-                transform.position -= Vector3.right * movementSpeed * Time.deltaTime;
+                transform.position -= Vector3.right * leftRightMovementSpeed * Time.deltaTime;
             }
 
             if (driftY > -5) 
@@ -147,11 +148,11 @@ public class Arm : MonoBehaviour
 
         }
         // MOVE LEFT 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Mouse X") < 0)
         {
             if (transform.position.x < rightMax) //HARDCODED VALUE
             {
-                transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+                transform.position += Vector3.right * leftRightMovementSpeed * Time.deltaTime;
             }
 
             if (driftY < 5)
@@ -161,7 +162,7 @@ public class Arm : MonoBehaviour
 
         }
         // MOVE UP
-        if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Mouse Y") > 0 || Input.GetKey(KeyCode.UpArrow))
         {
             if (transform.position.y < vertMax) //HARDCODED VALUE
             {
@@ -175,7 +176,7 @@ public class Arm : MonoBehaviour
 
         }
         // MOVE DOWN
-        if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetAxis("Mouse Y") < 0 || Input.GetKey(KeyCode.DownArrow))
         {
             if (transform.position.y > vertMin) //HARDCODED VALUE
             {
