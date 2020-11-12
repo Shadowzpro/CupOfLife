@@ -26,7 +26,6 @@ public class ServingBench : MonoBehaviour
     public Renderer dissolveShader;
     [HideInInspector]
     public float coffeeDissolveProg;
-    [HideInInspector]
     public Customer currentCustomer;
     private bool correctCoffee;
 
