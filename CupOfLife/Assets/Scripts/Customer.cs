@@ -87,7 +87,7 @@ public class Customer : MonoBehaviour
             speechBubble.gameObject.SetActive(true);
             ingredientAmounts = new List<int> { Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax) };
             //human customer
-            if (GetComponent<Renderer>().material == customerSprite[0] || GetComponent<Renderer>().material == customerSprite[1])
+            if (GetComponent<Renderer>().sharedMaterial == customerSprite[0] || GetComponent<Renderer>().sharedMaterial == customerSprite[1])
             {
                 dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
 
@@ -116,7 +116,7 @@ public class Customer : MonoBehaviour
 
                 docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
             }
-            else if (GetComponent<Renderer>().material == customerSprite[2] || GetComponent<Renderer>().material == customerSprite[3])//robot
+            else if (GetComponent<Renderer>().sharedMaterial == customerSprite[2] || GetComponent<Renderer>().sharedMaterial == customerSprite[3])//robot
             {
                 dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[3].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[4].tag + " please.";
 
@@ -145,7 +145,7 @@ public class Customer : MonoBehaviour
 
                 docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[3].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[4].tag;
             }
-            else if (GetComponent<Renderer>().material == customerSprite[4] || GetComponent<Renderer>().material == customerSprite[5])//alien
+            else if (GetComponent<Renderer>().sharedMaterial == customerSprite[4] || GetComponent<Renderer>().sharedMaterial == customerSprite[5])//alien
             {
                 dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[5].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[6].tag + " please.";
 
