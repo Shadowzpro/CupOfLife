@@ -7,18 +7,26 @@ public class ServingBench : MonoBehaviour
 {
     //REFERENCE TO PARTICLE SYSTEM THAT MAY BE ATTACHED
     //public ParticleSystem confetti;
+    [HideInInspector]
     public GameObject drink;
     public float secondsToDestroy = 4;
     public float customerLeaving = 3.125f;
     private Rigidbody drinkRigidBody;
     public Text TipJar;
+    [HideInInspector]
     public int ordersComplete = 0; // <--- Was static so if something doesn't work might be this???
-    public static int ordersFailed = 0;
+    [HideInInspector]
+    public int ordersFailed = 0;   // <--- Was static so if something doesn't work might be this???
     private IEnumerator coroutine;
+    [HideInInspector]
     public bool isCoffeeMade = false;
+    [HideInInspector]
     public bool isCoffeeFadingAway = false;
+    [HideInInspector]
     public Renderer dissolveShader;
+    [HideInInspector]
     public float coffeeDissolveProg;
+    [HideInInspector]
     public Customer currentCustomer;
     private bool correctCoffee;
 
@@ -50,8 +58,6 @@ public class ServingBench : MonoBehaviour
             dissolveShader.material.SetFloat("dissolveProgress", coffeeDissolveProg);
             isCoffeeFadingAway = false;
         }
-
-
     }
 
     private void AssignCoffee()
@@ -168,10 +174,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[1])
                 {
@@ -182,10 +184,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[2])
                 {
@@ -196,10 +194,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[3])
                 {
@@ -210,10 +204,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[4])
                 {
@@ -224,10 +214,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[5])
                 {
@@ -238,10 +224,6 @@ public class ServingBench : MonoBehaviour
                     //confetti.Play();
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersComplete == 10)
-                    {
-                        //win or keep playing
-                    }
                 }
             }
             else //switch statements
@@ -252,10 +234,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[1])
                 {
@@ -263,10 +241,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[2])
                 {
@@ -274,10 +248,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[3])
                 {
@@ -285,10 +255,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[4])
                 {
@@ -296,10 +262,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
                 else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[5])
                 {
@@ -307,10 +269,6 @@ public class ServingBench : MonoBehaviour
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
-                    if (ordersFailed == 3)
-                    {
-                        //lose
-                    }
                 }
             }
             currentCustomer.docket.text = "";

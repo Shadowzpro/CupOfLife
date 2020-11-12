@@ -12,10 +12,18 @@ public class GameManager : MonoBehaviour
     public float gameTime = 9 * 60;
     public float timeMultiplier = 1.6f;
 
+    [Header("Variables")]
+    public int ordersToComplete;
+    [HideInInspector]
+    public bool gameIsOver = false;
+    public int day;
+
     [Header("References")]
     public ServingBench servingBench;
     public GameObject levelFinishedUI;
     public GameObject gameOverUI;
+    [HideInInspector]
+    public static GameManager Instance;
     
     public float GameTime
     {
@@ -29,12 +37,43 @@ public class GameManager : MonoBehaviour
     //WILL NEED TO CHANGE THIS WITH GAMESTATES
     void Start()
     {
+        day = GlobalControl.Instance.day;
+        GlobalControl.Instance.IncreaseDay();
         timerText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (servingBench.ordersFailed >= 3)
+        {
+            this.enabled = false;
+            gameIsOver = true;
+            gameOverUI.SetActive(!gameOverUI.activeSelf);
+        }
+
+        if (gameTime >= 1020)
+        {
+            SaveData();
+            this.enabled = false;
+            Debug.Log("Game is Over");
+            gameIsOver = true;
+
+            if (servingBench.ordersComplete >= ordersToComplete)
+            {
+                Debug.Log("Win");
+                levelFinishedUI.SetActive(!levelFinishedUI.activeSelf);
+            }
+            else
+            {
+                Debug.Log("Lose");
+                gameOverUI.SetActive(!gameOverUI.activeSelf);
+            }
+        }
+
+        Cursor.visible = false;                    // turn off cursor
+        Cursor.lockState = CursorLockMode.Locked;  // and lock it to the centre of the screeen
+
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
@@ -66,9 +105,10 @@ public class GameManager : MonoBehaviour
                 timerText.text = string.Format("{0:D2}:{1:D2}", (minutes / 60), (minutes % 60)) + "am";
             }
         }
-        if (gameTime == 1020)
-        {
-            //time up
-        }
+    }
+
+    public void SaveData()
+    {
+        GlobalControl.Instance.day = day;
     }
 }
