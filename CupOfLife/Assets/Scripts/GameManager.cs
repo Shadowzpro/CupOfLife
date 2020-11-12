@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Cursor.visible = false;                    // turn off cursor
+        Cursor.lockState = CursorLockMode.Locked;  // and lock it to the centre of the screeen
+
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
         
