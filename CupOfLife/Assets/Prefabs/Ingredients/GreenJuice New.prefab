@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6399844726611965872}
   - component: {fileID: 4724507456931911439}
   m_Layer: 0
-  m_Name: Ingredient_Goo_001_v002_20201111 (1)
+  m_Name: GreenJuice New
   m_TagString: GreenJuice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661305432370602461}
-  m_LocalRotation: {x: -0, y: -0, z: -0.14183134, w: 0.98989093}
+  m_LocalRotation: {x: 0, y: 0, z: -0.14183426, w: 0.98989046}
   m_LocalPosition: {x: 15.616825, y: 3.061716, z: -15.753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -68,15 +68,16 @@ MonoBehaviour:
   dissolveShader: {fileID: 0}
   dissolveShader2: {fileID: 0}
   liquidShader: {fileID: 0}
-  isLiquid: 0
-  isFadingIn: 1
+  isLiquid: 1
+  isFadingIn: 0
   dissolveFloatProgress: 1
   liquidLevelProgress: 1
   internalLiquid: {fileID: 8616251637465920732}
   internalGlass: {fileID: 8292293898253037780}
+  lidsAndSolids: {fileID: 7310372578719575613}
   pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 661305432370602461}
   ingredientName: GreenJuice
 --- !u!64 &4724507456931911439
 MeshCollider:

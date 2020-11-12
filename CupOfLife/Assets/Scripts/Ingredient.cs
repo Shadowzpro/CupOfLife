@@ -18,6 +18,7 @@ public class Ingredient : MonoBehaviour
     public float liquidLevelProgress = 1;
     public GameObject internalLiquid;
     public GameObject internalGlass;
+    public GameObject lidsAndSolids;
 
     [Header("Hand")]
     // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
@@ -77,11 +78,14 @@ public class Ingredient : MonoBehaviour
         {
             if (ingredientName == "Milk")
             {
-                dissolveShader = GetComponent<Renderer>();
-                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
+                dissolveShader2 = internalGlass.GetComponent<Renderer>();
+                dissolveShader2.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
                 dissolveFloatProgress = 0;
-                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
 
+                dissolveShader = lidsAndSolids.GetComponent<Renderer>();
+                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
 
                 liquidShader = internalLiquid.GetComponent<Renderer>();
                 liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/Liquid");
@@ -92,11 +96,15 @@ public class Ingredient : MonoBehaviour
             }
             else if (ingredientName == "GreenJuice")
             {
-                dissolveShader = GetComponent<Renderer>();
-                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
+                dissolveShader2 = internalGlass.GetComponent<Renderer>();
+                dissolveShader2.material.shader = Shader.Find("Shader Graphs/DissolveGlass");
                 dissolveFloatProgress = 0;
-                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+                
 
+                dissolveShader = lidsAndSolids.GetComponent<Renderer>();
+                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+                dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
 
                 liquidShader = internalLiquid.GetComponent<Renderer>();
                 liquidShader.material.shader = Shader.Find("Unlit/SpecialFX/LiquidViscous");
@@ -151,8 +159,6 @@ public class Ingredient : MonoBehaviour
             }
             else //if (ingredientName == "Milk") 
             {
-                if (ingredientName == "Oil")
-                {
                     dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
                     liquidLevelProgress = liquidLevelProgress - (0.25f * Time.deltaTime);
 
@@ -172,26 +178,6 @@ public class Ingredient : MonoBehaviour
                         liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
                     }
 
-                }
-                else
-                {
-                    dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
-                    liquidLevelProgress = liquidLevelProgress - (0.25f * Time.deltaTime);
-
-                    if (dissolveFloatProgress >= 1)
-                    {
-                        dissolveFloatProgress = 1f;
-                        liquidLevelProgress = 0.5f;
-                        isFadingIn = false;
-                        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
-                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
-                    }
-                    else
-                    {
-                        dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
-                        liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
-                    }
-                }
             }
         }
         /// END FADE IN.

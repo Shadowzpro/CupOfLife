@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1335043414796309032}
   - component: {fileID: 1335043414796309031}
   m_Layer: 0
-  m_Name: Ingredient_Milk_001_v002_20201111 (1)
+  m_Name: Milk New
   m_TagString: Milk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7036570952476914681}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.388, y: 3.1397, z: -15.753}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
@@ -248,9 +248,10 @@ MonoBehaviour:
   liquidLevelProgress: 1
   internalLiquid: {fileID: 8360498581393631662}
   internalGlass: {fileID: 749125902872658259}
+  lidsAndSolids: {fileID: 4358506148063620461}
   pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 7036570952476914681}
   ingredientName: Milk
 --- !u!1 &8360498581393631662
 GameObject:

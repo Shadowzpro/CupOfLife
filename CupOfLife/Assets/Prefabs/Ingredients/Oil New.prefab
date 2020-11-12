@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6200095360909105790}
   - component: {fileID: 6200095360909105788}
   m_Layer: 0
-  m_Name: Ingredient_Oil_001_v002_20201111 (1)
+  m_Name: Oil New
   m_TagString: Oil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2678169496646879331}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.515, y: 3.0757, z: -15.754}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
@@ -246,9 +246,10 @@ MonoBehaviour:
   liquidLevelProgress: 1
   internalLiquid: {fileID: 2529618954604526549}
   internalGlass: {fileID: 5193795238134998008}
+  lidsAndSolids: {fileID: 0}
   pickUpDistance: 0.5
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 2678169496646879331}
   ingredientName: Oil
 --- !u!1 &5193795238134998008
 GameObject:
