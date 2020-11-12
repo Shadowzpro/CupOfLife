@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public ServingBench servingBench;
     public GameObject levelFinishedUI;
     public GameObject gameOverUI;
+    [HideInInspector]
+    public static GameManager Instance;
     
     public float GameTime
     {
@@ -35,7 +37,8 @@ public class GameManager : MonoBehaviour
     //WILL NEED TO CHANGE THIS WITH GAMESTATES
     void Start()
     {
-        day++;
+        day = GlobalControl.Instance.day;
+        GlobalControl.Instance.IncreaseDay();
         timerText.gameObject.SetActive(false);
     }
 
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameTime >= 1020)
         {
+            SaveData();
             this.enabled = false;
             Debug.Log("Game is Over");
             gameIsOver = true;
@@ -91,5 +95,10 @@ public class GameManager : MonoBehaviour
                 timerText.text = string.Format("{0:D2}:{1:D2}", (minutes / 60), (minutes % 60)) + "am";
             }
         }
+    }
+
+    public void SaveData()
+    {
+        GlobalControl.Instance.day = day;
     }
 }

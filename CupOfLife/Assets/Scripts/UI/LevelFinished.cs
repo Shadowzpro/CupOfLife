@@ -33,7 +33,7 @@ public class LevelFinished : MonoBehaviour
 
     public void Next()
     {
-        
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
