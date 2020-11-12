@@ -45,6 +45,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (servingBench.ordersFailed >= 3)
+        {
+            this.enabled = false;
+            gameIsOver = true;
+            gameOverUI.SetActive(!gameOverUI.activeSelf);
+        }
+
         if (gameTime >= 1020)
         {
             SaveData();
