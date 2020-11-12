@@ -165,7 +165,7 @@ public class ServingBench : MonoBehaviour
             Debug.Log(correctCoffee);
             if (correctCoffee == true)
             {//switch statements
-                if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[0])
+                if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[0])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[0];//human1 happy
                     ordersComplete++;
@@ -175,7 +175,7 @@ public class ServingBench : MonoBehaviour
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[1])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[1])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[2];//human2 happy
                     ordersComplete++;
@@ -185,7 +185,7 @@ public class ServingBench : MonoBehaviour
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[2])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[2])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[4];
                     ordersComplete++;
@@ -195,7 +195,7 @@ public class ServingBench : MonoBehaviour
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[3])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[3])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[6];
                     ordersComplete++;
@@ -205,7 +205,7 @@ public class ServingBench : MonoBehaviour
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[4])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[4])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[8];
                     ordersComplete++;
@@ -215,7 +215,7 @@ public class ServingBench : MonoBehaviour
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[5])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[5])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[10];
                     ordersComplete++;
@@ -228,42 +228,42 @@ public class ServingBench : MonoBehaviour
             }
             else //switch statements
             {
-                if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[0])
+                if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[0])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[1];
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[1])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[1])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[3];
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[2])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[2])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[5];
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[3])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[3])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[7];
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[4])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[4])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[9];
                     ordersFailed++;
                     yield return new WaitForSeconds(customerLeaving);
                     CustomerFinished();
                 }
-                else if (currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerSprite[5])
+                else if (currentCustomer.GetComponent<Renderer>().sharedMaterial == currentCustomer.customerSprite[5])
                 {
                     currentCustomer.GetComponent<Renderer>().material = currentCustomer.customerReactionSprite[11];
                     ordersFailed++;
