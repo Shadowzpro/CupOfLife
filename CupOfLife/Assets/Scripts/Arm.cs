@@ -44,9 +44,12 @@ public class Arm : MonoBehaviour
     //REFERENCE TO LASSSEREZ
     public GameObject laser;
 
+    private Animation anim;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        anim = gameObject.GetComponent<Animation>();
     }
 
     private void Update()
@@ -63,10 +66,12 @@ public class Arm : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             laser.SetActive(true);
+            anim.Play();
         }
         else 
         {
             laser.SetActive(false);
+            anim.Rewind();
         }
 
     }
