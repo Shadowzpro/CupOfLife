@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool gameIsOver = false;
     public int day;
+    [HideInInspector]
+    public bool lockCursor = true;
 
     [Header("References")]
     public ServingBench servingBench;
@@ -71,8 +73,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Cursor.visible = false;                    // turn off cursor
-        Cursor.lockState = CursorLockMode.Locked;  // and lock it to the centre of the screeen
+        // pressing esc toggles between hide/show
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            lockCursor = !lockCursor;
+        }
+
+        Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !lockCursor;
 
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);
