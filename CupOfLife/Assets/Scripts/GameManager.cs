@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         day = GlobalControl.Instance.day;
-        GlobalControl.Instance.IncreaseDay();
         timerText.gameObject.SetActive(false);
     }
 
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if (servingBench.ordersFailed >= 3)
         {
+            Debug.Log("Lose");
             this.enabled = false;
             gameIsOver = true;
             gameOverUI.SetActive(!gameOverUI.activeSelf);
@@ -64,11 +64,13 @@ public class GameManager : MonoBehaviour
             if (servingBench.ordersComplete >= ordersToComplete)
             {
                 Debug.Log("Win");
+                GlobalControl.Instance.IncreaseDay();
                 levelFinishedUI.SetActive(!levelFinishedUI.activeSelf);
             }
             else
             {
                 Debug.Log("Lose");
+                GlobalControl.Instance.ResetDays();
                 gameOverUI.SetActive(!gameOverUI.activeSelf);
             }
         }
