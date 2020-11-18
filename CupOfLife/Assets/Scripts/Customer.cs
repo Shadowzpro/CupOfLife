@@ -84,10 +84,40 @@ public class Customer : MonoBehaviour
             yield return new WaitForSeconds(1.25f);
             speechBubble.gameObject.SetActive(true);
             ingredientAmounts = new List<int> { Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax), Random.Range(ingredientAmountMin, ingredientAmountMax) };
+            string ingredientOne;
+            string ingredientTwo;
+            string ingredientThree;
+
+            if (ingredientAmounts[0] != 0)
+            {
+                ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", ";
+            }
+            else
+            {
+                ingredientOne = null;
+            }
+
             //human customer
             if (GetComponent<Renderer>().sharedMaterial == customerSprite[0] || GetComponent<Renderer>().sharedMaterial == customerSprite[1])
             {
-                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
+                if (ingredientAmounts[1] != 0)
+                {
+                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", ";
+                }
+                else
+                {
+                    ingredientTwo = null;
+                }
+                if (ingredientAmounts[2] != 0)
+                {
+                    ingredientThree = ingredientAmounts[2] + " " + orderIngredients[2].tag;
+                }
+                else
+                {
+                    ingredientThree = null;
+                }
+
+                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
                 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
@@ -116,7 +146,24 @@ public class Customer : MonoBehaviour
             }
             else if (GetComponent<Renderer>().sharedMaterial == customerSprite[2] || GetComponent<Renderer>().sharedMaterial == customerSprite[3])//robot
             {
-                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[3].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[4].tag + " please.";
+                if (ingredientAmounts[1] != 0)
+                {
+                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", ";
+                }
+                else
+                {
+                    ingredientTwo = null;
+                }
+                if (ingredientAmounts[2] != 0)
+                {
+                    ingredientThree = ingredientAmounts[2] + " " + orderIngredients[4].tag;
+                }
+                else
+                {
+                    ingredientThree = null;
+                }
+
+                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
@@ -145,7 +192,24 @@ public class Customer : MonoBehaviour
             }
             else if (GetComponent<Renderer>().sharedMaterial == customerSprite[4] || GetComponent<Renderer>().sharedMaterial == customerSprite[5])//alien
             {
-                dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[5].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[6].tag + " please.";
+                if (ingredientAmounts[1] != 0)
+                {
+                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", ";
+                }
+                else
+                {
+                    ingredientTwo = null;
+                }
+                if (ingredientAmounts[2] != 0)
+                {
+                    ingredientThree = ingredientAmounts[2] + " " + orderIngredients[6].tag;
+                }
+                else
+                {
+                    ingredientThree = null;
+                }
+
+                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
