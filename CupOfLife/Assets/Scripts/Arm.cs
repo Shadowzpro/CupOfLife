@@ -18,16 +18,16 @@ public class Arm : MonoBehaviour
     public float currentXDrift = 0;
     public float currentYDrift = 0;
 
-    // SPEED OF CLAW ROTATING
-    public float rotationSpeed = 45f;
-
-    [Header("Constraints")]
-    public float forwardMax = -14.5f;
-    public float backwardMax = -12.5f;
-    public float leftMax = 14.5f;
-    public float rightMax = 22.5f;
-    public float vertMax = 3.925f;
-    public float vertMin = 2.265f;
+    //// SPEED OF CLAW ROTATING
+    //public float rotationSpeed = 45f;
+    //
+    //[Header("Constraints")]
+    //public float forwardMax = -14.5f;
+    //public float backwardMax = -12.5f;
+    //public float leftMax = 14.5f;
+    //public float rightMax = 22.5f;
+    //public float vertMax = 3.925f;
+    //public float vertMin = 2.265f;
 
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
@@ -62,7 +62,7 @@ public class Arm : MonoBehaviour
 
         //Move(); // commented out as movement is now in fixed update. this means drift does not work
         //Rotate();
-        UpdateAngleOfDrift();
+        //UpdateAngleOfDrift();
         if (Input.GetMouseButton(0))
         {
             laser.SetActive(true);
@@ -78,7 +78,7 @@ public class Arm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse ScrollWheel"));
+        Vector3 targetVelocity = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), Input.GetAxis("Vertical"));
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity.x *= -leftRightMovementSpeed;
         targetVelocity.y *= upDownSpeed;
@@ -144,99 +144,99 @@ public class Arm : MonoBehaviour
     }
     
     //FUNCTION TO MOVE THE ARM IN 3 DIMENSIONS
-    private void Move()
-    {
-        // MOVE BACKWARD
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (transform.position.z < backwardMax) //HARDCODED VALUE
-            {
-                transform.position += Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
-            }
-        }
-
-        // MOVE FORWARD
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if (transform.position.z > forwardMax) //HARDCODED VALUE
-            {
-                transform.position -= Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
-            }
-        }
-
-        // MOVE RIGHT
-        if (Input.GetAxis("Mouse X") > 0)
-        {
-            if (transform.position.x > leftMax) //HARDCODED VALUE
-            {
-                transform.position -= Vector3.right * leftRightMovementSpeed * Time.deltaTime;
-            }
-        
-            if (driftY > -5) 
-            {
-                driftY = (driftY - 10 * Time.deltaTime);
-            }
-        
-        }
-
-        // MOVE LEFT 
-        if (Input.GetAxis("Mouse X") < 0)
-        {
-            if (transform.position.x < rightMax) //HARDCODED VALUE
-            {
-                transform.position += Vector3.right * leftRightMovementSpeed * Time.deltaTime;
-            }
-        
-            if (driftY < 5)
-            {
-                driftY = (driftY + 10 * Time.deltaTime);
-            }
-        
-        }
-
-        // MOVE UP
-        if (Input.GetAxis("Mouse Y") > 0)
-        {
-            if (transform.position.y < vertMax) //HARDCODED VALUE
-            {
-                transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
-            }
-
-            if (driftX > -5)
-            {
-                driftX = (driftX - 10 * Time.deltaTime);
-            }
-
-        }
-
-        // MOVE DOWN
-        if (Input.GetAxis("Mouse Y") < 0)
-        {
-            if (transform.position.y > vertMin) //HARDCODED VALUE
-            {
-                transform.position -= Vector3.up * upDownSpeed * Time.deltaTime;
-            }
-            
-            if (driftX < 5)
-            {
-                driftX = (driftX + 10 * Time.deltaTime);
-            }
-
-        }
-    }
+    //private void Move()
+    //{
+    //    // MOVE BACKWARD
+    //    //if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+    //    //{
+    //    //    if (transform.position.z < backwardMax) //HARDCODED VALUE
+    //    //    {
+    //    //        transform.position += Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
+    //    //    }
+    //    //}
+    //
+    //    // MOVE FORWARD
+    //    //if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+    //    //{
+    //    //    if (transform.position.z > forwardMax) //HARDCODED VALUE
+    //    //    {
+    //    //        transform.position -= Vector3.forward * forwardBackMovementSpeed * Time.deltaTime;
+    //    //    }
+    //    //}
+    //
+    //    // MOVE RIGHT
+    //    if (Input.GetAxis("Mouse X") > 0)
+    //    {
+    //        //if (transform.position.x > leftMax) //HARDCODED VALUE
+    //        //{
+    //        //    transform.position -= Vector3.right * leftRightMovementSpeed * Time.deltaTime;
+    //        //}
+    //    
+    //        if (driftY > -5) 
+    //        {
+    //            driftY = (driftY - 10 * Time.deltaTime);
+    //        }
+    //    
+    //    }
+    //
+    //    // MOVE LEFT 
+    //    if (Input.GetAxis("Mouse X") < 0)
+    //    {
+    //        //if (transform.position.x < rightMax) //HARDCODED VALUE
+    //        //{
+    //        //    transform.position += Vector3.right * leftRightMovementSpeed * Time.deltaTime;
+    //        //}
+    //    
+    //        if (driftY < 5)
+    //        {
+    //            driftY = (driftY + 10 * Time.deltaTime);
+    //        }
+    //    
+    //    }
+    //
+    //    // MOVE UP
+    //    if (Input.GetAxis("Mouse Y") > 0)
+    //    {
+    //        //if (transform.position.y < vertMax) //HARDCODED VALUE
+    //        //{
+    //        //    transform.position += Vector3.up * upDownSpeed * Time.deltaTime;
+    //        //}
+    //
+    //        if (driftX > -5)
+    //        {
+    //            driftX = (driftX - 10 * Time.deltaTime);
+    //        }
+    //
+    //    }
+    //
+    //    // MOVE DOWN
+    //    if (Input.GetAxis("Mouse Y") < 0)
+    //    {
+    //        //if (transform.position.y > vertMin) //HARDCODED VALUE
+    //        //{
+    //        //    transform.position -= Vector3.up * upDownSpeed * Time.deltaTime;
+    //        //}
+    //        
+    //        if (driftX < 5)
+    //        {
+    //            driftX = (driftX + 10 * Time.deltaTime);
+    //        }
+    //
+    //    }
+    //}
 
     // FUNCTION TO ROTATE THE CLAW ON 1 AXIS
-    private void Rotate() // RIGIDBODY MOVEROTATION?
-    {
-        // ROTATE CLOCKWISE
-        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            claw.transform.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
-        }
-        //ROTATE ANTICLOCKWISE
-        else if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightArrow))
-        {
-            claw.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-        }
-    }
+    //private void Rotate() // RIGIDBODY MOVEROTATION?
+    //{
+    //    // ROTATE CLOCKWISE
+    //    if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+    //    {
+    //        claw.transform.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
+    //    }
+    //    //ROTATE ANTICLOCKWISE
+    //    else if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.RightArrow))
+    //    {
+    //        claw.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+    //    }
+    //}
 }
