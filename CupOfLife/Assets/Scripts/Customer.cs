@@ -90,7 +90,14 @@ public class Customer : MonoBehaviour
 
             if (ingredientAmounts[0] != 0)
             {
-                ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", ";
+                if (ingredientAmounts[1] != 0 || ingredientAmounts[2] != 0)
+                {
+                    ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", ";
+                }
+                else
+                {
+                    ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag;
+                }
             }
             else
             {
@@ -102,7 +109,14 @@ public class Customer : MonoBehaviour
             {
                 if (ingredientAmounts[1] != 0)
                 {
-                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", ";
+                    if (ingredientAmounts[2] != 0)
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", ";
+                    }
+                    else
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag;
+                    }
                 }
                 else
                 {
@@ -148,7 +162,14 @@ public class Customer : MonoBehaviour
             {
                 if (ingredientAmounts[1] != 0)
                 {
-                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", ";
+                    if (ingredientAmounts[2] != 0)
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", ";
+                    }
+                    else
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag;
+                    }
                 }
                 else
                 {
@@ -194,7 +215,14 @@ public class Customer : MonoBehaviour
             {
                 if (ingredientAmounts[1] != 0)
                 {
-                    ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", ";
+                    if (ingredientAmounts[2] != 0)
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", ";
+                    }
+                    else
+                    {
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag;
+                    }
                 }
                 else
                 {
