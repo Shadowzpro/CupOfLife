@@ -65,7 +65,6 @@ public class Customer : MonoBehaviour
 
     void NewCustomer()
     {
-        
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<Renderer>().material = customerSprite[Random.Range(0, customerSprite.Length)];//
         StartCoroutine(order);
@@ -236,7 +235,7 @@ public class Customer : MonoBehaviour
 
                 docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[5].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[6].tag;
             }
-                yield return new WaitForSeconds(6.25f);
+            yield return new WaitForSeconds(6.25f);
             speechBubble.gameObject.SetActive(false);
             StopCoroutine(order);
         }

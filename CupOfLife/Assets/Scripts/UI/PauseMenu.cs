@@ -6,14 +6,22 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
     public GameObject settingsUI;
+    [HideInInspector]
+    public GameManager gameManager;
 
     public string menuSceneName = "";
 
     public SceneFader sceneFader;
 
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     void Update()
     {
         if (settingsUI.activeSelf) return;
+        if (gameManager.gameIsOver == true) return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

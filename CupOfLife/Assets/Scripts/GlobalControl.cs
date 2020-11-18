@@ -4,6 +4,7 @@ public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl Instance;
     public int day;
+    private int dayReached = 1;
 
     void Awake()
     {
@@ -11,6 +12,9 @@ public class GlobalControl : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
+            dayReached = PlayerPrefs.GetInt("dayReached", dayReached);
+            Debug.Log("Day: " + day);
+            Debug.Log("dayReached: " + dayReached);
         }
         else if (Instance != this)
         {
@@ -21,10 +25,12 @@ public class GlobalControl : MonoBehaviour
     public void IncreaseDay()
     {
         day++;
+        PlayerPrefs.SetInt("dayReached", dayReached++);
     }
 
     public void ResetDays()
     {
         day = 1;
+        PlayerPrefs.SetInt("dayReached", 1);
     }
 }
