@@ -198,6 +198,11 @@ public class Ingredient : MonoBehaviour
         if (collision.gameObject.CompareTag("Void"))
         {
             Destroy(gameObject);
+
+            if (prefab.CompareTag("Sugar")) return;
+            if (prefab.CompareTag("Cogs")) return;
+            if (prefab.CompareTag("Eyeballs")) return;
+
             prefab = (GameObject)Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
             prefab.GetComponent<Ingredient>().enabled = true;
         }

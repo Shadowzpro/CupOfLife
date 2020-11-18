@@ -48,7 +48,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
             Debug.Log("Detected Cogs");
             AddIngredient(cogs);
             Destroy(collider.gameObject, 0.1f);
-            Instantiate(cogs, cogs.spawnPoint.transform.position, Quaternion.identity);
+            //Instantiate(cogs, cogs.spawnPoint.transform.position, Quaternion.identity);
         }
 
         else if (collider.CompareTag("Eyeballs"))
@@ -56,7 +56,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
             Debug.Log("Detected Eyeballs");
             AddIngredient(eyeBalls);
             Destroy(collider.gameObject, 0.1f);
-            Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
+            //Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
         }
 
         else if(collider.CompareTag("Green Juice"))
@@ -88,7 +88,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
             Debug.Log("Detected Sugar");
             AddIngredient(sugar);
             Destroy(collider.gameObject, 0.1f);
-            Instantiate(sugar, sugar.spawnPoint.transform.position, Quaternion.identity);
+            //Instantiate(sugar, sugar.spawnPoint.transform.position, Quaternion.identity);
         }
     }
 
