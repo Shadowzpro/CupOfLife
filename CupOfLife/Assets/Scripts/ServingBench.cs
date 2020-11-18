@@ -28,6 +28,7 @@ public class ServingBench : MonoBehaviour
     public float coffeeDissolveProg;
     public Customer currentCustomer;
     private bool correctCoffee;
+    public GameObject[] coinPile;
 
     private void Update()
     {
@@ -40,6 +41,31 @@ public class ServingBench : MonoBehaviour
         if (isCoffeeMade)
         {
             AssignCoffee();
+        }
+
+        if (ordersComplete == 2)
+        {
+            coinPile[0].SetActive(true);
+        }
+        if (ordersComplete == 4)
+        {
+            coinPile[1].SetActive(true);
+            coinPile[0].SetActive(false);
+        }
+        if (ordersComplete == 6)
+        {
+            coinPile[2].SetActive(true);
+            coinPile[1].SetActive(false);
+        }
+        if (ordersComplete == 8)
+        {
+            coinPile[3].SetActive(true);
+            coinPile[2].SetActive(false);
+        }
+        if (ordersComplete == 10)
+        {
+            coinPile[4].SetActive(true);
+            coinPile[3].SetActive(false);
         }
     }
 
