@@ -813,11 +813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1931934157}
     m_Modifications:
-    - target: {fileID: -4216859302048453862, guid: 41d59ac94835c5645ae768d71b83bc72,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d0ae8b3fb31cf4f4c9cb8b39704c5b2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -882,6 +877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environment_Bench_001_v002_20203010 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 41d59ac94835c5645ae768d71b83bc72,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d59ac94835c5645ae768d71b83bc72, type: 3}
@@ -7327,6 +7327,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 652224811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &907353292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2529618954604526549, guid: 500b3fc9cbfa0e44daf7660beb379bd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2040757330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &907353296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907353292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8cfa907239dfa49a19f5d44a67ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.003
+  WobbleSpeed: 1
+  Recovery: 3
 --- !u!1 &920060078
 GameObject:
   m_ObjectHideFlags: 0
@@ -13394,6 +13415,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569754198}
   m_CullTransparentMesh: 0
+--- !u!1 &1571608901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6786763670638446865, guid: 500b3fc9cbfa0e44daf7660beb379bd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2040757330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1598728348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16084,7 +16111,7 @@ PrefabInstance:
     - target: {fileID: 4572899721809138638, guid: 2129e08dab65f724dad11f6c157943f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.864532
+      value: 15.86
       objectReference: {fileID: 0}
     - target: {fileID: 4572899721809138638, guid: 2129e08dab65f724dad11f6c157943f7,
         type: 3}
@@ -16502,6 +16529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil New
       objectReference: {fileID: 0}
+    - target: {fileID: 6200095360909105788, guid: 500b3fc9cbfa0e44daf7660beb379bd9,
+        type: 3}
+      propertyPath: lidsAndSolids
+      value: 
+      objectReference: {fileID: 1571608901}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 500b3fc9cbfa0e44daf7660beb379bd9, type: 3}
 --- !u!1001 &2054127902
@@ -17089,7 +17121,7 @@ PrefabInstance:
     - target: {fileID: 6340419731327091178, guid: 72b1b892577a30540a41bec09e5f8d10,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.493
+      value: 15.47
       objectReference: {fileID: 0}
     - target: {fileID: 6340419731327091178, guid: 72b1b892577a30540a41bec09e5f8d10,
         type: 3}

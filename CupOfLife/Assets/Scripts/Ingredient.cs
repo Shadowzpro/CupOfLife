@@ -114,7 +114,7 @@ public class Ingredient : MonoBehaviour
             }
             else if (ingredientName == "Oil") 
             {
-                dissolveShader = GetComponent<Renderer>();
+                dissolveShader = lidsAndSolids.GetComponent<Renderer>();
                 dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
                 dissolveFloatProgress = 0;
                 dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
