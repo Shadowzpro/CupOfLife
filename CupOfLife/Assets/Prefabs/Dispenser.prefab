@@ -59,6 +59,21 @@ MonoBehaviour:
   ingredient: {fileID: 63984301, guid: 2eeca126e7f72dd49a4634d7863d7707, type: 3}
   spawn: {fileID: 276314274}
   destination: {fileID: 0}
+--- !u!111 &1138880686
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981240773890370344}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4f1128af004f8040835d2726ecdab7b, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &3891392661032153633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,7 +139,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fb0aacb65f09c4e45a1a2e5ce4563f77,
         type: 3}
       propertyPath: m_Name
-      value: Environment_Dispenser_Medium_001_v002_20201311
+      value: Eyeballs Dispenser
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: fb0aacb65f09c4e45a1a2e5ce4563f77,
         type: 3}
