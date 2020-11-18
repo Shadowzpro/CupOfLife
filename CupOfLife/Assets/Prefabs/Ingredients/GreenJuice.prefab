@@ -54,6 +54,7 @@ MonoBehaviour:
   liquidLevelProgress: 1
   internalLiquid: {fileID: 6872905638864471600}
   internalGlass: {fileID: 0}
+  lidsAndSolids: {fileID: 0}
   pickUpDistance: 0.4
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 2853316639529610060}
@@ -154,7 +155,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}
       propertyPath: m_TagString
-      value: GreenJuice
+      value: Green Juice
       objectReference: {fileID: 0}
     - target: {fileID: 6735448485503476487, guid: 1c817cfd014705845adb689d90d76dfa,
         type: 3}

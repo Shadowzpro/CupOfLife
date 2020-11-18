@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4724507456931911439}
   m_Layer: 0
   m_Name: GreenJuice New
-  m_TagString: GreenJuice
+  m_TagString: Green Juice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

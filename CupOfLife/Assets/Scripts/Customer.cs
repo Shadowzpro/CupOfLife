@@ -77,8 +77,6 @@ public class Customer : MonoBehaviour
         // startcoroutine again?
     }
 
-
-
     private IEnumerator DialogueBox(float waitTime)
     {
         while (true)
@@ -90,30 +88,30 @@ public class Customer : MonoBehaviour
             if (GetComponent<Renderer>().sharedMaterial == customerSprite[0] || GetComponent<Renderer>().sharedMaterial == customerSprite[1])
             {
                 dialogue.text = "One cup with, " + ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + ingredientAmounts[2] + " " + orderIngredients[2].tag + " please.";
-
+                
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
-
+                
                 int counter = 0;//cleaner
-
+                
                 for (int i = 0; i < ingredientAmounts[0]; i++)
                 {
                     ingredientsRequired[counter] = orderIngredients[0];
                     counter++;
                 }
-
+                
                 for (int i = 0; i < ingredientAmounts[1]; i++)
                 {
                     ingredientsRequired[counter] = orderIngredients[1];
                     counter++;
                 }
-
+                
                 for (int i = 0; i < ingredientAmounts[2]; i++)
                 {
                     ingredientsRequired[counter] = orderIngredients[2];
                     counter++;
                 }
-
+                
                 docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
             }
             else if (GetComponent<Renderer>().sharedMaterial == customerSprite[2] || GetComponent<Renderer>().sharedMaterial == customerSprite[3])//robot

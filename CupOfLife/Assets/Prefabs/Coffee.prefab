@@ -47,10 +47,6 @@ MonoBehaviour:
   ingredients:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   dissolveShader: {fileID: 0}
   isFadingIn: 1
   isFadingOut: 0
@@ -120,7 +116,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fb9d74e55383fda438dfbe397c7973d4,
         type: 3}
       propertyPath: m_Name
-      value: Kitchen_CoffeeCup_Small_001_v002_20201311
+      value: Coffee
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: fb9d74e55383fda438dfbe397c7973d4,
         type: 3}
