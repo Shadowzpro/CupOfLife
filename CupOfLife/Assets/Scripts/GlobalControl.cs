@@ -22,4 +22,9 @@ public class GlobalControl : MonoBehaviour
     {
         day++;
     }
+
+    public void ResetDays()
+    {
+        day = 1;
+    }
 }

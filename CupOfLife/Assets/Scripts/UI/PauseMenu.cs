@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
 
         if (ui.activeSelf)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0.000000001f;
         }
         else
         {
