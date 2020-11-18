@@ -7,14 +7,14 @@ TagManager:
   - Destination
   - Milk
   - Oil
-  - CoffeeBeans
-  - GreenJuice
   - Cogs
   - Void
   - Eyeballs
   - Sugar
   - Coffee
   - Customer
+  - Coffee Beans
+  - Green Juice
   layers:
   - Default
   - TransparentFX

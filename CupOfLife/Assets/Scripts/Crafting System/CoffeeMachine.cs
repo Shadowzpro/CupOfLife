@@ -35,7 +35,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     // Check to see whether or not an ingredient has been dropped into the coffee machine or not
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("CoffeeBeans"))
+        if (collider.CompareTag("Coffee Beans"))
         {
             Debug.Log("Detected Coffee Beans");
             AddIngredient(coffeeBeans);
@@ -59,7 +59,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
             Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
         }
 
-        else if(collider.CompareTag("GreenJuice"))
+        else if(collider.CompareTag("Green Juice"))
         {
             Debug.Log("Detected Green Juice");
             AddIngredient(greenJuice);
