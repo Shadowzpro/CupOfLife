@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:CupOfLife/Assets/Prefabs/Coffees.meta
 guid: f791e8ae9a895ea4ab97a2b64580d87e
+=======
+guid: 5996dedb9cdf9b6479f2033820be0a5a
+>>>>>>> master:CupOfLife/Assets/Recipes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
