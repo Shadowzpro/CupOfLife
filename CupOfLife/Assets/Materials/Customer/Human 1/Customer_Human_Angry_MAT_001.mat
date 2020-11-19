@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Customer_Human_Happy_MAT_001
+  m_Name: Customer_Human_Angry_MAT_001
   m_Shader: {fileID: -6465566751694194690, guid: 35f9f0ef0be258349b9e79b63561efe6,
     type: 3}
   m_ShaderKeywords: 
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 900dc65ad6cecf64e97aa44193ae60c0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6a83cbc1a4d8ae44fa9f24f7871f2d94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

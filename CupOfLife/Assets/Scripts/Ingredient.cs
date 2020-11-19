@@ -20,6 +20,15 @@ public class Ingredient : MonoBehaviour
     public GameObject internalGlass;
     public GameObject lidsAndSolids;
 
+    [Header("MaterialAssignment")]
+    public Material materialCoffeeBeans;
+    public Material materialCogs;
+    public Material materialSugar;
+    public Material materialEyeballs;
+    public Material materialMilkLid;
+    public Material materialOilLid;
+    public Material materialGooLid;
+
     [Header("Hand")]
     // MAX DISTANCE YOU CAN BE TO PICK UP AN ITEM
     public float pickUpDistance = 0.3f;
@@ -149,6 +158,32 @@ public class Ingredient : MonoBehaviour
                     dissolveFloatProgress = -0.1f;
                     isFadingIn = false;
                     dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
+                    if (CompareTag("Coffee Beans"))
+                    {
+                        Renderer rend = GetComponent<Renderer>();
+                        rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        rend.material = materialCoffeeBeans;
+                    }
+                    else if (CompareTag("Sugar"))
+                    {
+                        Renderer rend = GetComponent<Renderer>();
+                        rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        rend.material = materialSugar;
+                    }
+                    else if (CompareTag("Eyeballs"))
+                    {
+                        Renderer rend = GetComponent<Renderer>();
+                        rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        rend.material = materialEyeballs;
+                    }
+                    else if (CompareTag("Cogs"))
+                    {
+                        Renderer rend = GetComponent<Renderer>();
+                        rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        rend.material = materialCogs;
+                    }
+
                 }
                 else
                 {
@@ -169,7 +204,27 @@ public class Ingredient : MonoBehaviour
                     dissolveShader.material.SetFloat("dissolveProgress", 1 - dissolveFloatProgress);
                     dissolveShader2.material.SetFloat("dissolveProgress", dissolveFloatProgress);
                     liquidShader.material.SetFloat("_FillAmount", liquidLevelProgress);
-                }
+
+                    ///FADE COMPLETE, SET LID TEXTURES.
+                    Renderer lidRend = lidsAndSolids.GetComponent<Renderer>();
+                    if (CompareTag("Milk"))
+                    {
+                        lidRend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        lidRend.material = materialMilkLid;
+                    }
+                    else if (CompareTag("Oil"))
+                    {
+                        lidRend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        lidRend.material = materialOilLid;
+                    }
+                    else if (CompareTag("Green Juice"))
+                    {
+                        lidRend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                        lidRend.material = materialGooLid;
+                    }
+
+
+}
                 else
                 {
                     dissolveShader.material.SetFloat("dissolveProgress", 1-dissolveFloatProgress);

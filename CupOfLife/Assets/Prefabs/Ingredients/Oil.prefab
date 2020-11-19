@@ -89,6 +89,13 @@ MonoBehaviour:
   internalLiquid: {fileID: 4571750239888528441}
   internalGlass: {fileID: 4126380690679555983}
   lidsAndSolids: {fileID: 4775627661898589949}
+  materialCoffeeBeans: {fileID: 0}
+  materialCogs: {fileID: 0}
+  materialSugar: {fileID: 0}
+  materialEyeballs: {fileID: 0}
+  materialMilkLid: {fileID: 0}
+  materialOilLid: {fileID: 2100000, guid: 63e760f46c52df14eb85a22a9a82adb3, type: 2}
+  materialGooLid: {fileID: 0}
   pickUpDistance: 0.5
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 2456991577141807640}
@@ -327,7 +334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6310625057569584159, guid: 2db71af2b2a976b4684dca2275447241, type: 3}
+  - {fileID: 2100000, guid: 63e760f46c52df14eb85a22a9a82adb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

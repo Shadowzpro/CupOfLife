@@ -55,6 +55,13 @@ MonoBehaviour:
   internalLiquid: {fileID: 0}
   internalGlass: {fileID: 0}
   lidsAndSolids: {fileID: 0}
+  materialCoffeeBeans: {fileID: 0}
+  materialCogs: {fileID: 0}
+  materialSugar: {fileID: 2100000, guid: e92cc98995108d74ebae95a836c886d1, type: 2}
+  materialEyeballs: {fileID: 0}
+  materialMilkLid: {fileID: 0}
+  materialOilLid: {fileID: 0}
+  materialGooLid: {fileID: 0}
   pickUpDistance: 0.3
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
   prefab: {fileID: 340112704803333927}
