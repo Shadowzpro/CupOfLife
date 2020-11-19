@@ -11,6 +11,9 @@ public class Coffee : MonoBehaviour
     // REFERENCE TO EMPTY GAME OBJECT ON CLAW
     public GameObject theDest;
 
+    [Header("Coffee Materials")]
+    public Material coffeeMat;
+
     [Header("Coffee")]
     /// <summary>
     /// The Ingredients
@@ -73,6 +76,13 @@ public class Coffee : MonoBehaviour
                 dissolveFloatProgress = -0.1f;
                 isFadingIn = false;
                 dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
+
+                Renderer rend = GetComponent<Renderer>();
+                rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
+                rend.material = coffeeMat;
+                
+
             }
             else
             {
