@@ -56,8 +56,9 @@ public class GameManager : MonoBehaviour
 
         if (gameTime >= 1020)
         {
+            lockCursor = !lockCursor;
+
             SaveData();
-            this.enabled = false;
             Debug.Log("Game is Over");
             gameIsOver = true;
 
@@ -73,9 +74,10 @@ public class GameManager : MonoBehaviour
                 GlobalControl.Instance.ResetDays();
                 gameOverUI.SetActive(!gameOverUI.activeSelf);
             }
+            this.enabled = false;
         }
-
-        // pressing esc toggles between hide/show
+        
+        // Pressing esc toggles between hide/show
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lockCursor = !lockCursor;
@@ -117,6 +119,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Save your day progress to the GlobalController
+    /// </summary>
     public void SaveData()
     {
         GlobalControl.Instance.day = day;
