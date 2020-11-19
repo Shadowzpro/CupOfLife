@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public ServingBench servingBench;
     public GameObject levelFinishedUI;
     public GameObject gameOverUI;
+    public AudioSource backgroundAudio;
+
     [HideInInspector]
     public static GameManager Instance;
     
