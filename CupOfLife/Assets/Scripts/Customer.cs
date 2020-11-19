@@ -86,21 +86,27 @@ public class Customer : MonoBehaviour
             string ingredientOne;
             string ingredientTwo;
             string ingredientThree;
+            string docketOne;
+            string docketTwo;
+            string docketThree;
 
             if (ingredientAmounts[0] != 0)
             {
                 if (ingredientAmounts[1] != 0 || ingredientAmounts[2] != 0)
                 {
-                    ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", ";
+                    ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + '\n';
+                    docketOne = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n';
                 }
                 else
                 {
                     ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag;
+                    docketOne = ingredientAmounts[0] + " x " + orderIngredients[0].tag;
                 }
             }
             else
             {
                 ingredientOne = null;
+                docketOne = null;
             }
 
             //human customer
@@ -110,27 +116,39 @@ public class Customer : MonoBehaviour
                 {
                     if (ingredientAmounts[2] != 0)
                     {
-                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", ";
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + '\n';
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n';
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag;
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[1].tag;
                     }
                 }
                 else
                 {
                     ingredientTwo = null;
+                    docketTwo = null;
                 }
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[2].tag;
+                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[2].tag;
                 }
                 else
                 {
                     ingredientThree = null;
+                    docketThree = null;
                 }
 
-                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
+                if (ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2] == 0)
+                {
+                    dialogue.text = "One cup please.";
+                }
+                else
+                {
+                    dialogue.text = "One cup with:" + '\n' + ingredientOne + ingredientTwo + ingredientThree + " please.";
+                }
                 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
@@ -154,8 +172,8 @@ public class Customer : MonoBehaviour
                     ingredientsRequired[counter] = orderIngredients[2];
                     counter++;
                 }
-                
-                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[2].tag;
+
+                docket.text = docketOne + docketTwo + docketThree;
             }
             else if (GetComponent<Renderer>().sharedMaterial == customerSprite[2] || GetComponent<Renderer>().sharedMaterial == customerSprite[3])//robot
             {
@@ -163,27 +181,39 @@ public class Customer : MonoBehaviour
                 {
                     if (ingredientAmounts[2] != 0)
                     {
-                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", ";
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", " + '\n';
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[3].tag + '\n';
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag;
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[3].tag;
                     }
                 }
                 else
                 {
                     ingredientTwo = null;
+                    docketTwo = null;
                 }
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[4].tag;
+                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[4].tag;
                 }
                 else
                 {
                     ingredientThree = null;
+                    docketThree = null;
                 }
 
-                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
+                if (ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2] == 0)
+                {
+                    dialogue.text = "One cup ~BeeP bOOp~.";
+                }
+                else
+                {
+                    dialogue.text = "One cup with:" + '\n' + ingredientOne + ingredientTwo + ingredientThree + " ~BeeP bOOp~.";
+                }
 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
@@ -208,7 +238,7 @@ public class Customer : MonoBehaviour
                     counter++;
                 }
 
-                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[3].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[4].tag;
+                docket.text = docketOne + docketTwo + docketThree;
             }
             else if (GetComponent<Renderer>().sharedMaterial == customerSprite[4] || GetComponent<Renderer>().sharedMaterial == customerSprite[5])//alien
             {
@@ -216,27 +246,39 @@ public class Customer : MonoBehaviour
                 {
                     if (ingredientAmounts[2] != 0)
                     {
-                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", ";
+                        ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", " + '\n';
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[5].tag + '\n';
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag;
+                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[5].tag;
                     }
                 }
                 else
                 {
                     ingredientTwo = null;
+                    docketTwo = null;
                 }
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[6].tag;
+                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[6].tag;
                 }
                 else
                 {
                     ingredientThree = null;
+                    docketThree = null;
                 }
 
-                dialogue.text = "One cup with: " + ingredientOne + ingredientTwo + ingredientThree + " please.";
+                if (ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2] == 0)
+                {
+                    dialogue.text = "One cup my dear dumb dumb.";
+                }
+                else
+                {
+                    dialogue.text = "One cup with:" + '\n' + ingredientOne + ingredientTwo + ingredientThree + " my dear dumb dumb.";
+                }
 
                 ingredientsRequired = new Ingredient[ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2]];//COMPARE THIS ARRAY
                 coffeeMachine.ingredientSlots = new Ingredient[ingredientsRequired.Length];//
@@ -261,7 +303,7 @@ public class Customer : MonoBehaviour
                     counter++;
                 }
 
-                docket.text = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n' + ingredientAmounts[1] + " x " + orderIngredients[5].tag + '\n' + ingredientAmounts[2] + " x " + orderIngredients[6].tag;
+                docket.text = docketOne + docketTwo + docketThree;
             }
             yield return new WaitForSeconds(6.25f);
             speechBubble.gameObject.SetActive(false);
