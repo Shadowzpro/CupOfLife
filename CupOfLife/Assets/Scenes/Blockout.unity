@@ -2057,7 +2057,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16380
+  m_Name: pb_Mesh16230
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3422,7 +3422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 14dfa57767dda74419675d68b9193b7e, type: 2}
+      objectReference: {fileID: 2100000, guid: 476734ff9d59ba542bbf5fdc070f9024, type: 2}
     - target: {fileID: -1504981713932161579, guid: cbffeef9fda360a40a9084a57fcf15fc,
         type: 3}
       propertyPath: m_Enabled
@@ -3432,6 +3432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Customer_Plane_001
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cbffeef9fda360a40a9084a57fcf15fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbffeef9fda360a40a9084a57fcf15fc, type: 3}
@@ -3469,17 +3474,17 @@ MonoBehaviour:
   ingredientAmountMin: 0
   ingredientAmountMax: 3
   customerSprite:
-  - {fileID: 2100000, guid: 5031e3f8e4760e443a2bc5b5424ca49c, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 78768111b7a0e1b4b943255b14134d66, type: 2}
+  - {fileID: 2100000, guid: 42718827f3b621044b15e86be6d95224, type: 2}
   - {fileID: 2100000, guid: b7c4192d8bd88fa4583e4a4ab68b764e, type: 2}
   - {fileID: 2100000, guid: 1f5d630a4b987d54b872d9334c03e8eb, type: 2}
   - {fileID: 2100000, guid: 14dfa57767dda74419675d68b9193b7e, type: 2}
   - {fileID: 2100000, guid: 5ab156035f6f2ca49b56ae386ebe598d, type: 2}
   customerReactionSprite:
-  - {fileID: 2100000, guid: 2269dc690519d82458957e7efeb9e3ad, type: 2}
-  - {fileID: 2100000, guid: a73c157973128264c897037c47b33d47, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 633de4441187fe649bb125fedc7f0c16, type: 2}
+  - {fileID: 2100000, guid: c07c4cfdb94bf9b4aaaeade8c4d3908e, type: 2}
+  - {fileID: 2100000, guid: 476734ff9d59ba542bbf5fdc070f9024, type: 2}
+  - {fileID: 2100000, guid: e6c7a1eb5c8bf5d43a06414ac0ff560e, type: 2}
   - {fileID: 2100000, guid: f0561eff906ff4b47a5434eda4a0c699, type: 2}
   - {fileID: 2100000, guid: 7924a6b2a6397b041ab5b609d1ffec71, type: 2}
   - {fileID: 2100000, guid: e85481aa2fc763b4c94bb5205c9f6a28, type: 2}
@@ -3580,7 +3585,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17382
+  m_Name: pb_Mesh17232
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3829,7 +3834,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17202
+  m_Name: pb_Mesh17052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10246,7 +10251,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17080
+  m_Name: pb_Mesh16930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11106,7 +11111,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17066
+  m_Name: pb_Mesh16916
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11740,7 +11745,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16896
+  m_Name: pb_Mesh16746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12778,7 +12783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1519471986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12991,7 +12996,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519471985}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
