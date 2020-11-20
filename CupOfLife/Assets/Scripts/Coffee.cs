@@ -36,7 +36,7 @@ public class Coffee : MonoBehaviour
     {
         isFadingIn = true;
         dissolveShader = GetComponent<Renderer>();
-        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
         dissolveFloatProgress = 1;
         dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
     }
@@ -44,8 +44,8 @@ public class Coffee : MonoBehaviour
     public void DissolveOut()
     {
         isFadingOut = true;
-        dissolveShader = GetComponent<Renderer>();
-        dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+        //dissolveShader = GetComponent<Renderer>();
+        //dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
         dissolveFloatProgress = -0.1f;
         dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
     }
@@ -77,11 +77,11 @@ public class Coffee : MonoBehaviour
                 isFadingIn = false;
                 dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
 
-
+                /*
                 Renderer rend = GetComponent<Renderer>();
                 rend.material.shader = Shader.Find("Universal Render Pipline/Lit");
                 rend.material = coffeeMat;
-                
+                */
 
             }
             else

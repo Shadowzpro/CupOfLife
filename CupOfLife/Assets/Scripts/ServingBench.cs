@@ -165,7 +165,7 @@ public class ServingBench : MonoBehaviour
             // begin fadeing stuff
             isCoffeeFadingAway = true;
             dissolveShader = drink.GetComponent<Renderer>();
-            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
             coffeeDissolveProg = 0;
             // end fading stuff
             
