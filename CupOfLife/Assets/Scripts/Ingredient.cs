@@ -77,10 +77,12 @@ public class Ingredient : MonoBehaviour
 
         if (!isLiquid)
         {
+            
             dissolveShader = GetComponent<Renderer>();
-            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveIngredients");
             dissolveFloatProgress = 1;
             dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
+
         }
         else 
         {
@@ -93,6 +95,7 @@ public class Ingredient : MonoBehaviour
 
                 dissolveShader = lidsAndSolids.GetComponent<Renderer>();
                 dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveMetal");
+                dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveIngredients");
                 dissolveShader.material.SetFloat("dissolveProgress", dissolveFloatProgress);
 
                 liquidShader = internalLiquid.GetComponent<Renderer>();
