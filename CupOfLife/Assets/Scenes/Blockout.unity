@@ -8802,11 +8802,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 86526eaf2fc32604c97e446ad0f1e13e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8716d858f23b2248bbbca18b922064a, type: 2}
     - target: {fileID: -927199367670048503, guid: 86526eaf2fc32604c97e446ad0f1e13e,
         type: 3}
       propertyPath: m_Name
       value: UI_TipJar_Medium_001_v002_20201311 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4417474580689221869, guid: 86526eaf2fc32604c97e446ad0f1e13e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe0b4df17ebe87b449a60ed5d237149b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86526eaf2fc32604c97e446ad0f1e13e, type: 3}
 --- !u!4 &927892932 stripped
