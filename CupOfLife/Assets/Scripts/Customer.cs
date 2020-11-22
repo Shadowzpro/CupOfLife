@@ -14,6 +14,8 @@ public class Customer : MonoBehaviour
     private List<int> ingredientAmounts;
     public Ingredient[] orderIngredients; //= { "Bag(s) of Coffee Beans", "Bottle(s) of Milk", "Sugar Cube(s)", "Can(s) of Oil", "Cog(s)", "Vile(s) of Green Juice", "EyeBall(s)" }; // ALL INGREDIENTS
     public Ingredient[] ingredientsRequired;
+    public GameObject[] icon;
+    public Material[] iconSprite;
     public int ingredientAmountMin = 0;
     public int ingredientAmountMax = 3;
     public Material[] customerSprite;//
@@ -95,13 +97,17 @@ public class Customer : MonoBehaviour
                 if (ingredientAmounts[1] != 0 || ingredientAmounts[2] != 0)
                 {
                     ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag + ", " + '\n';
-                    docketOne = ingredientAmounts[0] + " x " + orderIngredients[0].tag + '\n';
+                    //docketOne = ingredientAmounts[0] + "x " + orderIngredients[0].tag + '\n';
+                    docketOne = ingredientAmounts[0] + "x\n";
                 }
                 else
                 {
                     ingredientOne = ingredientAmounts[0] + " " + orderIngredients[0].tag;
-                    docketOne = ingredientAmounts[0] + " x " + orderIngredients[0].tag;
+                    //docketOne = ingredientAmounts[0] + "x " + orderIngredients[0].tag;
+                    docketOne = ingredientAmounts[0] + "x";
                 }
+                icon[0].GetComponent<MeshRenderer>().enabled = true;
+                icon[0].GetComponent<Renderer>().material = iconSprite[0];
             }
             else
             {
@@ -117,12 +123,24 @@ public class Customer : MonoBehaviour
                     if (ingredientAmounts[2] != 0)
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag + ", " + '\n';
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[1].tag + '\n';
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[1].tag + '\n';
+                        docketTwo = ingredientAmounts[1] + "x\n";
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[1].tag;
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[1].tag;
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[1].tag;
+                        docketTwo = ingredientAmounts[1] + "x";
+                    }
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        icon[1].GetComponent<MeshRenderer>().enabled = true;
+                        icon[1].GetComponent<Renderer>().material = iconSprite[1];
+                    }
+                    else
+                    {
+                        icon[0].GetComponent<MeshRenderer>().enabled = true;
+                        icon[0].GetComponent<Renderer>().material = iconSprite[1];
                     }
                 }
                 else
@@ -133,7 +151,34 @@ public class Customer : MonoBehaviour
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[2].tag;
-                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[2].tag;
+                    //docketThree = ingredientAmounts[2] + "x " + orderIngredients[2].tag;
+                    docketThree = ingredientAmounts[2] + "x";
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[2].GetComponent<MeshRenderer>().enabled = true;
+                            icon[2].GetComponent<Renderer>().material = iconSprite[2];
+                        }
+                        else
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[2];
+                        }
+                    }
+                    else
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[2];
+                        }
+                        else
+                        {
+                            icon[0].GetComponent<MeshRenderer>().enabled = true;
+                            icon[0].GetComponent<Renderer>().material = iconSprite[2];
+                        }
+                    }
                 }
                 else
                 {
@@ -182,12 +227,25 @@ public class Customer : MonoBehaviour
                     if (ingredientAmounts[2] != 0)
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag + ", " + '\n';
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[3].tag + '\n';
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[3].tag + '\n';
+                        docketTwo = ingredientAmounts[1] + "x\n";
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[3].tag;
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[3].tag;
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[3].tag;
+                        docketTwo = ingredientAmounts[1] + "x";
+
+                    }
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        icon[1].GetComponent<MeshRenderer>().enabled = true;
+                        icon[1].GetComponent<Renderer>().material = iconSprite[3];
+                    }
+                    else
+                    {
+                        icon[0].GetComponent<MeshRenderer>().enabled = true;
+                        icon[0].GetComponent<Renderer>().material = iconSprite[3];
                     }
                 }
                 else
@@ -198,7 +256,34 @@ public class Customer : MonoBehaviour
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[4].tag;
-                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[4].tag;
+                    //docketThree = ingredientAmounts[2] + "x " + orderIngredients[4].tag;
+                    docketThree = ingredientAmounts[2] + "x";
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[2].GetComponent<MeshRenderer>().enabled = true;
+                            icon[2].GetComponent<Renderer>().material = iconSprite[4];
+                        }
+                        else
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[4];
+                        }
+                    }
+                    else
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[4];
+                        }
+                        else
+                        {
+                            icon[0].GetComponent<MeshRenderer>().enabled = true;
+                            icon[0].GetComponent<Renderer>().material = iconSprite[4];
+                        }
+                    }
                 }
                 else
                 {
@@ -247,12 +332,24 @@ public class Customer : MonoBehaviour
                     if (ingredientAmounts[2] != 0)
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag + ", " + '\n';
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[5].tag + '\n';
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[5].tag + '\n';
+                        docketTwo = ingredientAmounts[1] + "x\n";
                     }
                     else
                     {
                         ingredientTwo = ingredientAmounts[1] + " " + orderIngredients[5].tag;
-                        docketTwo = ingredientAmounts[1] + " x " + orderIngredients[5].tag;
+                        //docketTwo = ingredientAmounts[1] + "x " + orderIngredients[5].tag;
+                        docketTwo = ingredientAmounts[1] + "x";
+                    }
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        icon[1].GetComponent<MeshRenderer>().enabled = true;
+                        icon[1].GetComponent<Renderer>().material = iconSprite[5];
+                    }
+                    else
+                    {
+                        icon[0].GetComponent<MeshRenderer>().enabled = true;
+                        icon[0].GetComponent<Renderer>().material = iconSprite[5];
                     }
                 }
                 else
@@ -263,7 +360,34 @@ public class Customer : MonoBehaviour
                 if (ingredientAmounts[2] != 0)
                 {
                     ingredientThree = ingredientAmounts[2] + " " + orderIngredients[6].tag;
-                    docketThree = ingredientAmounts[2] + " x " + orderIngredients[6].tag;
+                    //docketThree = ingredientAmounts[2] + "x " + orderIngredients[6].tag;
+                    docketThree = ingredientAmounts[2] + "x";
+                    if (ingredientAmounts[0] != 0)
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[2].GetComponent<MeshRenderer>().enabled = true;
+                            icon[2].GetComponent<Renderer>().material = iconSprite[6];
+                        }
+                        else
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[6];
+                        }
+                    }
+                    else
+                    {
+                        if (ingredientAmounts[1] != 0)
+                        {
+                            icon[1].GetComponent<MeshRenderer>().enabled = true;
+                            icon[1].GetComponent<Renderer>().material = iconSprite[6];
+                        }
+                        else
+                        {
+                            icon[0].GetComponent<MeshRenderer>().enabled = true;
+                            icon[0].GetComponent<Renderer>().material = iconSprite[6];
+                        }
+                    }
                 }
                 else
                 {
