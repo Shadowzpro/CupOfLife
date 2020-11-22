@@ -1,16 +1,40 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
     public string levelToLoad = "";
-
+    public Text roundsText;
     public SceneFader sceneFader;
+    public GlobalControl globalControl;
 
     [Header("UI's")]
     public GameObject mainMenuUI;
     public GameObject creditsUI;
     public GameObject optionsUI;
+
+    void OnEnable()
+    {
+        StartCoroutine(AnimateText());
+    }
+
+    IEnumerator AnimateText()
+    {
+        roundsText.text = "0";
+        int round = 0;
+
+        yield return new WaitForSeconds(.7f);
+
+        while (round < globalControl.day)
+        {
+            round++;
+            roundsText.text = round.ToString();
+
+            yield return new WaitForSeconds(.05f);
+        }
+    }
 
     public void Play()
     {
