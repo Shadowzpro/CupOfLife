@@ -273,7 +273,7 @@ public class Customer : MonoBehaviour
 
                 if (ingredientAmounts[0] + ingredientAmounts[1] + ingredientAmounts[2] == 0)
                 {
-                    dialogue.text = "One cup my dear dumb dumb.";
+                    dialogue.text = "One cup please my dear dumb dumb.";
                 }
                 else
                 {
