@@ -12,13 +12,13 @@ public class Arm : MonoBehaviour
     public float upDownSpeed = 10f;
     //public float maxVelocityChange = 10f;
 
-    //CURRENT ANGLE OF DRIFT
+    // CURRENT ANGLE OF DRIFT
     public float driftX = 0; // - pushes arm down, + up.
     public float driftY = 0; // - pushes arm Left, + Right.
     public float currentXDrift = 0;
     public float currentYDrift = 0;
 
-    //// SPEED OF CLAW ROTATING
+    // SPEED OF CLAW ROTATING
     //public float rotationSpeed = 45f;
     //
     //[Header("Constraints")]
@@ -32,24 +32,31 @@ public class Arm : MonoBehaviour
     [Header("References")]
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
+
+    // Reference to the GameManager
     public GameManager gameManager;
     
     // REFERENCE TO ELBOW OBJECT
     public GameObject elbow;
-    //Reference to other joint?
 
     // REFERENCE TO ARM'S RIGIDBODY
     private Rigidbody rigidBody;
 
-    //REFERENCE TO LASSSEREZ
+    // REFERENCE TO LASSSEREZ
     public GameObject laser;
 
+    // Reference to the arm's Animation
     private Animation anim;
+
+    // Reference to the arm's laser sound effect
+    [HideInInspector]
+    public AudioSource laserSFX;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animation>();
+        laserSFX = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -67,13 +74,14 @@ public class Arm : MonoBehaviour
         {
             laser.SetActive(true);
             anim.Play();
+            laserSFX.Play();
         }
         else 
         {
             laser.SetActive(false);
             anim.Rewind();
+            laserSFX.Stop();
         }
-
     }
 
     private void FixedUpdate()

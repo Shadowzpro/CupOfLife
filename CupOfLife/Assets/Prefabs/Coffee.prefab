@@ -44,6 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpDistance: 0.3
   theDest: {fileID: 2209636626612958822, guid: 8d84e299627c32946909b41f2f0b689b, type: 3}
+  coffeeMat: {fileID: 2100000, guid: 785f8e9d1a3992d458d6cb1520fbccd0, type: 2}
   ingredients:
   - {fileID: 0}
   - {fileID: 0}
