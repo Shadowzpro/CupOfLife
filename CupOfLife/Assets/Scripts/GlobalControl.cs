@@ -4,7 +4,8 @@ public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl Instance;
     public int day;
-    private int dayReached = 1;
+    [HideInInspector]
+    public int dayReached = 1;
 
     void Awake()
     {
