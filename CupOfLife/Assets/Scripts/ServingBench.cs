@@ -9,6 +9,7 @@ public class ServingBench : MonoBehaviour
     //public ParticleSystem confetti;
     [HideInInspector]
     public GameObject drink;
+    public GameObject[] icon;
     public float secondsToDestroy = 4;
     public float customerLeaving = 3.125f;
     private Rigidbody drinkRigidBody;
@@ -297,6 +298,10 @@ public class ServingBench : MonoBehaviour
                 }
             }
             currentCustomer.docket.text = "";
+            for (int i = 0; i < icon.Length; i++)
+            {
+                icon[i].GetComponent<MeshRenderer>().enabled = false;
+            }
             
             StopCoroutine(coroutine);
             
