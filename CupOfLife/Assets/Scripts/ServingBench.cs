@@ -31,6 +31,14 @@ public class ServingBench : MonoBehaviour
     private bool correctCoffee;
     public GameObject[] coinPile;
 
+    // Reference to the Teleporter's Animation
+    private Animation anim;
+
+    private void Start()
+    {
+        anim = gameObject.GetComponent<Animation>();
+    }
+
     private void Update()
     {
         if (isCoffeeFadingAway)
@@ -99,6 +107,8 @@ public class ServingBench : MonoBehaviour
         //CHECKS IF THE GAMEOBJECT IS HAS A DRINK TAG
         if (other.CompareTag("Coffee"))
         {
+            AssignCoffee();
+            anim.Play();
             //foreach (Ingredient orderIngredient in currentCustomer.ingredientsRequired)
             //{
             //    for (int i = 0; i < drink.GetComponent<Coffee>().ingredients.Length; i++)//count
@@ -169,7 +179,7 @@ public class ServingBench : MonoBehaviour
             dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
             coffeeDissolveProg = 0;
             // end fading stuff
-            
+
             Destroy(drinkRigidBody);
             Destroy(drink, secondsToDestroy);
             Debug.Log("Destroyed");

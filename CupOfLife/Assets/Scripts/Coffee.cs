@@ -25,7 +25,6 @@ public class Coffee : MonoBehaviour
     public bool isFadingOut = false;
     public float dissolveFloatProgress = 1;
 
-
     void Start()
     {
         theDest = GameObject.FindWithTag("Destination");
@@ -94,7 +93,7 @@ public class Coffee : MonoBehaviour
         // BEGIN FADE OUT
         if (isFadingOut)
         {
-            dissolveFloatProgress = dissolveFloatProgress + (0.5f * Time.deltaTime);
+            dissolveFloatProgress += (0.5f * Time.deltaTime);
             if (dissolveFloatProgress >= 1)
             {
                 dissolveFloatProgress = 1f;
