@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public string levelToLoad = "";
     public Text roundsText;
     public SceneFader sceneFader;
-    public GlobalControl globalControl;
+    private GlobalControl globalControl;
 
     [Header("UI's")]
     public GameObject mainMenuUI;
@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     void OnEnable()
     {
+        globalControl = FindObjectOfType<GlobalControl>();
         StartCoroutine(AnimateText());
     }
 
