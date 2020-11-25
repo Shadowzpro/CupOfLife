@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 744e94cdb7500634a88b9eb4eac6d043,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4022,7 +4022,7 @@ MonoBehaviour:
   - {fileID: 1549414063, guid: fab2266d3dffb324a953bbe05a620fad, type: 3}
   - {fileID: 1335043414796309031, guid: 72b1b892577a30540a41bec09e5f8d10, type: 3}
   - {fileID: 1028083748, guid: 5f301dd73748abc458f558e19ffefb40, type: 3}
-  - {fileID: 6200095362127734318}
+  - {fileID: 2144047378, guid: e94de8be8936d1840965c55f04a7546b, type: 3}
   - {fileID: 389999539, guid: 4c2b58886097c294c9e39a0036b9665e, type: 3}
   - {fileID: 6399844726611965872, guid: 2129e08dab65f724dad11f6c157943f7, type: 3}
   - {fileID: 63984302, guid: 2eeca126e7f72dd49a4634d7863d7707, type: 3}
@@ -22422,15 +22422,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e94de8be8936d1840965c55f04a7546b, type: 3}
---- !u!114 &6200095362127734318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2144047378, guid: e94de8be8936d1840965c55f04a7546b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5359904189931876939}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463f9af342bfa8a4196e5319bb07fabc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

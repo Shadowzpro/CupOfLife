@@ -44,26 +44,26 @@ public class ServingBench : MonoBehaviour
             AssignCoffee();
         }
 
-        if (ordersComplete == 2)
+        if (ordersComplete == 1)
         {
             coinPile[0].SetActive(true);
         }
-        if (ordersComplete == 4)
+        if (ordersComplete == 2)
         {
             coinPile[1].SetActive(true);
             coinPile[0].SetActive(false);
         }
-        if (ordersComplete == 6)
+        if (ordersComplete == 3)
         {
             coinPile[2].SetActive(true);
             coinPile[1].SetActive(false);
         }
-        if (ordersComplete == 8)
+        if (ordersComplete == 4)
         {
             coinPile[3].SetActive(true);
             coinPile[2].SetActive(false);
         }
-        if (ordersComplete == 10)
+        if (ordersComplete == 5)
         {
             coinPile[4].SetActive(true);
             coinPile[3].SetActive(false);
