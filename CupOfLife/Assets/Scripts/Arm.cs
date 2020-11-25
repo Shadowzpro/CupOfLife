@@ -33,6 +33,9 @@ public class Arm : MonoBehaviour
     // REFERENCE TO CLAW GAMEOBJECT
     public GameObject claw;
 
+    public GameObject cylinder;
+    public GameObject cylinderLookAt;
+
     // Reference to the GameManager
     public GameManager gameManager;
     
@@ -66,6 +69,8 @@ public class Arm : MonoBehaviour
             this.enabled = false;
             return;
         }
+
+        cylinder.transform.LookAt(cylinderLookAt.transform);
 
         //Move(); // commented out as movement is now in fixed update. this means drift does not work
         //Rotate();
