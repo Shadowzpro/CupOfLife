@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HoloMatForTipJarAndScanner
+  m_Name: HoloUI
   m_Shader: {fileID: -6465566751694194690, guid: 35f9f0ef0be258349b9e79b63561efe6,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -29,10 +29,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AplhaMultiplier: 0.1
+    - _AplhaMultiplier: 1
     - _ScrollSpeed: 0.1
     m_Colors:
-    - _HologramColour: {r: 0, g: 0.48693085, b: 1, a: 1}
+    - _HologramColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &8291581068426800162
 MonoBehaviour:
   m_ObjectHideFlags: 11
