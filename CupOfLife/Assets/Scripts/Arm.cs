@@ -97,7 +97,7 @@ public class Arm : MonoBehaviour
 
             if (!isAudioPlaying)
             {
-                isAudioStarting = true;
+                // isAudioStarting = true;
                 isAudioPlaying = true;
             }
         }
