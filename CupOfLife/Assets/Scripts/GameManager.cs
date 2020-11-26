@@ -62,9 +62,11 @@ public class GameManager : MonoBehaviour
     {
         if (servingBench.ordersFailed >= 3)
         {
+            lockCursor = !lockCursor;
             Debug.Log("Lose");
             this.enabled = false;
             gameIsOver = true;
+            GlobalControl.Instance.ResetDays();
             gameOverUI.SetActive(!gameOverUI.activeSelf);
         }
 
