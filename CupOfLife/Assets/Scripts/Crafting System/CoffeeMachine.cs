@@ -35,60 +35,63 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     // Check to see whether or not an ingredient has been dropped into the coffee machine or not
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Coffee Beans"))
+        if (collider.transform.parent == null)
         {
-            Debug.Log("Detected Coffee Beans");
-            AddIngredient(coffeeBeans);
-            Destroy(collider.gameObject, 0.1f);
-            Instantiate(coffeeBeans, coffeeBeans.spawnPoint.transform.position, Quaternion.identity);
-        }
+            if (collider.CompareTag("Coffee Beans"))
+            {
+                Debug.Log("Detected Coffee Beans");
+                AddIngredient(coffeeBeans);
+                Destroy(collider.gameObject, 0.1f);
+                Instantiate(coffeeBeans, coffeeBeans.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if (collider.CompareTag("Cogs"))
-        {
-            Debug.Log("Detected Cogs");
-            AddIngredient(cogs);
-            Destroy(collider.gameObject, 0.1f);
-            //Instantiate(cogs, cogs.spawnPoint.transform.position, Quaternion.identity);
-        }
+            else if (collider.CompareTag("Cogs"))
+            {
+                Debug.Log("Detected Cogs");
+                AddIngredient(cogs);
+                Destroy(collider.gameObject, 0.1f);
+                //Instantiate(cogs, cogs.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if (collider.CompareTag("Eyeballs"))
-        {
-            Debug.Log("Detected Eyeballs");
-            AddIngredient(eyeBalls);
-            Destroy(collider.gameObject, 0.1f);
-            //Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
-        }
+            else if (collider.CompareTag("Eyeballs"))
+            {
+                Debug.Log("Detected Eyeballs");
+                AddIngredient(eyeBalls);
+                Destroy(collider.gameObject, 0.1f);
+                //Instantiate(eyeBalls, eyeBalls.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if(collider.CompareTag("Green Juice"))
-        {
-            Debug.Log("Detected Green Juice");
-            AddIngredient(greenJuice);
-            Destroy(collider.gameObject, 0.1f);
-            Instantiate(greenJuice, greenJuice.spawnPoint.transform.position, Quaternion.identity);
-        }
+            else if (collider.CompareTag("Green Juice"))
+            {
+                Debug.Log("Detected Green Juice");
+                AddIngredient(greenJuice);
+                Destroy(collider.gameObject, 0.1f);
+                Instantiate(greenJuice, greenJuice.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if (collider.CompareTag("Milk"))
-        {
-            Debug.Log("Detected Milk");
-            AddIngredient(milk);
-            Destroy(collider.gameObject, 0.1f);
-            Instantiate(milk, milk.spawnPoint.transform.position, Quaternion.identity);
-        }
+            else if (collider.CompareTag("Milk"))
+            {
+                Debug.Log("Detected Milk");
+                AddIngredient(milk);
+                Destroy(collider.gameObject, 0.1f);
+                Instantiate(milk, milk.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if (collider.CompareTag("Oil"))
-        {
-            Debug.Log("Detected Oil");
-            AddIngredient(oil);
-            Destroy(collider.gameObject, 0.1f);
-            Instantiate(oil, oil.spawnPoint.transform.position, Quaternion.identity);
-        }
+            else if (collider.CompareTag("Oil"))
+            {
+                Debug.Log("Detected Oil");
+                AddIngredient(oil);
+                Destroy(collider.gameObject, 0.1f);
+                Instantiate(oil, oil.spawnPoint.transform.position, Quaternion.identity);
+            }
 
-        else if (collider.CompareTag("Sugar"))
-        {
-            Debug.Log("Detected Sugar");
-            AddIngredient(sugar);
-            Destroy(collider.gameObject, 0.1f);
-            //Instantiate(sugar, sugar.spawnPoint.transform.position, Quaternion.identity);
+            else if (collider.CompareTag("Sugar"))
+            {
+                Debug.Log("Detected Sugar");
+                AddIngredient(sugar);
+                Destroy(collider.gameObject, 0.1f);
+                //Instantiate(sugar, sugar.spawnPoint.transform.position, Quaternion.identity);
+            }
         }
     }
 
