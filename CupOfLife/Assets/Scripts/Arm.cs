@@ -52,8 +52,10 @@ public class Arm : MonoBehaviour
     private Animation anim;
 
     // Reference to the arm's laser sound effect
-    [HideInInspector]
-    public AudioSource laserSFX;
+    private AudioSource laserSFX;
+    private bool isAudioPlaying = false;
+    private bool isAudioStopping = false;
+    private bool isAudioStarting = false;
 
     void Awake()
     {
@@ -70,6 +72,19 @@ public class Arm : MonoBehaviour
             return;
         }
 
+        Debug.Log(laserSFX);
+
+        if (isAudioStopping)
+        {
+            laserSFX.Stop();
+            isAudioStopping = false;
+        }
+        else if (isAudioStarting)
+        {
+            isAudioStarting = false;
+            laserSFX.Play(0);
+        }
+
         cylinder.transform.LookAt(cylinderLookAt.transform);
 
         //Move(); // commented out as movement is now in fixed update. this means drift does not work
@@ -79,13 +94,23 @@ public class Arm : MonoBehaviour
         {
             laser.SetActive(true);
             anim.Play();
-            laserSFX.Play();
+
+            if (!isAudioPlaying)
+            {
+                isAudioStarting = true;
+                isAudioPlaying = true;
+            }
         }
         else 
         {
             laser.SetActive(false);
             anim.Rewind();
-            laserSFX.Stop();
+
+            if (isAudioPlaying)
+            {
+                isAudioStopping = true;
+                isAudioPlaying = false;
+            }
         }
     }
 

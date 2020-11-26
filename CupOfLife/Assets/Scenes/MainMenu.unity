@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1429,6 +1429,7 @@ GameObject:
   - component: {fileID: 549493023}
   - component: {fileID: 549493025}
   - component: {fileID: 549493024}
+  - component: {fileID: 549493026}
   m_Layer: 5
   m_Name: Random Text Message
   m_TagString: Untagged
@@ -1452,7 +1453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -312}
+  m_AnchoredPosition: {x: 296, y: -312}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549493024
@@ -1474,7 +1475,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2b40cfa93847a2542accd132bb520f8b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1495,6 +1496,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549493022}
   m_CullTransparentMesh: 0
+--- !u!114 &549493026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549493022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &580547596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,7 +1547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21, y: 0}
+  m_AnchoredPosition: {x: -46, y: 0}
   m_SizeDelta: {x: 992, y: 514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &636291961
@@ -2434,6 +2450,22 @@ MonoBehaviour:
   levelToLoad: Blockout
   roundsText: {fileID: 667678078}
   sceneFader: {fileID: 1161215884}
+  randomTextMessage: {fileID: 549493024}
+  randomMessages:
+  - '"The Daily Grind"'
+  - '"Lord of the Beans"'
+  - '"Deja Brew"'
+  - '"Better Latte Than Never"'
+  - '"You Mocha me Crazy!"'
+  - '"Bean Boozled"'
+  - '"That''s Mug-nificent!"'
+  - '"All beans are certifed individually"'
+  - '"Step Aside Fruit Juice!"'
+  - '"5 Cups. See God!"'
+  - '"This Game is Brought to you by Caffeine"'
+  - '"Thanks! I won''t eat your Head :)"'
+  - '"I Can''t Drink That!! It has Insecticide in it!"'
+  - '"I got Mantis legs and They Need Some Beans!"'
   mainMenuUI: {fileID: 1166805264}
   creditsUI: {fileID: 866191796}
   optionsUI: {fileID: 1154994370}
@@ -2465,7 +2497,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

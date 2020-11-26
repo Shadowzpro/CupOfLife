@@ -11,6 +11,9 @@ public class MainMenu : MonoBehaviour
     private GlobalControl globalControl;
     private AudioSource mainMenuAudio;
 
+    public Text randomTextMessage;
+    public string[] randomMessages;
+
     [Header("UI's")]
     public GameObject mainMenuUI;
     public GameObject creditsUI;
@@ -22,6 +25,10 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(AnimateText());
         mainMenuAudio = GetComponent<AudioSource>();
         mainMenuAudio.Play();
+
+        int rnd = Random.Range(0, 14);
+
+        randomTextMessage.text = randomMessages[rnd].ToString();
     }
 
     IEnumerator AnimateText()
