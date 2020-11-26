@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public GameObject levelFinishedUI;
     public GameObject gameOverUI;
     public AudioSource backgroundAudio;
+    private GlobalControl globalControl;
+
+    // Referene The Calendar Text
+    public Text calendarText;
 
     [HideInInspector]
     public static GameManager Instance;
@@ -43,6 +47,9 @@ public class GameManager : MonoBehaviour
     {
         day = GlobalControl.Instance.day;
         timerText.gameObject.SetActive(false);
+        globalControl = FindObjectOfType<GlobalControl>();
+
+        calendarText.text = globalControl.day.ToString();
     }
 
     // Update is called once per frame
