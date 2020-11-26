@@ -1779,7 +1779,7 @@ MonoBehaviour:
   changeColours: 1
   colourSpeed: 0.1
   startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
-  midColour: {r: 0.67058825, g: 0.6313726, b: 0.5176471, a: 1}
+  midColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
   endColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
 --- !u!1001 &110294335
 PrefabInstance:
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   changeColours: 1
   colourSpeed: 0.1
   startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
-  midColour: {r: 0.67058825, g: 0.6313726, b: 0.5176471, a: 1}
+  midColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
   endColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
 --- !u!1 &216786685
 GameObject:
@@ -3199,6 +3199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245137738}
   - component: {fileID: 245137737}
+  - component: {fileID: 245137739}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -3217,7 +3218,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6745283, g: 0.9137255, b: 1, a: 1}
+  m_Color: {r: 0.6745098, g: 0.8629164, b: 1, a: 1}
   m_Intensity: 11.18
   m_Range: 24.93
   m_SpotAngle: 82.30429
@@ -3274,13 +3275,44 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245137736}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 18.996, y: 5.52, z: -20.052}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.1917944, y: 3.3403444, z: -0.78904724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_Father: {fileID: 645753887}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &245137739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245137736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  morningRange: 0
+  afternoonRange: 0
+  eveningRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  morningIntensity: 0
+  afternoonIntensity: 0
+  eveningIntensity: 0
+  changeColours: 1
+  colourSpeed: 1
+  startColour: {r: 1, g: 0.9882353, b: 0.6745098, a: 0}
+  midColour: {r: 1, g: 0.90588236, b: 0.6745098, a: 0}
+  endColour: {r: 0.6745098, g: 0.8666667, b: 1, a: 0}
 --- !u!1 &247826756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,7 +3518,7 @@ MonoBehaviour:
   changeColours: 1
   colourSpeed: 0.1
   startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
-  midColour: {r: 0.67058825, g: 0.6313726, b: 0.5176471, a: 1}
+  midColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
   endColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
 --- !u!1 &283127153
 GameObject:
@@ -7953,6 +7985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569245817}
   - component: {fileID: 569245816}
+  - component: {fileID: 569245818}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -7971,7 +8004,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6745283, g: 0.9137255, b: 1, a: 1}
+  m_Color: {r: 0.6745098, g: 0.8629164, b: 1, a: 1}
   m_Intensity: 11.18
   m_Range: 24.93
   m_SpotAngle: 82.30429
@@ -8028,13 +8061,44 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569245815}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 14.496, y: 5.52, z: -20.052}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.3082056, y: 3.3403444, z: -0.78904724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_Father: {fileID: 645753887}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &569245818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569245815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  morningRange: 0
+  afternoonRange: 0
+  eveningRange: 0
+  changeIntensity: 0
+  intensitySpeed: 1
+  morningIntensity: 0
+  afternoonIntensity: 0
+  eveningIntensity: 0
+  changeColours: 1
+  colourSpeed: 1
+  startColour: {r: 1, g: 0.9882353, b: 0.6745098, a: 0}
+  midColour: {r: 1, g: 0.90588236, b: 0.6745098, a: 0}
+  endColour: {r: 0.6745098, g: 0.8666667, b: 1, a: 0}
 --- !u!1 &575961753
 GameObject:
   m_ObjectHideFlags: 0
@@ -9332,6 +9396,9 @@ Transform:
   - {fileID: 543801611}
   - {fileID: 1179734889}
   - {fileID: 2118195117}
+  - {fileID: 245137738}
+  - {fileID: 569245817}
+  - {fileID: 2010507347}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12632,7 +12699,7 @@ MonoBehaviour:
   changeColours: 1
   colourSpeed: 0.1
   startColour: {r: 0.9607844, g: 0.9058824, b: 0.7411765, a: 1}
-  midColour: {r: 0.67058825, g: 0.6313726, b: 0.5176471, a: 1}
+  midColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
   endColour: {r: 0.9607843, g: 0.90588236, b: 0.7411765, a: 1}
 --- !u!1 &954423235 stripped
 GameObject:
@@ -25933,6 +26000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010507347}
   - component: {fileID: 2010507346}
+  - component: {fileID: 2010507348}
   m_Layer: 0
   m_Name: Spot Light (2)
   m_TagString: Untagged
@@ -25951,7 +26019,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6745283, g: 0.9137255, b: 1, a: 1}
+  m_Color: {r: 0.6745098, g: 0.8629164, b: 1, a: 1}
   m_Intensity: 11.18
   m_Range: 24.93
   m_SpotAngle: 82.30429
@@ -26008,13 +26076,44 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010507345}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 23.496, y: 5.52, z: -20.052}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 7.6917944, y: 3.3403444, z: -0.78904724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_Father: {fileID: 645753887}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2010507348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010507345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e2c17efa6cc7140af3b9c7290a0663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 434429743}
+  afternoon: 720
+  evening: 960
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  morningRange: 0
+  afternoonRange: 0
+  eveningRange: 0
+  changeIntensity: 1
+  intensitySpeed: 2
+  morningIntensity: 2
+  afternoonIntensity: 2
+  eveningIntensity: 2
+  changeColours: 1
+  colourSpeed: 1
+  startColour: {r: 1, g: 0.9882353, b: 0.6745098, a: 0}
+  midColour: {r: 1, g: 0.90588236, b: 0.6745098, a: 0}
+  endColour: {r: 0.6745098, g: 0.8666667, b: 1, a: 0}
 --- !u!1 &2019086419
 GameObject:
   m_ObjectHideFlags: 0
@@ -26724,7 +26823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2047983006 stripped
 Transform:
