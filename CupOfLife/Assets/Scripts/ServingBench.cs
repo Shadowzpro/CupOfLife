@@ -37,6 +37,7 @@ public class ServingBench : MonoBehaviour
     private void Start()
     {
         anim = gameObject.GetComponent<Animation>();
+        anim["Take 001"].speed = 2.6f;
     }
 
     private void Update()
@@ -81,7 +82,6 @@ public class ServingBench : MonoBehaviour
     private void CoffeeFadeOut() 
     {
         //Update fader
-        
         dissolveShader.material.SetColor("edgeColor", Color.red);
         
         coffeeDissolveProg = coffeeDissolveProg + (0.5f * Time.deltaTime);
@@ -105,92 +105,105 @@ public class ServingBench : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //CHECKS IF THE GAMEOBJECT IS HAS A DRINK TAG
-        if (other.CompareTag("Coffee"))
+        if (currentCustomer.GetComponent<MeshRenderer>().enabled)
         {
-            AssignCoffee();
-            anim.Play();
-            //foreach (Ingredient orderIngredient in currentCustomer.ingredientsRequired)
-            //{
-            //    for (int i = 0; i < drink.GetComponent<Coffee>().ingredients.Length; i++)//count
-            //    {
-            //        Debug.Log("comparing " + orderIngredient.tag + " and " + drink.GetComponent<Coffee>().ingredients[i].tag);
-            //        if (orderIngredient.tag == drink.GetComponent<Coffee>().ingredients[i].tag)
-            //        {
-            //            Debug.Log(orderIngredient.tag + " matches " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
-            //        }
-            //        else
-            //        {
-            //            Debug.Log(orderIngredient.tag + " does not match " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
-            //        }
-            //    }
-            //}
-            Debug.Log("start check");
-            bool[] visited = new bool[drink.GetComponent<Coffee>().ingredients.Length];
-            if (currentCustomer.ingredientsRequired.Length == drink.GetComponent<Coffee>().ingredients.Length)
+            if (drink.transform.parent == null)
             {
-                for (int i = 0; i < currentCustomer.ingredientsRequired.Length; i++)
+                if (other.CompareTag("Coffee"))
                 {
-                    for (int j = 0; j < drink.GetComponent<Coffee>().ingredients.Length; j++)//
+                    //AssignCoffee();
+                    anim.Play();
+                    //foreach (Ingredient orderIngredient in currentCustomer.ingredientsRequired)
+                    //{
+                    //    for (int i = 0; i < drink.GetComponent<Coffee>().ingredients.Length; i++)//count
+                    //    {
+                    //        Debug.Log("comparing " + orderIngredient.tag + " and " + drink.GetComponent<Coffee>().ingredients[i].tag);
+                    //        if (orderIngredient.tag == drink.GetComponent<Coffee>().ingredients[i].tag)
+                    //        {
+                    //            Debug.Log(orderIngredient.tag + " matches " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
+                    //        }
+                    //        else
+                    //        {
+                    //            Debug.Log(orderIngredient.tag + " does not match " + drink.GetComponent<Coffee>().ingredients[i].tag);//go to next orderIngredient
+                    //        }
+                    //    }
+                    //}
+                    Debug.Log("start check");
+                    bool[] visited = new bool[drink.GetComponent<Coffee>().ingredients.Length];
+                    if (currentCustomer.ingredientsRequired.Length == drink.GetComponent<Coffee>().ingredients.Length)
                     {
-                        //ContainsIngredient(currentCustomer.ingredientsRequired[i]);
-                        //Debug.Log("comparing " + currentCustomer.ingredientsRequired[i].tag + " and " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                        for (int i = 0; i < currentCustomer.ingredientsRequired.Length; i++)
+                        {
+                            for (int j = 0; j < drink.GetComponent<Coffee>().ingredients.Length; j++)//
+                            {
+                                //ContainsIngredient(currentCustomer.ingredientsRequired[i]);
+                                //Debug.Log("comparing " + currentCustomer.ingredientsRequired[i].tag + " and " + drink.GetComponent<Coffee>().ingredients[j].tag);
 
-                        if (drink.GetComponent<Coffee>().ingredients[j] == null)
-                        {
-                            //drink.GetComponent<Coffee>().ingredients[j] = new Ingredient();
-                            Debug.Log("missing ingredient");
-                            break;
-                        }
-                        else if (currentCustomer.ingredientsRequired[i].tag == drink.GetComponent<Coffee>().ingredients[j].tag && visited[j] == false)
-                        {
-                            visited[j] = true;
-                            Debug.Log(currentCustomer.ingredientsRequired[i].tag + " matches " + drink.GetComponent<Coffee>().ingredients[j].tag);
-                            break;
-                        }
-                        else
-                        {
-                            Debug.Log(currentCustomer.ingredientsRequired[i].tag + " does not match " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                                if (drink.GetComponent<Coffee>().ingredients[j] == null)
+                                {
+                                    //drink.GetComponent<Coffee>().ingredients[j] = new Ingredient();
+                                    Debug.Log("missing ingredient");
+                                    break;
+                                }
+                                else if (currentCustomer.ingredientsRequired[i].tag == drink.GetComponent<Coffee>().ingredients[j].tag && visited[j] == false)
+                                {
+                                    visited[j] = true;
+                                    Debug.Log(currentCustomer.ingredientsRequired[i].tag + " matches " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                                    break;
+                                }
+                                else
+                                {
+                                    Debug.Log(currentCustomer.ingredientsRequired[i].tag + " does not match " + drink.GetComponent<Coffee>().ingredients[j].tag);
+                                }
+                            }
                         }
                     }
+                    if (currentCustomer.ingredientsRequired.Length == 0 && drink.GetComponent<Coffee>().ingredients.Length == 0)
+                    {
+                        correctCoffee = true;
+                        Debug.Log("coffee is correct");
+                    }
+                    else
+                    {
+                        foreach (bool checkedIngredient in visited)
+                        {
+                            if (checkedIngredient == true)
+                            {
+                                correctCoffee = true;
+                                Debug.Log("coffee is correct");
+                            }
+                            else
+                            {
+                                correctCoffee = false;
+                                Debug.Log("coffee is incorrect");
+                                break;
+                            }
+                        }
+                    }
+
+
+                    //IF GAMEOBJECT IS A DRINK
+
+                    // begin fadeing stuff
+                    isCoffeeFadingAway = true;
+                    dissolveShader = drink.GetComponent<Renderer>();
+                    dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
+                    coffeeDissolveProg = 0;
+                    // end fading stuff
+
+                    Destroy(drinkRigidBody);
+                    Destroy(drink, secondsToDestroy);
+                    Debug.Log("Destroyed");
+                    isCoffeeMade = false;
+                    StartCoroutine(coroutine);
                 }
+
+                //DELETES THE GAME OBJECT SINCE ORDER IS SERVED
+                //STILL TODO
+                //Destroy(confetti.gameObject, confetti.main.duration);
+                //Destroy(gameObject);
             }
-
-            foreach (bool checkedIngredient in visited)
-            {
-                if (checkedIngredient == true)
-                {
-                    correctCoffee = true;
-                    Debug.Log("coffee is correct");
-                }
-                else
-                {
-                    correctCoffee = false;
-                    Debug.Log("coffee is incorrect");
-                    break;
-                }
-            }
-            
-
-            //IF GAMEOBJECT IS A DRINK
-
-            // begin fadeing stuff
-            isCoffeeFadingAway = true;
-            dissolveShader = drink.GetComponent<Renderer>();
-            dissolveShader.material.shader = Shader.Find("Shader Graphs/DissolveCup");
-            coffeeDissolveProg = 0;
-            // end fading stuff
-
-            Destroy(drinkRigidBody);
-            Destroy(drink, secondsToDestroy);
-            Debug.Log("Destroyed");
-            isCoffeeMade = false;
-            StartCoroutine(coroutine);
         }
-
-        //DELETES THE GAME OBJECT SINCE ORDER IS SERVED
-        //STILL TODO
-        //Destroy(confetti.gameObject, confetti.main.duration);
-        //Destroy(gameObject);
     }
 
     private IEnumerator UpdateText(float waitTime)
