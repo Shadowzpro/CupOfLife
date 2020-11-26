@@ -30,9 +30,9 @@ public class RandomEyeMovement : MonoBehaviour
 
     private void RandomiseTarget()
     {
-        int targetRange1 = Random.Range(-45, 45);
-        int targetRange2 = Random.Range(-45, 45);
-        int targetRange3 = Random.Range(-45, 45);
+        int targetRange1 = Random.Range(-65, 65);
+        int targetRange2 = Random.Range(-65, 65);
+        int targetRange3 = Random.Range(-65, 65);
 
         target = new Vector3(targetRange1, targetRange2, targetRange3);
     }
