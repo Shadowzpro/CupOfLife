@@ -24,8 +24,12 @@ public class GameManager : MonoBehaviour
     public ServingBench servingBench;
     public GameObject levelFinishedUI;
     public GameObject gameOverUI;
-    public AudioSource backgroundAudio;
+    //public AudioSource backgroundAudio2;
+    private AudioSource backgroundAudio;
     private GlobalControl globalControl;
+    private bool isAudioStarting = true;
+    private bool isAudioPlaying = true;
+    private bool isAudioStopping = false;
 
     // Referene The Calendar Text
     public Text calendarText;
@@ -48,6 +52,7 @@ public class GameManager : MonoBehaviour
         day = GlobalControl.Instance.day;
         timerText.gameObject.SetActive(false);
         globalControl = FindObjectOfType<GlobalControl>();
+        backgroundAudio = GetComponent<AudioSource>();
 
         calendarText.text = globalControl.day.ToString();
     }
@@ -57,9 +62,11 @@ public class GameManager : MonoBehaviour
     {
         if (servingBench.ordersFailed >= 3)
         {
+            lockCursor = !lockCursor;
             Debug.Log("Lose");
             this.enabled = false;
             gameIsOver = true;
+            GlobalControl.Instance.ResetDays();
             gameOverUI.SetActive(!gameOverUI.activeSelf);
         }
 
@@ -90,10 +97,36 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lockCursor = !lockCursor;
+
+            if (isAudioPlaying)
+            {
+                isAudioStopping = true;
+                isAudioPlaying = false;
+            }
+            else
+            {
+                isAudioStarting = true;
+                isAudioPlaying = true;
+            }
         }
 
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
+
+        Debug.Log(isAudioStarting);
+
+        backgroundAudio = GetComponent<AudioSource>();
+
+        if (isAudioStopping)
+        {
+            backgroundAudio.Stop();
+            isAudioStopping = false;
+        }
+        else if (isAudioStarting)
+        {
+            isAudioStarting = false;
+            backgroundAudio.Play(0);
+        }
 
         //SETS TIMER TO ENABLED ON NEXT FRAME
         timerText.gameObject.SetActive(true);

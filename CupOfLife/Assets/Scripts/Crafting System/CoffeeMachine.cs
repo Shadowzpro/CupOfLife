@@ -23,6 +23,9 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     [Header("References")]
     public ParticleSystem particleEffect;
 
+    // Sound
+    private AudioSource coffeeMachineSound;
+
     [Header("Ingredient Prefabs")]
     public Ingredient coffeeBeans;
     public Ingredient milk;
@@ -31,6 +34,11 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
     public Ingredient cogs;
     public Ingredient greenJuice;
     public Ingredient eyeBalls;
+
+    private void Start()
+    {
+        coffeeMachineSound = GetComponent<AudioSource>();
+    }
 
     // Check to see whether or not an ingredient has been dropped into the coffee machine or not
     private void OnTriggerEnter(Collider collider)
@@ -115,6 +123,7 @@ public class CoffeeMachine : MonoBehaviour, IIngredientContainer
             {
                 Debug.Log("Added " + ingredient);
                 ingredientSlots[i] = ingredient;
+                coffeeMachineSound.Play();
                 return true;
             }
         }

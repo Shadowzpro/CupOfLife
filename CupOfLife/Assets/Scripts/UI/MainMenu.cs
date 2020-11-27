@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     public Text roundsText;
     public SceneFader sceneFader;
     private GlobalControl globalControl;
+    private AudioSource mainMenuAudio;
+
+    public Text randomTextMessage;
+    public string[] randomMessages;
 
     [Header("UI's")]
     public GameObject mainMenuUI;
@@ -19,6 +23,12 @@ public class MainMenu : MonoBehaviour
     {
         globalControl = FindObjectOfType<GlobalControl>();
         StartCoroutine(AnimateText());
+        mainMenuAudio = GetComponent<AudioSource>();
+        mainMenuAudio.Play();
+
+        int rnd = Random.Range(0, 14);
+
+        randomTextMessage.text = randomMessages[rnd].ToString();
     }
 
     IEnumerator AnimateText()
@@ -40,6 +50,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         sceneFader.FadeTo(levelToLoad);
+        mainMenuAudio.Stop();
     }
 
     public void Credits()
